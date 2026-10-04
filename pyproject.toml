@@ -1,0 +1,130 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "secflow-repository-analysis"
+version = "0.1.0"
+description = "SecFlow Phase 1 - Repository Analysis Service (Team 1)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "pyyaml>=6.0",
+    # Added in later phases (YAGNI): tree-sitter, tree-sitter-python (Phase 6),
+    # detect-secrets (Phase 8). Semgrep/Syft/scc are external binaries, not pip deps.
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",          # FastAPI TestClient
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML>=6.0",    # mypy --strict needs stubs for pyyaml
+    "bandit[toml]>=1.7",
+    "pip-audit>=2.7",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+# ---------------------------------------------------------------- ruff
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle
+    "F",        # pyflakes
+    "I",        # import sorting
+    "B",        # bugbear
+    "UP",       # pyupgrade
+    "S",        # bandit rules (security)
+    "C4",       # comprehensions
+    "SIM",      # simplifications
+    "PTH",      # enforce pathlib over os.path
+    "RUF",      # ruff-specific
+    "ASYNC",    # blocking calls inside async code
+    "T20",      # no print()
+    "BLE",      # no blind except
+    "TRY",      # exception handling hygiene
+]
+ignore = [
+    "TRY003",   # long messages in exceptions are fine for structured errors
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101",     # assert is fine in tests
+    "S603",     # subprocess in tests (fixtures building sample repos)
+    "S607",
+    "S105",     # fake secrets in fixtures
+    "S106",
+]
+"scripts/**" = [
+    "T201",     # quality_gate.py prints progress by design
+    "S603",     # fixed argv lists built from sys.executable, no shell
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+# ---------------------------------------------------------------- mypy
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+files = ["app", "tests", "scripts"]
+warn_unreachable = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_decorators = false
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+# -------------------------------------------------------------- pytest
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config --cov=app --cov-report=term-missing"
+asyncio_mode = "auto"
+# Tests needing Linux-only behavior (symlinks, permissions, external tool binaries)
+# use @pytest.mark.skipif(sys.platform == "win32", reason="<specific reason>").
+markers = [
+    "unit: fast isolated tests, no I/O outside tmp_path",
+    "integration: uses sample local repos and real tool binaries",
+    "security: path traversal, symlink, injection, timeout, cleanup",
+]
+
+# ------------------------------------------------------------ coverage
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+exclude_also = [
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "\\.\\.\\.",
+]
+
+# -------------------------------------------------------------- bandit
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
+skips = []
