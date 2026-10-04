@@ -44,11 +44,15 @@ class ToolSpec(BaseModel):
 
     model_config = ConfigDict(extra="forbid", frozen=True)
 
-    name: str = Field(..., description="The exact string identifying the tool.")
-    purpose: str = Field(..., description="A one-sentence description of what the tool does.")
-    when_to_use: str = Field(..., description="Conditions under which this tool is appropriate.")
+    name: str = Field(..., min_length=1, description="The exact string identifying the tool.")
+    purpose: str = Field(
+        ..., min_length=1, description="A one-sentence description of what the tool does."
+    )
+    when_to_use: str = Field(
+        ..., min_length=1, description="Conditions under which this tool is appropriate."
+    )
     when_not_to_use: str = Field(
-        ..., description="Conditions under which this tool should be avoided."
+        ..., min_length=1, description="Conditions under which this tool should be avoided."
     )
     input_schema: dict[str, Any] = Field(
         ..., description="JSON schema defining the valid input structure."
@@ -57,9 +61,11 @@ class ToolSpec(BaseModel):
         ..., description="JSON schema defining the exact output structure."
     )
     evidence_semantics: str = Field(
-        ..., description="Description of the evidence returned by this tool."
+        ..., min_length=1, description="Description of the evidence returned by this tool."
     )
-    limits: str = Field(..., description="Description of the bounds and limitations of the tool.")
+    limits: str = Field(
+        ..., min_length=1, description="Description of the bounds and limitations of the tool."
+    )
 
 
 class ToolStatus(StrEnum):

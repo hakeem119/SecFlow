@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pydantic import Field
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -44,3 +44,9 @@ class Settings(BaseSettings):
     max_output_tree_sitter: int = Field(
         default=500, gt=0, description="Max nodes from Tree-sitter."
     )
+
+    @model_validator(mode="after")
+    def validate_absolute_paths(self) -> "Settings":
+        if not self.workspace_root.is_absolute():
+            raise ValueError("workspace_root must be an absolute path")
+        return self
