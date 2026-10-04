@@ -264,6 +264,8 @@ Rules:
 | Semgrep | pattern/security findings | pinned local ruleset, no network (D10) |
 | detect-secrets | secret-like findings | values ALWAYS redacted, "no findings" is not proof |
 
+> **Note**: Team 1 provides static, generated `ToolSpec` metadata alongside tool implementations to define input/output schemas and usage limits. However, Team 1 does **NOT** implement an MCP server, `@mcp.tool` decorators, or any dynamic AI-facing generic tools (e.g., `read_file`, `search_code`). Consuming `ToolSpec` and exposing the tools to the AI is entirely the responsibility of Team 2 (D8). ToolSpec text is static and is never built from repository content.
+
 ---
 
 ## 12. repository_snapshot.yaml Contract (draft, frozen in Phase 1)
