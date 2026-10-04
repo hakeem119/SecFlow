@@ -105,7 +105,8 @@ GET    /health
 ```
 
 **Errors:** JSON with stable codes:
-`invalid_url`, `clone_failed`, `timeout`, `tool_failed`, `snapshot_invalid`, `workspace_not_found`.
+`invalid_url`, `invalid_request`, `clone_failed`, `timeout`, `tool_failed`, `snapshot_invalid`,
+`workspace_not_found`, `not_implemented`, `internal_error`.
 
 **URL rules:** only `https://github.com/<owner>/<repo>`. Reject other hosts, other schemes,
 credentials in the URL, IP addresses, ports, and path tricks.

@@ -54,10 +54,10 @@ def main() -> None:
         ),
     ]
 
-    # Use a 30-second timeout specifically for the pip-audit checks,
+    # Use a 120-second timeout specifically for the pip-audit checks,
     # but the run_command defaults to 120 seconds.
     for name, cmd in checks:
-        cmd_timeout = 30 if "pip_audit" in cmd else 120
+        cmd_timeout = 120
         if not run_command(cmd, name, timeout=cmd_timeout):
             sys.exit(1)
 

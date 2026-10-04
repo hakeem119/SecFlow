@@ -1,17 +1,8 @@
-from pathlib import Path
 from typing import Any, Protocol
 
-from pydantic import BaseModel, ConfigDict, Field
-
 from app.schemas.domain import GitHubRepoUrl, WorkspaceId
+from app.schemas.fetch import FetchResult
 from app.schemas.tool import ToolContext, ToolResult, ToolSpec
-
-
-class FetchResult(BaseModel):
-    model_config = ConfigDict(extra="forbid", frozen=True)
-    commit: str = Field(..., description="The fetched commit hash")
-    default_branch: str = Field(..., description="The default branch name")
-    tracked_files: list[Path] = Field(..., description="List of tracked file paths")
 
 
 class RepositoryFetcher(Protocol):
@@ -28,9 +19,6 @@ class AnalysisTool(Protocol):
     Async is explicitly used here (and in Fetcher) because these adapters wrap
     subprocess I/O and network operations, preventing the FastAPI event loop from blocking.
     """
-
-    @property
-    def name(self) -> str: ...
 
     @property
     def spec(self) -> ToolSpec: ...

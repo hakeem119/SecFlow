@@ -1,15 +1,30 @@
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 import pytest
-from app.schemas.tool import SccData, ToolContext, ToolSpec
+from app.schemas.tool import (
+    DetectSecretsData,
+    SccData,
+    SecretFinding,
+    SecurityFinding,
+    SemgrepData,
+    SyftData,
+    ToolContext,
+    ToolName,
+    ToolResult,
+    ToolSpec,
+    ToolStatus,
+    TreeSitterData,
+)
 from pydantic import ValidationError
+
+# --- ToolContext ---
 
 
 def test_tool_context_relative_paths_valid() -> None:
     ctx = ToolContext(
         repository_path=Path("/opt/workspaces/uuid"),
-        include_paths=[Path("src"), Path("docs/readme.md")],
-        exclude_paths=[Path("tests")],
+        include_paths=[PurePosixPath("src"), PurePosixPath("docs/readme.md")],
+        exclude_paths=[PurePosixPath("tests")],
         timeout_seconds=60,
         max_output_items=100,
     )
@@ -20,7 +35,7 @@ def test_tool_context_rejects_absolute_paths() -> None:
     with pytest.raises(ValueError, match="Path must be relative"):
         ToolContext(
             repository_path=Path("/opt/workspaces/uuid"),
-            include_paths=[Path("/etc/passwd")],
+            include_paths=[PurePosixPath("/etc/passwd")],
             exclude_paths=[],
             timeout_seconds=60,
             max_output_items=100,
@@ -32,10 +47,46 @@ def test_tool_context_rejects_path_traversal() -> None:
         ToolContext(
             repository_path=Path("/opt/workspaces/uuid"),
             include_paths=[],
-            exclude_paths=[Path("../../secret")],
+            exclude_paths=[PurePosixPath("../../secret")],
             timeout_seconds=60,
             max_output_items=100,
         )
+
+
+def test_tool_context_rejects_relative_repository_path() -> None:
+    with pytest.raises(ValueError, match="repository_path must be absolute"):
+        ToolContext(
+            repository_path=Path("relative/path"),
+            include_paths=[],
+            exclude_paths=[],
+            timeout_seconds=60,
+            max_output_items=100,
+        )
+
+
+def test_tool_context_rejects_timeout_above_upper_bound() -> None:
+    with pytest.raises(ValidationError, match="less than or equal to"):
+        ToolContext(
+            repository_path=Path("/opt/workspaces/uuid"),
+            include_paths=[],
+            exclude_paths=[],
+            timeout_seconds=99999,
+            max_output_items=100,
+        )
+
+
+def test_tool_context_rejects_max_output_above_upper_bound() -> None:
+    with pytest.raises(ValidationError, match="less than or equal to"):
+        ToolContext(
+            repository_path=Path("/opt/workspaces/uuid"),
+            include_paths=[],
+            exclude_paths=[],
+            timeout_seconds=60,
+            max_output_items=999999,
+        )
+
+
+# --- ToolSpec ---
 
 
 def test_tool_spec_valid() -> None:
@@ -55,18 +106,14 @@ def test_tool_spec_valid() -> None:
 
 
 def test_tool_spec_rejects_empty_fields() -> None:
-    # They are standard strings, but let's test that Pydantic enforces required fields.
     with pytest.raises(ValidationError):
-        ToolSpec(  # type: ignore
+        ToolSpec(  # type: ignore[call-arg]
             name="",
             purpose="",
-            # Missing when_to_use and other fields entirely
         )
 
 
 def test_tool_spec_descriptions_have_no_absolute_paths() -> None:
-    # A spec shouldn't have absolute paths in its static metadata.
-    # We test our generic test case:
     spec = ToolSpec(
         name="scc",
         purpose="Count lines of code.",
@@ -101,3 +148,113 @@ def test_tool_spec_rejects_empty_strings() -> None:
             evidence_semantics="",
             limits="",
         )
+
+
+# --- D1: typed data models reject "content", "source", "value" keys ---
+
+
+def test_scc_data_rejects_extra_keys() -> None:
+    with pytest.raises(ValidationError):
+        SccData(metrics=[], content="some code")  # type: ignore[call-arg]
+
+
+def test_tree_sitter_data_rejects_extra_keys() -> None:
+    with pytest.raises(ValidationError):
+        TreeSitterData(nodes=[], source="code")  # type: ignore[call-arg]
+
+
+def test_syft_data_rejects_extra_keys() -> None:
+    with pytest.raises(ValidationError):
+        SyftData(packages=[], value="leak")  # type: ignore[call-arg]
+
+
+def test_semgrep_data_rejects_extra_keys() -> None:
+    with pytest.raises(ValidationError):
+        SemgrepData(findings=[], content="code")  # type: ignore[call-arg]
+
+
+def test_detect_secrets_data_rejects_value_key() -> None:
+    """D1: DetectSecretsData must not allow a 'value' field."""
+    with pytest.raises(ValidationError):
+        DetectSecretsData(
+            findings=[],
+            value="secret",  # type: ignore[call-arg]
+        )
+
+
+def test_secret_finding_rejects_value_key() -> None:
+    """D1: SecretFinding has no value field — extra='forbid' blocks it."""
+    with pytest.raises(ValidationError):
+        SecretFinding(
+            detector="regex",
+            path=PurePosixPath("main.py"),
+            line=1,
+            value="secret123",  # type: ignore[call-arg]
+        )
+
+
+def test_security_finding_rejects_message_and_snippet() -> None:
+    """SecurityFinding has no message or code snippet fields."""
+    with pytest.raises(ValidationError):
+        SecurityFinding(
+            rule_id="xss",
+            severity="high",
+            path=PurePosixPath("app.py"),
+            line=10,
+            message="XSS found",  # type: ignore[call-arg]
+        )
+
+
+def test_security_finding_rejects_source() -> None:
+    with pytest.raises(ValidationError):
+        SecurityFinding(
+            rule_id="xss",
+            severity="high",
+            path=PurePosixPath("app.py"),
+            line=10,
+            source="print(x)",  # type: ignore[call-arg]
+        )
+
+
+# --- ToolResult ---
+
+
+def test_tool_result_evidence_rejects_absolute_path() -> None:
+    with pytest.raises(ValueError, match="Path must be relative"):
+        ToolResult[SccData](
+            tool=ToolName.SCC,
+            status=ToolStatus.SUCCESS,
+            evidence=[PurePosixPath("/etc/passwd")],
+            data=SccData(),
+        )
+
+
+def test_tool_result_evidence_rejects_traversal() -> None:
+    with pytest.raises(ValueError, match="Path traversal not allowed"):
+        ToolResult[SccData](
+            tool=ToolName.SCC,
+            status=ToolStatus.SUCCESS,
+            evidence=[PurePosixPath("../../etc/passwd")],
+            data=SccData(),
+        )
+
+
+def test_tool_result_evidence_rejects_backslash() -> None:
+    with pytest.raises(ValueError, match="Invalid path"):
+        ToolResult[SccData](
+            tool=ToolName.SCC,
+            status=ToolStatus.SUCCESS,
+            evidence=[PurePosixPath("some\\path")],
+            data=SccData(),
+        )
+
+
+def test_tool_result_valid() -> None:
+    result = ToolResult[SccData](
+        tool=ToolName.SCC,
+        status=ToolStatus.SUCCESS,
+        evidence=[PurePosixPath("src/main.py")],
+        data=SccData(metrics=["Python: 100 LOC"]),
+    )
+    assert result.tool == "scc"
+    assert result.evidence == [PurePosixPath("src/main.py")]

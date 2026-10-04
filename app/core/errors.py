@@ -1,14 +1,25 @@
+from dataclasses import dataclass, field
 from enum import StrEnum
-from typing import Any
 
 
 class ErrorCode(StrEnum):
     INVALID_URL = "invalid_url"
+    INVALID_REQUEST = "invalid_request"
     CLONE_FAILED = "clone_failed"
     TIMEOUT = "timeout"
     TOOL_FAILED = "tool_failed"
     SNAPSHOT_INVALID = "snapshot_invalid"
     WORKSPACE_NOT_FOUND = "workspace_not_found"
+    NOT_IMPLEMENTED = "not_implemented"
+    INTERNAL_ERROR = "internal_error"
+
+
+@dataclass(frozen=True)
+class ErrorContext:
+    raw_input: str | None = field(default=None, repr=False)
+    tool_name: str | None = None
+    exit_code: int | None = None
+    path: str | None = field(default=None, repr=False)
 
 
 class SecFlowError(Exception):
@@ -17,9 +28,11 @@ class SecFlowError(Exception):
     stable_code: ErrorCode
     message: str
 
-    def __init__(self, details: dict[str, Any] | None = None) -> None:
+    def __init__(self, internal_ctx: ErrorContext | None = None) -> None:
+        if not hasattr(self.__class__, "stable_code") or not hasattr(self.__class__, "message"):
+            raise TypeError("SecFlowError must be subclassed with stable_code and message")
         super().__init__(self.message)
-        self.details = details or {}
+        self._internal_ctx = internal_ctx or ErrorContext()
 
 
 class InvalidUrlError(SecFlowError):
@@ -50,3 +63,8 @@ class SnapshotInvalidError(SecFlowError):
 class WorkspaceNotFoundError(SecFlowError):
     stable_code = ErrorCode.WORKSPACE_NOT_FOUND
     message = "The requested workspace does not exist or has expired."
+
+
+class NotImplementedYetError(SecFlowError):
+    stable_code = ErrorCode.NOT_IMPLEMENTED
+    message = "Endpoint or feature is not implemented yet."
