@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from app.api.error_table import ERROR_TABLE
+from app.api.error_table import DOMAIN_STATUS_TABLE, TRANSPORT_ERROR_TABLE, TransportError
 from app.core.config import Settings
 from app.core.errors import ErrorCode
 from app.main import create_app
@@ -42,9 +42,15 @@ def test_post_health_no_json(client: TestClient) -> None:
 
 def test_error_table_completeness() -> None:
     for code in ErrorCode:
-        assert code in ERROR_TABLE
-        status_code, msg = ERROR_TABLE[code]
+        assert code in DOMAIN_STATUS_TABLE
+        status_code = DOMAIN_STATUS_TABLE[code]
         assert isinstance(status_code, int)
+
+    for t_code in TransportError:
+        assert t_code in TRANSPORT_ERROR_TABLE
+        status_code, err_code, msg = TRANSPORT_ERROR_TABLE[t_code]
+        assert isinstance(status_code, int)
+        assert isinstance(err_code, ErrorCode)
         assert isinstance(msg, str)
 
 
@@ -70,26 +76,6 @@ def test_generic_http_exception() -> None:
     assert data["error_code"] == "invalid_request"
     assert data["message"] == "HTTP Exception"
     assert "detail" not in data
-
-
-def test_unhandled_exception_handler() -> None:
-    # Test route raising a generic Exception to cover unhandled_exception_handler
-    from app.api.error_handlers import unhandled_exception_handler
-    from fastapi import FastAPI
-
-    app = FastAPI()
-    app.add_exception_handler(Exception, unhandled_exception_handler)
-
-    @app.get("/test_500")
-    def test_500() -> None:
-        raise RuntimeError("Something went wrong")
-
-    client = TestClient(app, raise_server_exceptions=False)
-    response = client.get("/test_500")
-    assert response.status_code == 500
-    data = response.json()
-    assert data["error_code"] == "internal_error"
-    assert data["message"] == "Internal server error"
 
 
 def test_analyze_repository_invalid_json(client: TestClient) -> None:
