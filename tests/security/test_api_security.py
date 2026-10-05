@@ -446,6 +446,32 @@ async def test_content_length_max_digits(caplog: LogCaptureFixture) -> None:
 
 
 @pytest.mark.asyncio
+async def test_content_length_max_digits_non_numeric(caplog: LogCaptureFixture) -> None:
+    # 5000-character non-numeric Content-Length -> 422, no exception, no log record with exc_info
+    async def dummy_app(scope: Scope, receive: Receive, send: Send) -> None:
+        pass
+
+    middleware = SecurityMiddleware(dummy_app)
+    scope: Scope = {
+        "type": "http",
+        "method": "POST",
+        "headers": [(b"content-type", b"application/json"), (b"content-length", b"a" * 5000)],
+    }
+
+    async def fake_receive() -> Message:
+        return {"type": "http.request", "body": b""}
+
+    responses: list[Message] = []
+
+    async def fake_send(message: Message) -> None:
+        responses.append(message)
+
+    await middleware(scope, fake_receive, fake_send)
+    assert responses[0]["status"] == 422
+    assert not any("exc_info" in record.getMessage() for record in caplog.records)
+
+
+@pytest.mark.asyncio
 async def test_content_length_12_digits_within_limit() -> None:
     # exactly 12 digits within limit boundary, leading zeros accepted
     async def dummy_app(scope: Scope, receive: Receive, send: Send) -> None:

@@ -68,16 +68,16 @@ class SecurityMiddleware:
                 await send_error(secure_send, TransportError.DUPLICATE_CONTENT_LENGTH)
                 return
 
-            if len(content_length_header) > 12:
-                await send_error(secure_send, TransportError.REQUEST_BODY_TOO_LARGE)
-                return
-
             if not content_length_header.isdigit():
                 # negative lengths will have a '-', making isdigit() False
                 if content_length_header.startswith(b"-") and content_length_header[1:].isdigit():
                     await send_error(secure_send, TransportError.NEGATIVE_CONTENT_LENGTH)
                 else:
                     await send_error(secure_send, TransportError.INVALID_CONTENT_LENGTH)
+                return
+
+            if len(content_length_header) > 12:
+                await send_error(secure_send, TransportError.REQUEST_BODY_TOO_LARGE)
                 return
 
             length = int(content_length_header)
