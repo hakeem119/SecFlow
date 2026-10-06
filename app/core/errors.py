@@ -65,6 +65,16 @@ class WorkspaceNotFoundError(SecFlowError):
     message = "The requested workspace does not exist or has expired."
 
 
+class WorkspaceCleanupError(SecFlowError):
+    stable_code = ErrorCode.INTERNAL_ERROR
+    message = "Failed to clean up workspace."
+
+
+class InvalidWorkspaceIdError(SecFlowError):
+    stable_code = ErrorCode.INVALID_REQUEST
+    message = "Invalid workspace ID format."
+
+
 class NotImplementedYetError(SecFlowError):
     stable_code = ErrorCode.NOT_IMPLEMENTED
     message = "Endpoint or feature is not implemented yet."

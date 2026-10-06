@@ -14,6 +14,9 @@ COPY . /app/
 RUN chown -R secflow:secflow /app
 
 ENV SECFLOW_WORKSPACE_ROOT=/var/lib/secflow/workspaces
+RUN mkdir -p /var/lib/secflow/workspaces \
+    && chown secflow:secflow /var/lib/secflow/workspaces \
+    && chmod 700 /var/lib/secflow/workspaces
 
 USER secflow
 

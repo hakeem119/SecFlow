@@ -4,6 +4,7 @@ from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from app.core.limits import (
+    LIMIT_MAX_DIRECTORY_DEPTH,
     LIMIT_MAX_FILE_COUNT,
     LIMIT_MAX_FILE_SIZE_BYTES,
     LIMIT_MAX_OUTPUT_ITEMS,
@@ -46,6 +47,16 @@ class Settings(BaseSettings):
         gt=0,
         le=LIMIT_MAX_TOTAL_SIZE_BYTES,
         description="Max total size of repository in bytes.",
+    )
+    max_directory_depth: int = Field(
+        default=64,
+        gt=0,
+        le=LIMIT_MAX_DIRECTORY_DEPTH,
+        description="Max directory depth during scan.",
+    )
+
+    reaper_interval_seconds: int = Field(
+        default=3600, gt=0, description="Interval in seconds for the TTL reaper."
     )
 
     tool_timeout_git: int = Field(

@@ -39,6 +39,17 @@ technical blocker: **STOP, explain it, and wait**. Do not "fix" it by guessing.
 | D8 | The AI-facing controlled tool layer (`read_file`, `search_code`, `list_files`, `get_file_metadata`) belongs to **Team 2**. Do NOT implement it. |
 | D9 | `scc` hotspots/coupling are out of scope (they need git history, which D5 removes). |
 | D10 | Semgrep uses a **pinned local ruleset**. `config=auto` is forbidden (needs network). |
+| D11 | Three new ErrorCodes added in Phase 2: `invalid_request`, `not_implemented`, `internal_error`. |
+| D12 | Docs off by default: new Settings field `enable_docs: bool = False` (`SECFLOW_ENABLE_DOCS`). |
+| D13 | Validation errors: `loc` contains `repo_url` -> `invalid_url`. All other validation errors -> `invalid_request`. Missing/wrong Content-Type -> 415. Malformed JSON with correct Content-Type -> 422 `invalid_request`. Oversized -> 413. |
+| D14 | Unhandled exceptions in middleware return 500 `internal_error` and log only the exception class name and workspace ID. No tracebacks or exception messages in logs. |
+| W1 | TTL metadata is a sidecar file OUTSIDE the workspace dir: `<root>/.meta/<uuid>.json` (expires_at epoch, computed as creation time + ttl), written atomically (tmp + `os.replace`), mode 0600. |
+| W1b | The sidecar stores `expires_at` (epoch seconds) computed as creation time + ttl, NOT `created_at`. The reaper deletes when clock() >= expires_at. Missing/corrupt sidecar -> fall back to mtime + ttl. |
+| W2 | TTL reaper = an asyncio task started in the app lifespan (not at import, not in create_app), cancelled on shutdown; blocking filesystem work via asyncio.to_thread. The reaper sweeps the root and .trash (it does not scan .meta). Unlinks stray non-directory entries named like a UUID in the root without following them. |
+| W3 | Root dir: created in lifespan startup with mode 0700 if missing; REJECT if symlink, "/", <2 path components, wrong uid, or group/world accessible. Workspace dir: exclusive mkdir 0700. |
+| W4 | DELETE /api/v1/workspaces/{workspace_id}: existing -> 204; missing/expired -> 404; malformed id -> 422. Deletion = lstat-verify -> atomic rename to .trash/<uuid> -> rmtree. |
+| W5 | Cleanup failures raise a SecFlowError subclass mapped to internal_error. No concurrency lock/lease now. |
+| W6 | Special files (FIFO, socket, device) and symlinks are never followed or opened; the scan reports them. |
 
 ---
 
@@ -103,6 +114,11 @@ GET    /health
   "warnings": []
 }
 ```
+
+**Response (delete)**
+`204 No Content` on success (existing workspace).
+`404 Not Found` if missing/expired (an expired-but-not-yet-reaped workspace returns 404).
+`422 Unprocessable Entity` if `workspace_id` is malformed.
 
 **Errors:** JSON with stable codes:
 `invalid_url`, `invalid_request`, `clone_failed`, `timeout`, `tool_failed`, `snapshot_invalid`,

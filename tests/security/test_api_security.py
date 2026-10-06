@@ -14,15 +14,14 @@ from starlette.types import Message, Receive, Scope, Send
 
 
 @pytest.fixture
-def app_instance() -> FastAPI:
-    return create_app(
-        Settings(workspace_root=Path("/var/lib/secflow/workspaces"), enable_docs=False)
-    )
+def app_instance(tmp_path: Path) -> FastAPI:
+    return create_app(Settings(workspace_root=tmp_path / "workspaces", enable_docs=False))
 
 
 @pytest.fixture
-def client(app_instance: FastAPI) -> TestClient:
-    return TestClient(app_instance, raise_server_exceptions=False)
+def client(app_instance: FastAPI) -> Iterator[TestClient]:
+    with TestClient(app_instance, raise_server_exceptions=False) as c:
+        yield c
 
 
 def test_docs_disabled_by_default(client: TestClient) -> None:
@@ -31,13 +30,13 @@ def test_docs_disabled_by_default(client: TestClient) -> None:
     assert client.get("/openapi.json").status_code == 404
 
 
-def test_docs_enabled() -> None:
-    app = create_app(Settings(workspace_root=Path("/var/lib/secflow/workspaces"), enable_docs=True))
+def test_docs_enabled(tmp_path: Path) -> None:
+    app = create_app(Settings(workspace_root=tmp_path / "workspaces", enable_docs=True))
     with TestClient(app) as test_client:
         assert test_client.get("/openapi.json").status_code == 200
 
 
-def test_hostile_echo(client: TestClient) -> None:
+def test_hostile_echo(client: TestClient, caplog: pytest.LogCaptureFixture) -> None:
     marker = "HOSTILE_MARKER_123"
 
     # 1. Body
@@ -66,6 +65,9 @@ def test_hostile_echo(client: TestClient) -> None:
     assert marker not in response.text
     for v in response.headers.values():
         assert marker not in v
+
+    for record in caplog.records:
+        assert marker not in record.getMessage()
 
 
 def test_missing_content_type(client: TestClient) -> None:

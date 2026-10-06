@@ -1,3 +1,4 @@
+from collections.abc import Generator
 from pathlib import Path
 
 import pytest
@@ -9,9 +10,10 @@ from fastapi.testclient import TestClient
 
 
 @pytest.fixture
-def client() -> TestClient:
-    app = create_app(Settings(workspace_root=Path("/var/lib/secflow/workspaces")))
-    return TestClient(app)
+def client(tmp_path: Path) -> Generator[TestClient, None, None]:
+    app = create_app(Settings(workspace_root=tmp_path / "workspaces"))
+    with TestClient(app) as c:
+        yield c
 
 
 def test_unknown_route(client: TestClient) -> None:
