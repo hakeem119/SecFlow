@@ -2,10 +2,10 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Path
 
-from app.core.dependencies import get_workspace_manager
-from app.core.errors import NotImplementedYetError
+from app.core.dependencies import get_analysis_service, get_workspace_manager
 from app.schemas.api import AnalyzeRequest, AnalyzeResponse, ErrorResponse, HealthResponse
 from app.schemas.domain import WorkspaceId
+from app.services.repository_service import RepositoryAnalysisService
 from app.services.workspace import WorkspaceManager
 
 router = APIRouter()
@@ -28,9 +28,12 @@ async def health_check() -> HealthResponse:
         501: {"model": ErrorResponse},
     },
 )
-async def analyze_repository(request: AnalyzeRequest) -> AnalyzeResponse:
+async def analyze_repository(
+    request: AnalyzeRequest,
+    service: Annotated[RepositoryAnalysisService, Depends(get_analysis_service)],
+) -> AnalyzeResponse:
     """Analyze a repository."""
-    raise NotImplementedYetError()
+    return await service.analyze(request)
 
 
 @router.delete(

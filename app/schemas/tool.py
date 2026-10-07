@@ -120,10 +120,20 @@ class SecurityFinding(BaseModel):
         return self
 
 
+class SccLanguage(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    name: str = Field(..., description="Name of the language")
+    files: int = Field(..., ge=0, description="Number of files")
+    loc: int = Field(..., ge=0, description="Lines of code")
+    complexity: int = Field(..., ge=0, description="Code complexity")
+
+
 class SccData(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
-    # Minimal fields for Phase 1.1
-    metrics: list[str] = Field(default_factory=list, description="SCC metrics summary")
+    languages: list[SccLanguage] = Field(default_factory=list, description="SCC languages summary")
+    files: int = Field(0, ge=0, description="Total number of files")
+    loc: int = Field(0, ge=0, description="Total lines of code")
+    complexity: int = Field(0, ge=0, description="Total code complexity")
 
 
 class TreeSitterData(BaseModel):
@@ -132,10 +142,18 @@ class TreeSitterData(BaseModel):
     nodes: list[str] = Field(default_factory=list, description="Extracted AST nodes summary")
 
 
+class SyftPackage(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    name: str = Field(..., description="Package name")
+    version: str = Field(..., description="Package version")
+    ecosystem: str = Field(..., description="Package ecosystem")
+    source_file: str = Field(..., description="File where package was found")
+
+
 class SyftData(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
-    # Minimal fields for Phase 1.1
-    packages: list[str] = Field(default_factory=list, description="Syft packages summary")
+    ecosystems: list[str] = Field(default_factory=list, description="List of ecosystems found")
+    packages: list[SyftPackage] = Field(default_factory=list, description="List of packages")
 
 
 class SemgrepData(BaseModel):

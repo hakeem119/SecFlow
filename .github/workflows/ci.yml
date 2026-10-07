@@ -2,22 +2,51 @@ name: CI Quality Gate
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
   quality-gate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Verify Requirements Lock
-        run: pip install -r requirements.lock
-      - name: Install dependencies with dev
-        run: pip install -e ".[dev]"
+
+      - name: Install uv
+        run: pip install uv==0.1.24
+
+      - name: Set up venv and install dependencies
+        run: |
+          uv venv --python 3.12 .venv
+          .venv/bin/uv pip install -r requirements.lock
+          .venv/bin/uv pip install -r requirements-dev.lock
+
+      - name: Check Ownership
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          MEMBER=$(echo "$BRANCH_NAME" | cut -d'/' -f1)
+          if [[ "$MEMBER" =~ ^(m1|m2|m3)$ ]]; then
+            echo "Checking ownership for $MEMBER against origin/main"
+            .venv/bin/python scripts/check_ownership.py "$MEMBER" origin/main
+          else
+            echo "Skipping ownership check for non-member branch: $BRANCH_NAME"
+          fi
+
       - name: Run Quality Gate
-        run: python scripts/quality_gate.py
+        run: |
+          .venv/bin/python scripts/quality_gate.py
+
+      - name: Docker Build Test
+        run: |
+          docker build -t secflow-backend .

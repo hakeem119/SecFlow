@@ -111,10 +111,5 @@ class SecurityMiddleware:
 
         try:
             await self.app(scope, receive_wrapper, send_wrapper)
-        except Exception as exc:  # noqa: BLE001
-            # BLE001: deliberate catch-all so exception text never reaches logs
-            # TRY400: exc_info forbidden, class name only
-            logger.error("Unhandled exception: %s", exc.__class__.__name__)  # noqa: TRY400
-            if not response_sent:
-                await send_error(secure_send, TransportError.INTERNAL_ERROR)
-            return
+        except Exception as exc:
+            raise exc

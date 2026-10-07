@@ -1,0 +1,82 @@
+# Note (D1 override): The Phase 1 reference documentation previously depicted `content` fields under `files`. 
+# However, per Approved Decision D1, the snapshot must contain metadata and evidence ONLY.
+# No source code content is included to prevent massive memory footprints and secret leakage.
+
+schema_version: "1.0"
+generated_at: "2026-10-06T15:30:00Z"
+repository:
+  name: "dummy_repo"
+  url: "https://github.com/owner/dummy_repo"
+  commit: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+  default_branch: "main"
+workspace:
+  id: "550e8400-e29b-41d4-a716-446655440000"
+structure:
+  directories:
+    - "src"
+    - "docs"
+  files:
+    - path: "src/main.py"
+      type: "file"
+      language: "Python"
+      size: 1530
+    - path: "package.json"
+      type: "file"
+      language: "JSON"
+      size: 405
+metrics:
+  loc: 1800
+  complexity: 42
+  languages:
+    - name: "Python"
+      files: 1
+      loc: 1530
+    - name: "JSON"
+      files: 1
+      loc: 405
+dependencies:
+  ecosystems:
+    - "npm"
+  packages:
+    - name: "express"
+      version: "4.17.1"
+      ecosystem: "npm"
+      source_file: "package.json"
+syntax_evidence:
+  imports:
+    - path: "src/main.py"
+      start_line: 1
+      end_line: 2
+  functions:
+    - name: "main"
+      path: "src/main.py"
+      start_line: 10
+      end_line: 20
+  classes: []
+  decorators: []
+security_evidence:
+  semgrep:
+    - rule_id: "python.lang.security.audit.exec-use.exec-use"
+      severity: "ERROR"
+      path: "src/main.py"
+      line: 15
+secret_findings:
+  count: 1
+  findings:
+    - detector: "AWS Access Key"
+      path: "src/main.py"
+      line: 5
+tool_status:
+  scc: "success"
+  syft: "success"
+  semgrep: "success"
+  detect-secrets: "success"
+  tree-sitter: "partial"
+limits_applied:
+  files_truncated: false
+  items_capped: false
+  excluded_paths:
+    - ".git"
+    - "node_modules"
+warnings:
+  - "TreeSitterAdapter implementation is pending M3 queries."

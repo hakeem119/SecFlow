@@ -1,0 +1,21 @@
+# Replace the handles with the real GitHub usernames
+/AGENTS.md                    @M3_HANDLE
+/pyproject.toml               @M3_HANDLE
+/*.lock                       @M3_HANDLE
+/.github/                     @M3_HANDLE
+/scripts/                     @M3_HANDLE
+/app/schemas/snapshot.py      @M3_HANDLE
+/app/services/snapshot*       @M3_HANDLE
+/tests/                       @M3_HANDLE
+/app/tools/runner.py          @M2_HANDLE
+/app/tools/scc.py             @M2_HANDLE
+/app/tools/syft.py            @M2_HANDLE
+/app/tools/semgrep.py         @M2_HANDLE
+/app/schemas/tool.py          @M2_HANDLE
+/app/services/workspace*      @M1_HANDLE
+/app/services/reaper.py       @M1_HANDLE
+/app/services/repository_service.py @M1_HANDLE
+/app/core/safe_path.py        @M1_HANDLE
+/app/tools/git.py             @M1_HANDLE
+/app/main.py                  @M1_HANDLE
+/app/api/routes.py            @M1_HANDLE

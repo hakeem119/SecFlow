@@ -184,8 +184,8 @@ If you cannot write that sentence, do not add the pattern.
 | 1 | Value Objects (`GitHubRepoUrl`, `WorkspaceId`), Ports (Protocols), Domain Exceptions mapped to stable error codes | Parse, don't validate: an object that exists is valid by construction. Ports fix boundaries before any implementation. |
 | 2 | Dependency Injection with ONE Composition Root (`app/core/dependencies.py`), central exception handlers, thin routes | Routes stay free of logic and tests can swap any dependency for a fake. |
 | 3 | `SafePath` value object, context manager (RAII) for cleanup, TTL reaper | Path traversal/symlink escape handled in one place; failed workspaces are never leaked. |
-| 4 | Adapter implementing the `RepositoryFetcher` Port | Git CLI can be replaced without touching the service. |
-| 5 | `ToolRunner` (the ONLY place that spawns subprocesses: fixed args, timeout, output cap); one Adapter per tool normalizing into `ToolResult`; `AnalysisTool` Protocol | Subprocess security lives in one place; upstream output changes never leak into the rest of the code. |
+| 4 | Adapter implementing the `RepositoryFetcher` Port; `ToolRunner` contract (Owner: M2) | Git CLI can be replaced without touching the service. Subprocess security lives in one place. |
+| 5 | one Adapter per tool normalizing into `ToolResult`; `AnalysisTool` Protocol | Upstream output changes never leak into the rest of the code. |
 | 6-8 | Same Adapter shape, NO Registry/Factory; inject `list[AnalysisTool]` | A plain list is enough for six fixed tools. |
 | 9 | Builder + Pipeline: filter -> normalize -> redact -> validate | Fixed, testable order; redaction is mandatory and happens before anything is written. |
 | 10 | Service Layer (`RepositoryAnalysisService`) + per-tool fault isolation | One failing tool yields `partial` + warning, not a failed analysis. |
@@ -406,3 +406,10 @@ RAG, AI reasoning and prompts, JSON Manifest, the AI-facing controlled tool laye
 sending to SaaS/Desk agents, scc hotspots/coupling (D9), private repos and auth tokens,
 generic shell execution, executing repository code, multi-repo/monorepo specialization,
 large-scale performance tuning, persistent storage of snapshots beyond the workspace lifetime.
+
+---
+
+## 18. Modes
+
+- **DEV MODE**: Fast iteration mode. `gate_mode.txt` is set to `dev` or scripts run with `--dev`. Quality gate runs `pytest --no-cov`. M1 and M2 are restricted from modifying tests (except fixtures) to prevent test degradation.
+- **VERIFY MODE**: Full verification mode. Enforces strict test coverage.

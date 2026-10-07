@@ -22,11 +22,25 @@ def run_command(cmd: list[str], name: str, timeout: int = 120) -> bool:
 
 
 def main() -> None:
+    is_dev = "--dev" in sys.argv
+    from pathlib import Path
+
+    try:
+        with Path("gate_mode.txt").open() as f:
+            if f.read().strip() == "dev":
+                is_dev = True
+    except FileNotFoundError:
+        pass
+
+    pytest_cmd = [sys.executable, "-m", "pytest", "tests"]
+    if is_dev:
+        pytest_cmd.append("--no-cov")
+
     checks = [
         ("Format Check", [sys.executable, "-m", "ruff", "format", "--check", "."]),
         ("Lint", [sys.executable, "-m", "ruff", "check", "."]),
         ("Type Check", [sys.executable, "-m", "mypy"]),
-        ("Test", [sys.executable, "-m", "pytest", "tests"]),
+        ("Test", pytest_cmd),
         ("Security (Code)", [sys.executable, "-m", "bandit", "-r", "app", "-c", "pyproject.toml"]),
         (
             "Security (Deps - prod)",

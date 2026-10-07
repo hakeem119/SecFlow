@@ -96,7 +96,7 @@ class DependenciesInfo(BaseModel):
 
 class SyntaxEvidenceItem(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
-    name: str = Field(...)
+    name: str | None = Field(default=None)
     path: PurePosixPath = Field(...)
     start_line: int = Field(..., gt=0)
     end_line: int = Field(..., gt=0)
