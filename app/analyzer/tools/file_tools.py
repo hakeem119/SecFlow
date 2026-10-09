@@ -8,11 +8,16 @@ from app.core.safe_path import SafePath, PathSecurityError, open_nofollow
 
 def _resolve_safe_path(workspace_path: str, target: str) -> Path:
     """Helper to validate paths securely."""
+    ws = Path(workspace_path).resolve()
+    clean_target = target.strip() if target else ""
+    # Treat current directory aliases as root workspace directly
+    if not clean_target or clean_target in [".", "./", ".\\"]:
+        return ws
     try:
-        return SafePath.within(Path(workspace_path), target).path
+        return SafePath.within(ws, clean_target).path
     except PathSecurityError as e:
         raise ValueError(f"Boundary Error: Cannot access {target} outside workspace.") from e
-
+    
 def build_file_tools(workspace_path: str) -> list:
     @tool
     def read_file(path: str, start_line: int = 1, end_line: int = 200) -> str:

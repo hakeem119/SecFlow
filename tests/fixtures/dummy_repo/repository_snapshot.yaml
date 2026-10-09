@@ -1,0 +1,5867 @@
+schema_version: '1.0'
+generated_at: '2026-10-07T16:26:25.606480Z'
+repository:
+  name: juice-shop
+  url: https://github.com/juice-shop/juice-shop
+  commit: 1618a611b173b4bf114028e6e02549950606e29d
+  default_branch: master
+workspace:
+  id: 0c877415-517e-41f4-b244-a2bd4bf97d36
+structure:
+  directories:
+  - .ai
+  - .ai/skills
+  - .ai/skills/add-reference
+  - .ai/skills/add-reference/types
+  - .ai/skills/add-solution
+  - .ai/skills/add-solution/types
+  - .ai/skills/create-m3-theme
+  - .ai/skills/generate-release-notes
+  - .ai/skills/generate-release-notes/checklists
+  - .ai/skills/generate-release-notes/types
+  - .ai/skills/verify-challenge
+  - .ai/skills/verify-challenge/checklists
+  - .ai/skills/verify-rsn-fix
+  - .ai/skills/write-tests
+  - .ai/skills/write-tests/checklists
+  - .ai/skills/write-tests/patterns
+  - .claude
+  - .codeium
+  - .continue
+  - .cursor
+  - .dependabot
+  - .github
+  - .github/ISSUE_TEMPLATE
+  - .github/workflows
+  - .gitlab
+  - .junie
+  - .well-known
+  - .well-known/csaf
+  - .well-known/csaf/2017
+  - .well-known/csaf/2021
+  - .well-known/csaf/2024
+  - .zap
+  - config
+  - data
+  - data/static
+  - data/static/codefixes
+  - data/static/i18n
+  - data/static/web3-snippets
+  - encryptionkeys
+  - frontend
+  - frontend/src
+  - frontend/src/app
+  - frontend/src/app/Models
+  - frontend/src/app/Services
+  - frontend/src/app/about
+  - frontend/src/app/accounting
+  - frontend/src/app/address
+  - frontend/src/app/address-create
+  - frontend/src/app/address-select
+  - frontend/src/app/administration
+  - frontend/src/app/basket
+  - frontend/src/app/challenge-solved-notification
+  - frontend/src/app/challenge-status-badge
+  - frontend/src/app/change-password
+  - frontend/src/app/chatbot
+  - frontend/src/app/chatbot/chat-conversation
+  - frontend/src/app/chatbot/chat-input-box
+  - frontend/src/app/chatbot/chat-welcome-page
+  - frontend/src/app/chatbot/chat-welcome-screen
+  - frontend/src/app/coding-challenge-page
+  - frontend/src/app/coding-challenge-page/components
+  - frontend/src/app/coding-challenge-page/components/coding-challenge-find-it
+  - frontend/src/app/coding-challenge-page/components/coding-challenge-fix-it
+  - frontend/src/app/coding-challenge-page/components/coding-challenge-section
+  - frontend/src/app/coding-challenge-page/helpers
+  - frontend/src/app/complaint
+  - frontend/src/app/contact
+  - frontend/src/app/ctf-system-wide-notification
+  - frontend/src/app/data-export
+  - frontend/src/app/delivery-method
+  - frontend/src/app/deluxe-user
+  - frontend/src/app/error-page
+  - frontend/src/app/faucet
+  - frontend/src/app/feedback-details
+  - frontend/src/app/forgot-password
+  - frontend/src/app/last-login-ip
+  - frontend/src/app/login
+  - frontend/src/app/mat-search-bar
+  - frontend/src/app/navbar
+  - frontend/src/app/nft-unlock
+  - frontend/src/app/oauth
+  - frontend/src/app/order-completion
+  - frontend/src/app/order-history
+  - frontend/src/app/order-summary
+  - frontend/src/app/password-strength
+  - frontend/src/app/password-strength-info
+  - frontend/src/app/payment
+  - frontend/src/app/payment-method
+  - frontend/src/app/photo-wall
+  - frontend/src/app/privacy-policy
+  - frontend/src/app/privacy-security
+  - frontend/src/app/product
+  - frontend/src/app/product-details
+  - frontend/src/app/product-review-edit
+  - frontend/src/app/purchase-basket
+  - frontend/src/app/qr-code
+  - frontend/src/app/recycle
+  - frontend/src/app/register
+  - frontend/src/app/saved-address
+  - frontend/src/app/saved-payment-methods
+  - frontend/src/app/score-board
+  - frontend/src/app/score-board/components
+  - frontend/src/app/score-board/components/challenge-card
+  - frontend/src/app/score-board/components/challenges-unavailable-warning
+  - frontend/src/app/score-board/components/coding-challenge-progress-score-card
+  - frontend/src/app/score-board/components/difficulty-overview-score-card
+  - frontend/src/app/score-board/components/difficulty-stars
+  - frontend/src/app/score-board/components/filter-settings
+  - frontend/src/app/score-board/components/filter-settings/components
+  - frontend/src/app/score-board/components/filter-settings/components/category-filter
+  - frontend/src/app/score-board/components/filter-settings/components/score-board-additional-settings-dialog
+  - frontend/src/app/score-board/components/filter-settings/pipes
+  - frontend/src/app/score-board/components/hacking-challenge-progress-score-card
+  - frontend/src/app/score-board/components/score-card
+  - frontend/src/app/score-board/components/tutorial-mode-warning
+  - frontend/src/app/score-board/components/warning-card
+  - frontend/src/app/score-board/filter-settings
+  - frontend/src/app/score-board/helpers
+  - frontend/src/app/score-board/types
+  - frontend/src/app/search-result
+  - frontend/src/app/server-started-notification
+  - frontend/src/app/shared
+  - frontend/src/app/sidenav
+  - frontend/src/app/token-sale
+  - frontend/src/app/track-result
+  - frontend/src/app/two-factor-auth
+  - frontend/src/app/two-factor-auth-enter
+  - frontend/src/app/user-details
+  - frontend/src/app/wallet
+  - frontend/src/app/wallet-web3
+  - frontend/src/app/web3-sandbox
+  - frontend/src/app/welcome
+  - frontend/src/app/welcome-banner
+  - frontend/src/assets
+  - frontend/src/assets/i18n
+  - frontend/src/assets/private
+  - frontend/src/assets/public
+  - frontend/src/assets/public/css
+  - frontend/src/assets/public/images
+  - frontend/src/assets/public/images/carousel
+  - frontend/src/assets/public/images/deluxe
+  - frontend/src/assets/public/images/padding
+  - frontend/src/assets/public/images/products
+  - frontend/src/assets/public/images/uploads
+  - frontend/src/assets/public/videos
+  - frontend/src/confetti
+  - frontend/src/environments
+  - frontend/src/hacking-instructor
+  - frontend/src/hacking-instructor/challenges
+  - frontend/src/hacking-instructor/helpers
+  - frontend/src/mocks
+  - frontend/src/styles
+  - ftp
+  - ftp/quarantine
+  - i18n
+  - infrastructure
+  - infrastructure/terraform
+  - lib
+  - lib/scripts
+  - lib/startup
+  - models
+  - monitoring
+  - routes
+  - rsn
+  - screenshots
+  - scripts
+  - terraform
+  - test
+  - test/api
+  - test/api/helpers
+  - test/cypress
+  - test/cypress/e2e
+  - test/cypress/support
+  - test/files
+  - test/server
+  - test/server/helpers
+  - test/smoke
+  - uploads
+  - uploads/complaints
+  - vagrant
+  - views
+  - views/themes
+  files:
+  - path: .ai/skills/add-reference/SKILL.md
+    type: file
+    language: Unknown
+    size: 4291
+  - path: .ai/skills/add-reference/types/award.md
+    type: file
+    language: Unknown
+    size: 528
+  - path: .ai/skills/add-reference/types/blog.md
+    type: file
+    language: Unknown
+    size: 796
+  - path: .ai/skills/add-reference/types/conference.md
+    type: file
+    language: Unknown
+    size: 1126
+  - path: .ai/skills/add-reference/types/gsoc.md
+    type: file
+    language: Unknown
+    size: 776
+  - path: .ai/skills/add-reference/types/lecture.md
+    type: file
+    language: Unknown
+    size: 568
+  - path: .ai/skills/add-reference/types/podcast.md
+    type: file
+    language: Unknown
+    size: 825
+  - path: .ai/skills/add-reference/types/summit.md
+    type: file
+    language: Unknown
+    size: 769
+  - path: .ai/skills/add-reference/types/tools.md
+    type: file
+    language: Unknown
+    size: 648
+  - path: .ai/skills/add-solution/SKILL.md
+    type: file
+    language: Unknown
+    size: 3792
+  - path: .ai/skills/add-solution/types/tool.md
+    type: file
+    language: Unknown
+    size: 644
+  - path: .ai/skills/add-solution/types/video.md
+    type: file
+    language: Unknown
+    size: 745
+  - path: .ai/skills/add-solution/types/walkthrough.md
+    type: file
+    language: Unknown
+    size: 663
+  - path: .ai/skills/create-m3-theme/SKILL.md
+    type: file
+    language: Unknown
+    size: 3233
+  - path: .ai/skills/generate-release-notes/SKILL.md
+    type: file
+    language: Unknown
+    size: 5357
+  - path: .ai/skills/generate-release-notes/checklists/release-notes-checklist.md
+    type: file
+    language: Unknown
+    size: 1312
+  - path: .ai/skills/generate-release-notes/types/hotfix.md
+    type: file
+    language: Unknown
+    size: 249
+  - path: .ai/skills/generate-release-notes/types/major.md
+    type: file
+    language: Unknown
+    size: 1220
+  - path: .ai/skills/generate-release-notes/types/minor.md
+    type: file
+    language: Unknown
+    size: 488
+  - path: .ai/skills/verify-challenge/SKILL.md
+    type: file
+    language: Unknown
+    size: 6687
+  - path: .ai/skills/verify-challenge/checklists/challenge-checklist.md
+    type: file
+    language: Unknown
+    size: 1936
+  - path: .ai/skills/verify-rsn-fix/SKILL.md
+    type: file
+    language: Unknown
+    size: 2763
+  - path: .ai/skills/write-tests/SKILL.md
+    type: file
+    language: Unknown
+    size: 9362
+  - path: .ai/skills/write-tests/checklists/testing-checklist.md
+    type: file
+    language: Unknown
+    size: 2141
+  - path: .ai/skills/write-tests/patterns/api.md
+    type: file
+    language: Unknown
+    size: 3658
+  - path: .ai/skills/write-tests/patterns/cypress.md
+    type: file
+    language: Unknown
+    size: 3398
+  - path: .ai/skills/write-tests/patterns/frontend.md
+    type: file
+    language: Unknown
+    size: 3569
+  - path: .ai/skills/write-tests/patterns/server.md
+    type: file
+    language: Unknown
+    size: 2615
+  - path: .claude/.gitignore
+    type: file
+    language: Unknown
+    size: 20
+  - path: .claude/CLAUDE.md
+    type: file
+    language: Unknown
+    size: 580
+  - path: .codeclimate.yml
+    type: file
+    language: Unknown
+    size: 552
+  - path: .codeium/instructions.md
+    type: file
+    language: Unknown
+    size: 580
+  - path: .continue/instructions.md
+    type: file
+    language: Unknown
+    size: 590
+  - path: .cursor/rules
+    type: file
+    language: Unknown
+    size: 578
+  - path: .dependabot/config.yml
+    type: file
+    language: Unknown
+    size: 831
+  - path: .devcontainer.json
+    type: file
+    language: Unknown
+    size: 415
+  - path: .dockerignore
+    type: file
+    language: Unknown
+    size: 283
+  - path: .gitattributes
+    type: file
+    language: Unknown
+    size: 65
+  - path: .github/FUNDING.yml
+    type: file
+    language: Unknown
+    size: 55
+  - path: .github/ISSUE_TEMPLATE/bug-report.md
+    type: file
+    language: Unknown
+    size: 1833
+  - path: .github/ISSUE_TEMPLATE/challenge-idea.md
+    type: file
+    language: Unknown
+    size: 1718
+  - path: .github/ISSUE_TEMPLATE/config.yml
+    type: file
+    language: Unknown
+    size: 139
+  - path: .github/ISSUE_TEMPLATE/feature-request.md
+    type: file
+    language: Unknown
+    size: 920
+  - path: .github/PULL_REQUEST_TEMPLATE.md
+    type: file
+    language: Unknown
+    size: 2116
+  - path: .github/copilot-instructions.md
+    type: file
+    language: Unknown
+    size: 594
+  - path: .github/workflows/ci.yml
+    type: file
+    language: Unknown
+    size: 18114
+  - path: .github/workflows/codeql-analysis.yml
+    type: file
+    language: Unknown
+    size: 895
+  - path: .github/workflows/frontend-bundle-analysis.yml
+    type: file
+    language: Unknown
+    size: 2275
+  - path: .github/workflows/image_actions.yml
+    type: file
+    language: Unknown
+    size: 1309
+  - path: .github/workflows/lint-fixer.yml
+    type: file
+    language: Unknown
+    size: 1039
+  - path: .github/workflows/lock.yml
+    type: file
+    language: Unknown
+    size: 333
+  - path: .github/workflows/pr-compliance.yml
+    type: file
+    language: Unknown
+    size: 22309
+  - path: .github/workflows/rebase.yml
+    type: file
+    language: Unknown
+    size: 857
+  - path: .github/workflows/release.yml
+    type: file
+    language: Unknown
+    size: 4564
+  - path: .github/workflows/stale.yml
+    type: file
+    language: Unknown
+    size: 1106
+  - path: .github/workflows/update-challenges-ebook.yml
+    type: file
+    language: Unknown
+    size: 1284
+  - path: .github/workflows/update-challenges-www-legacy.yml
+    type: file
+    language: Unknown
+    size: 2130
+  - path: .github/workflows/update-challenges-www.yml
+    type: file
+    language: Unknown
+    size: 2108
+  - path: .github/workflows/update-news-www-legacy.yml
+    type: file
+    language: Unknown
+    size: 1261
+  - path: .github/workflows/update-news-www.yml
+    type: file
+    language: Unknown
+    size: 1239
+  - path: .github/workflows/zap_scan.yml
+    type: file
+    language: Unknown
+    size: 690
+  - path: .gitignore
+    type: file
+    language: Unknown
+    size: 947
+  - path: .gitlab-ci.yml
+    type: file
+    language: Unknown
+    size: 165
+  - path: .gitlab/auto-deploy-values.yaml
+    type: file
+    language: Unknown
+    size: 50
+  - path: .junie/AGENTS.md
+    type: file
+    language: Unknown
+    size: 588
+  - path: .junie/config.json
+    type: file
+    language: Unknown
+    size: 78
+  - path: .mailmap
+    type: file
+    language: Unknown
+    size: 4685
+  - path: .npmrc
+    type: file
+    language: Unknown
+    size: 19
+  - path: .well-known/csaf/2017/juice-shop-sa-20200513-express-jwt.json
+    type: file
+    language: Unknown
+    size: 3543
+  - path: .well-known/csaf/2017/juice-shop-sa-20200513-express-jwt.json.asc
+    type: file
+    language: Unknown
+    size: 228
+  - path: .well-known/csaf/2017/juice-shop-sa-20200513-express-jwt.json.sha512
+    type: file
+    language: Unknown
+    size: 170
+  - path: .well-known/csaf/2021/juice-shop-sa-20211014-proto.json
+    type: file
+    language: Unknown
+    size: 2394
+  - path: .well-known/csaf/2021/juice-shop-sa-20211014-proto.json.asc
+    type: file
+    language: Unknown
+    size: 228
+  - path: .well-known/csaf/2021/juice-shop-sa-20211014-proto.json.sha512
+    type: file
+    language: Unknown
+    size: 164
+  - path: .well-known/csaf/2024/juice-shop-sa-disclaimer.json
+    type: file
+    language: Unknown
+    size: 4108
+  - path: .well-known/csaf/2024/juice-shop-sa-disclaimer.json.asc
+    type: file
+    language: Unknown
+    size: 228
+  - path: .well-known/csaf/2024/juice-shop-sa-disclaimer.json.sha512
+    type: file
+    language: Unknown
+    size: 160
+  - path: .well-known/csaf/changes.csv
+    type: file
+    language: Unknown
+    size: 191
+  - path: .well-known/csaf/index.txt
+    type: file
+    language: Unknown
+    size: 116
+  - path: .well-known/csaf/provider-metadata.json
+    type: file
+    language: Unknown
+    size: 1023
+  - path: .well-known/security.txt
+    type: file
+    language: Unknown
+    size: 73
+  - path: .zap/rules.tsv
+    type: file
+    language: Unknown
+    size: 980
+  - path: AGENTS.md
+    type: file
+    language: Unknown
+    size: 11327
+  - path: CODE_OF_CONDUCT.md
+    type: file
+    language: Unknown
+    size: 1620
+  - path: CONTRIBUTING.md
+    type: file
+    language: Unknown
+    size: 3422
+  - path: Dockerfile
+    type: file
+    language: Unknown
+    size: 1643
+  - path: HALL_OF_FAME.md
+    type: file
+    language: Unknown
+    size: 8150
+  - path: LICENSE
+    type: file
+    language: Unknown
+    size: 1101
+  - path: README.md
+    type: file
+    language: Unknown
+    size: 15379
+  - path: REFERENCES.md
+    type: file
+    language: Unknown
+    size: 50954
+  - path: SECURITY.md
+    type: file
+    language: Unknown
+    size: 7148
+  - path: SOLUTIONS.md
+    type: file
+    language: Unknown
+    size: 12485
+  - path: app.json
+    type: file
+    language: Unknown
+    size: 661
+  - path: app.ts
+    type: file
+    language: Unknown
+    size: 388
+  - path: config/7ms.yml
+    type: file
+    language: Unknown
+    size: 10060
+  - path: config/addo.yml
+    type: file
+    language: Unknown
+    size: 5984
+  - path: config/bodgeit.yml
+    type: file
+    language: Unknown
+    size: 8493
+  - path: config/ctf.yml
+    type: file
+    language: Unknown
+    size: 344
+  - path: config/default.yml
+    type: file
+    language: Unknown
+    size: 25478
+  - path: config/defcon33.yml
+    type: file
+    language: Unknown
+    size: 8642
+  - path: config/fbctf.yml
+    type: file
+    language: Unknown
+    size: 7924
+  - path: config/juicebox.yml
+    type: file
+    language: Unknown
+    size: 552
+  - path: config/mozilla.yml
+    type: file
+    language: Unknown
+    size: 8133
+  - path: config/oss.yml
+    type: file
+    language: Unknown
+    size: 7081
+  - path: config/quiet.yml
+    type: file
+    language: Unknown
+    size: 222
+  - path: config/test.yml
+    type: file
+    language: Unknown
+    size: 149
+  - path: config/tutorial.yml
+    type: file
+    language: Unknown
+    size: 45
+  - path: config/unsafe.yml
+    type: file
+    language: Unknown
+    size: 34
+  - path: crowdin.yaml
+    type: file
+    language: Unknown
+    size: 323
+  - path: ctf.key
+    type: file
+    language: Unknown
+    size: 30
+  - path: cypress.config.ts
+    type: file
+    language: Unknown
+    size: 2606
+  - path: data/datacache.ts
+    type: file
+    language: Unknown
+    size: 1576
+  - path: data/datacreator.ts
+    type: file
+    language: Unknown
+    size: 28513
+  - path: data/mongodb.ts
+    type: file
+    language: Unknown
+    size: 357
+  - path: data/static/challenges.yml
+    type: file
+    language: Unknown
+    size: 85098
+  - path: data/static/codefixes/.editorconfig
+    type: file
+    language: Unknown
+    size: 69
+  - path: data/static/codefixes/accessLogDisclosureChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1034
+  - path: data/static/codefixes/accessLogDisclosureChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 845
+  - path: data/static/codefixes/accessLogDisclosureChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1015
+  - path: data/static/codefixes/accessLogDisclosureChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 982
+  - path: data/static/codefixes/accessLogDisclosureChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 929
+  - path: data/static/codefixes/adminSectionChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1140
+  - path: data/static/codefixes/adminSectionChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 4119
+  - path: data/static/codefixes/adminSectionChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 3984
+  - path: data/static/codefixes/adminSectionChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 4341
+  - path: data/static/codefixes/adminSectionChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 3972
+  - path: data/static/codefixes/changeProductChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1287
+  - path: data/static/codefixes/changeProductChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 4874
+  - path: data/static/codefixes/changeProductChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 4703
+  - path: data/static/codefixes/changeProductChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 4920
+  - path: data/static/codefixes/changeProductChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 4930
+  - path: data/static/codefixes/chatbotGreedyInjectionChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1627
+  - path: data/static/codefixes/chatbotGreedyInjectionChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 4829
+  - path: data/static/codefixes/chatbotGreedyInjectionChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 4984
+  - path: data/static/codefixes/chatbotGreedyInjectionChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 5390
+  - path: data/static/codefixes/chatbotGreedyInjectionChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 5007
+  - path: data/static/codefixes/chatbotPromptInjectionChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1410
+  - path: data/static/codefixes/chatbotPromptInjectionChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 559
+  - path: data/static/codefixes/chatbotPromptInjectionChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 1726
+  - path: data/static/codefixes/chatbotPromptInjectionChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 952
+  - path: data/static/codefixes/chatbotPromptInjectionChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 785
+  - path: data/static/codefixes/dbSchemaChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1065
+  - path: data/static/codefixes/dbSchemaChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 829
+  - path: data/static/codefixes/dbSchemaChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 872
+  - path: data/static/codefixes/dbSchemaChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 962
+  - path: data/static/codefixes/directoryListingChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1152
+  - path: data/static/codefixes/directoryListingChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 789
+  - path: data/static/codefixes/directoryListingChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 933
+  - path: data/static/codefixes/directoryListingChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 896
+  - path: data/static/codefixes/directoryListingChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 1033
+  - path: data/static/codefixes/exposedMetricsChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 852
+  - path: data/static/codefixes/exposedMetricsChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 1465
+  - path: data/static/codefixes/exposedMetricsChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1337
+  - path: data/static/codefixes/exposedMetricsChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 1465
+  - path: data/static/codefixes/forgedReviewChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1035
+  - path: data/static/codefixes/forgedReviewChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 506
+  - path: data/static/codefixes/forgedReviewChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 506
+  - path: data/static/codefixes/forgedReviewChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 458
+  - path: data/static/codefixes/iacLeakedKeyChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 936
+  - path: data/static/codefixes/iacLeakedKeyChallenge_1.tf
+    type: file
+    language: Unknown
+    size: 6749
+  - path: data/static/codefixes/iacLeakedKeyChallenge_2.tf
+    type: file
+    language: Unknown
+    size: 6875
+  - path: data/static/codefixes/iacLeakedKeyChallenge_3_correct.tf
+    type: file
+    language: Unknown
+    size: 6769
+  - path: data/static/codefixes/localXssChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1550
+  - path: data/static/codefixes/localXssChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 749
+  - path: data/static/codefixes/localXssChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 702
+  - path: data/static/codefixes/localXssChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 744
+  - path: data/static/codefixes/localXssChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 744
+  - path: data/static/codefixes/loginAdminChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1322
+  - path: data/static/codefixes/loginAdminChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 1704
+  - path: data/static/codefixes/loginAdminChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1560
+  - path: data/static/codefixes/loginAdminChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 1538
+  - path: data/static/codefixes/loginAdminChallenge_4_correct.ts
+    type: file
+    language: Unknown
+    size: 1553
+  - path: data/static/codefixes/loginBenderChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1339
+  - path: data/static/codefixes/loginBenderChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 1704
+  - path: data/static/codefixes/loginBenderChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 1571
+  - path: data/static/codefixes/loginBenderChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 1577
+  - path: data/static/codefixes/loginBenderChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 1552
+  - path: data/static/codefixes/loginJimChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1349
+  - path: data/static/codefixes/loginJimChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 1553
+  - path: data/static/codefixes/loginJimChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1552
+  - path: data/static/codefixes/loginJimChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 1544
+  - path: data/static/codefixes/loginJimChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 1704
+  - path: data/static/codefixes/nftMintChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 782
+  - path: data/static/codefixes/nftMintChallenge_1.sol
+    type: file
+    language: Unknown
+    size: 1154
+  - path: data/static/codefixes/nftMintChallenge_2.sol
+    type: file
+    language: Unknown
+    size: 1112
+  - path: data/static/codefixes/nftMintChallenge_3.sol
+    type: file
+    language: Unknown
+    size: 1101
+  - path: data/static/codefixes/nftMintChallenge_4_correct.sol
+    type: file
+    language: Unknown
+    size: 1157
+  - path: data/static/codefixes/nftUnlockChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1100
+  - path: data/static/codefixes/nftUnlockChallenge_1.sol
+    type: file
+    language: Unknown
+    size: 1289
+  - path: data/static/codefixes/nftUnlockChallenge_2_correct.sol
+    type: file
+    language: Unknown
+    size: 1306
+  - path: data/static/codefixes/nftUnlockChallenge_3.sol
+    type: file
+    language: Unknown
+    size: 1270
+  - path: data/static/codefixes/nftUnlockChallenge_4.sol
+    type: file
+    language: Unknown
+    size: 1232
+  - path: data/static/codefixes/noSqlReviewsChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1067
+  - path: data/static/codefixes/noSqlReviewsChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 552
+  - path: data/static/codefixes/noSqlReviewsChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 458
+  - path: data/static/codefixes/noSqlReviewsChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 551
+  - path: data/static/codefixes/redirectChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1213
+  - path: data/static/codefixes/redirectChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 702
+  - path: data/static/codefixes/redirectChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 691
+  - path: data/static/codefixes/redirectChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 925
+  - path: data/static/codefixes/redirectChallenge_4_correct.ts
+    type: file
+    language: Unknown
+    size: 685
+  - path: data/static/codefixes/redirectCryptoCurrencyChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 948
+  - path: data/static/codefixes/redirectCryptoCurrencyChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 619
+  - path: data/static/codefixes/redirectCryptoCurrencyChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 617
+  - path: data/static/codefixes/redirectCryptoCurrencyChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 468
+  - path: data/static/codefixes/redirectCryptoCurrencyChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 614
+  - path: data/static/codefixes/registerAdminChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1326
+  - path: data/static/codefixes/registerAdminChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 1761
+  - path: data/static/codefixes/registerAdminChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1211
+  - path: data/static/codefixes/registerAdminChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 1713
+  - path: data/static/codefixes/registerAdminChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 1678
+  - path: data/static/codefixes/resetPasswordBenderChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 738
+  - path: data/static/codefixes/resetPasswordBenderChallenge_1.yml
+    type: file
+    language: Unknown
+    size: 716
+  - path: data/static/codefixes/resetPasswordBenderChallenge_2_correct.yml
+    type: file
+    language: Unknown
+    size: 183
+  - path: data/static/codefixes/resetPasswordBenderChallenge_3.yml
+    type: file
+    language: Unknown
+    size: 728
+  - path: data/static/codefixes/resetPasswordBjoernChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 730
+  - path: data/static/codefixes/resetPasswordBjoernChallenge_1_correct.yml
+    type: file
+    language: Unknown
+    size: 183
+  - path: data/static/codefixes/resetPasswordBjoernChallenge_2.yml
+    type: file
+    language: Unknown
+    size: 722
+  - path: data/static/codefixes/resetPasswordBjoernChallenge_3.yml
+    type: file
+    language: Unknown
+    size: 719
+  - path: data/static/codefixes/resetPasswordBjoernOwaspChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 910
+  - path: data/static/codefixes/resetPasswordBjoernOwaspChallenge_1.yml
+    type: file
+    language: Unknown
+    size: 747
+  - path: data/static/codefixes/resetPasswordBjoernOwaspChallenge_2_correct.yml
+    type: file
+    language: Unknown
+    size: 183
+  - path: data/static/codefixes/resetPasswordBjoernOwaspChallenge_3.yml
+    type: file
+    language: Unknown
+    size: 724
+  - path: data/static/codefixes/resetPasswordJimChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 831
+  - path: data/static/codefixes/resetPasswordJimChallenge_1.yml
+    type: file
+    language: Unknown
+    size: 722
+  - path: data/static/codefixes/resetPasswordJimChallenge_2.yml
+    type: file
+    language: Unknown
+    size: 723
+  - path: data/static/codefixes/resetPasswordJimChallenge_3_correct.yml
+    type: file
+    language: Unknown
+    size: 183
+  - path: data/static/codefixes/resetPasswordMortyChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1515
+  - path: data/static/codefixes/resetPasswordMortyChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 198
+  - path: data/static/codefixes/resetPasswordMortyChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 220
+  - path: data/static/codefixes/resetPasswordMortyChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 225
+  - path: data/static/codefixes/resetPasswordMortyChallenge_4_correct.ts
+    type: file
+    language: Unknown
+    size: 147
+  - path: data/static/codefixes/resetPasswordUvoginChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 790
+  - path: data/static/codefixes/resetPasswordUvoginChallenge_1.yml
+    type: file
+    language: Unknown
+    size: 724
+  - path: data/static/codefixes/resetPasswordUvoginChallenge_2.yml
+    type: file
+    language: Unknown
+    size: 734
+  - path: data/static/codefixes/resetPasswordUvoginChallenge_3_correct.yml
+    type: file
+    language: Unknown
+    size: 183
+  - path: data/static/codefixes/restfulXssChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1086
+  - path: data/static/codefixes/restfulXssChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 1470
+  - path: data/static/codefixes/restfulXssChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1732
+  - path: data/static/codefixes/restfulXssChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 1706
+  - path: data/static/codefixes/restfulXssChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 1724
+  - path: data/static/codefixes/scoreBoardChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1117
+  - path: data/static/codefixes/scoreBoardChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 4025
+  - path: data/static/codefixes/scoreBoardChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 3983
+  - path: data/static/codefixes/scoreBoardChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 3903
+  - path: data/static/codefixes/tokenSaleChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 999
+  - path: data/static/codefixes/tokenSaleChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 1758
+  - path: data/static/codefixes/tokenSaleChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 1772
+  - path: data/static/codefixes/tokenSaleChallenge_3_correct.ts
+    type: file
+    language: Unknown
+    size: 793
+  - path: data/static/codefixes/unionSqlInjectionChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1101
+  - path: data/static/codefixes/unionSqlInjectionChallenge_1.ts
+    type: file
+    language: Unknown
+    size: 869
+  - path: data/static/codefixes/unionSqlInjectionChallenge_2_correct.ts
+    type: file
+    language: Unknown
+    size: 872
+  - path: data/static/codefixes/unionSqlInjectionChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 1001
+  - path: data/static/codefixes/vulnerableDockerImageChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 807
+  - path: data/static/codefixes/vulnerableDockerImageChallenge_1.yml
+    type: file
+    language: Unknown
+    size: 1768
+  - path: data/static/codefixes/vulnerableDockerImageChallenge_2.yml
+    type: file
+    language: Unknown
+    size: 1768
+  - path: data/static/codefixes/vulnerableDockerImageChallenge_3_correct.yml
+    type: file
+    language: Unknown
+    size: 1767
+  - path: data/static/codefixes/weakPasswordChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1375
+  - path: data/static/codefixes/weakPasswordChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 343
+  - path: data/static/codefixes/weakPasswordChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 622
+  - path: data/static/codefixes/weakPasswordChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 537
+  - path: data/static/codefixes/weakPasswordChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 280
+  - path: data/static/codefixes/web3SandboxChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 987
+  - path: data/static/codefixes/web3SandboxChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 3877
+  - path: data/static/codefixes/web3SandboxChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 4003
+  - path: data/static/codefixes/web3SandboxChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 4003
+  - path: data/static/codefixes/web3WalletChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 777
+  - path: data/static/codefixes/web3WalletChallenge_1.sol
+    type: file
+    language: Unknown
+    size: 1189
+  - path: data/static/codefixes/web3WalletChallenge_2.sol
+    type: file
+    language: Unknown
+    size: 1167
+  - path: data/static/codefixes/web3WalletChallenge_3_correct.sol
+    type: file
+    language: Unknown
+    size: 1167
+  - path: data/static/codefixes/web3WalletChallenge_4.sol
+    type: file
+    language: Unknown
+    size: 1167
+  - path: data/static/codefixes/xssBonusChallenge.info.yml
+    type: file
+    language: Unknown
+    size: 1440
+  - path: data/static/codefixes/xssBonusChallenge_1_correct.ts
+    type: file
+    language: Unknown
+    size: 702
+  - path: data/static/codefixes/xssBonusChallenge_2.ts
+    type: file
+    language: Unknown
+    size: 749
+  - path: data/static/codefixes/xssBonusChallenge_3.ts
+    type: file
+    language: Unknown
+    size: 748
+  - path: data/static/codefixes/xssBonusChallenge_4.ts
+    type: file
+    language: Unknown
+    size: 744
+  - path: data/static/contractABIs.ts
+    type: file
+    language: Unknown
+    size: 9784
+  - path: data/static/deliveries.yml
+    type: file
+    language: Unknown
+    size: 280
+  - path: data/static/i18n/ar_SA.json
+    type: file
+    language: Unknown
+    size: 135195
+  - path: data/static/i18n/az_AZ.json
+    type: file
+    language: Unknown
+    size: 135137
+  - path: data/static/i18n/bg_BG.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/bn_BD.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/ca_ES.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/cs_CZ.json
+    type: file
+    language: Unknown
+    size: 134942
+  - path: data/static/i18n/da_DK.json
+    type: file
+    language: Unknown
+    size: 135455
+  - path: data/static/i18n/de_CH.json
+    type: file
+    language: Unknown
+    size: 138547
+  - path: data/static/i18n/de_DE.json
+    type: file
+    language: Unknown
+    size: 138875
+  - path: data/static/i18n/el_GR.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/en.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/es_ES.json
+    type: file
+    language: Unknown
+    size: 137057
+  - path: data/static/i18n/et_EE.json
+    type: file
+    language: Unknown
+    size: 134698
+  - path: data/static/i18n/fa_IR.json
+    type: file
+    language: Unknown
+    size: 138534
+  - path: data/static/i18n/fi_FI.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/fr_FR.json
+    type: file
+    language: Unknown
+    size: 136936
+  - path: data/static/i18n/ga_IE.json
+    type: file
+    language: Unknown
+    size: 134736
+  - path: data/static/i18n/he_IL.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/hi_IN.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/hu_HU.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/id_ID.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/it_IT.json
+    type: file
+    language: Unknown
+    size: 134756
+  - path: data/static/i18n/ja_JP.json
+    type: file
+    language: Unknown
+    size: 160925
+  - path: data/static/i18n/ka_GE.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/ko_KR.json
+    type: file
+    language: Unknown
+    size: 135407
+  - path: data/static/i18n/lv_LV.json
+    type: file
+    language: Unknown
+    size: 134740
+  - path: data/static/i18n/my_MM.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/nl_NL.json
+    type: file
+    language: Unknown
+    size: 136650
+  - path: data/static/i18n/no_NO.json
+    type: file
+    language: Unknown
+    size: 134728
+  - path: data/static/i18n/pl_PL.json
+    type: file
+    language: Unknown
+    size: 141747
+  - path: data/static/i18n/pt_BR.json
+    type: file
+    language: Unknown
+    size: 134994
+  - path: data/static/i18n/pt_PT.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/ro_RO.json
+    type: file
+    language: Unknown
+    size: 138975
+  - path: data/static/i18n/ru_RU.json
+    type: file
+    language: Unknown
+    size: 138971
+  - path: data/static/i18n/si_LK.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/sv_SE.json
+    type: file
+    language: Unknown
+    size: 134989
+  - path: data/static/i18n/th_TH.json
+    type: file
+    language: Unknown
+    size: 135603
+  - path: data/static/i18n/tlh_AA.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/tr_TR.json
+    type: file
+    language: Unknown
+    size: 135565
+  - path: data/static/i18n/uk_UA.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/zh_CN.json
+    type: file
+    language: Unknown
+    size: 127914
+  - path: data/static/i18n/zh_HK.json
+    type: file
+    language: Unknown
+    size: 134739
+  - path: data/static/i18n/zh_TW.json
+    type: file
+    language: Unknown
+    size: 132953
+  - path: data/static/legal.md
+    type: file
+    language: Unknown
+    size: 3047
+  - path: data/static/locales.json
+    type: file
+    language: Unknown
+    size: 3299
+  - path: data/static/owasp_promo.vtt
+    type: file
+    language: Unknown
+    size: 2278
+  - path: data/static/securityQuestions.yml
+    type: file
+    language: Unknown
+    size: 1676
+  - path: data/static/users.yml
+    type: file
+    language: Unknown
+    size: 6859
+  - path: data/static/web3-snippets/BEEToken.sol
+    type: file
+    language: Unknown
+    size: 4008
+  - path: data/static/web3-snippets/BeeFaucet.sol
+    type: file
+    language: Unknown
+    size: 680
+  - path: data/static/web3-snippets/ETHWalletBank.sol
+    type: file
+    language: Unknown
+    size: 1741
+  - path: data/static/web3-snippets/HoneyPotNFT.sol
+    type: file
+    language: Unknown
+    size: 1423
+  - path: data/static/web3-snippets/JuiceShopSBT.sol
+    type: file
+    language: Unknown
+    size: 1601
+  - path: data/staticData.ts
+    type: file
+    language: Unknown
+    size: 2415
+  - path: data/types.ts
+    type: file
+    language: Unknown
+    size: 1441
+  - path: docker-compose.test.yml
+    type: file
+    language: Unknown
+    size: 126
+  - path: encryptionkeys/jwt.pub
+    type: file
+    language: Unknown
+    size: 248
+  - path: encryptionkeys/premium.key
+    type: file
+    language: Unknown
+    size: 50
+  - path: eslint.config.mjs
+    type: file
+    language: Unknown
+    size: 1598
+  - path: frontend/.browserslistrc
+    type: file
+    language: Unknown
+    size: 140
+  - path: frontend/.editorconfig
+    type: file
+    language: Unknown
+    size: 245
+  - path: frontend/.gitignore
+    type: file
+    language: Unknown
+    size: 537
+  - path: frontend/.npmrc
+    type: file
+    language: Unknown
+    size: 19
+  - path: frontend/angular.json
+    type: file
+    language: Unknown
+    size: 3875
+  - path: frontend/eslint.config.mjs
+    type: file
+    language: Unknown
+    size: 2426
+  - path: frontend/filter-bundle-stats-for-diagram.mts
+    type: file
+    language: Unknown
+    size: 857
+  - path: frontend/package.json
+    type: file
+    language: Unknown
+    size: 3913
+  - path: frontend/src/app/Models/backup.model.ts
+    type: file
+    language: Unknown
+    size: 345
+  - path: frontend/src/app/Models/challenge.model.ts
+    type: file
+    language: Unknown
+    size: 678
+  - path: frontend/src/app/Models/deliveryMethod.model.ts
+    type: file
+    language: Unknown
+    size: 230
+  - path: frontend/src/app/Models/hint.model.ts
+    type: file
+    language: Unknown
+    size: 234
+  - path: frontend/src/app/Models/product.model.ts
+    type: file
+    language: Unknown
+    size: 337
+  - path: frontend/src/app/Models/review.model.ts
+    type: file
+    language: Unknown
+    size: 198
+  - path: frontend/src/app/Models/securityQuestion.model.ts
+    type: file
+    language: Unknown
+    size: 191
+  - path: frontend/src/app/Services/address.service.spec.ts
+    type: file
+    language: Unknown
+    size: 4490
+  - path: frontend/src/app/Services/address.service.ts
+    type: file
+    language: Unknown
+    size: 1325
+  - path: frontend/src/app/Services/administration.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2012
+  - path: frontend/src/app/Services/administration.service.ts
+    type: file
+    language: Unknown
+    size: 776
+  - path: frontend/src/app/Services/basket.service.spec.ts
+    type: file
+    language: Unknown
+    size: 13242
+  - path: frontend/src/app/Services/basket.service.ts
+    type: file
+    language: Unknown
+    size: 6559
+  - path: frontend/src/app/Services/captcha.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1897
+  - path: frontend/src/app/Services/captcha.service.ts
+    type: file
+    language: Unknown
+    size: 665
+  - path: frontend/src/app/Services/challenge.service.spec.ts
+    type: file
+    language: Unknown
+    size: 10867
+  - path: frontend/src/app/Services/challenge.service.ts
+    type: file
+    language: Unknown
+    size: 2337
+  - path: frontend/src/app/Services/chat.service.spec.ts
+    type: file
+    language: Unknown
+    size: 4141
+  - path: frontend/src/app/Services/chat.service.ts
+    type: file
+    language: Unknown
+    size: 3035
+  - path: frontend/src/app/Services/code-fixes.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2440
+  - path: frontend/src/app/Services/code-fixes.service.ts
+    type: file
+    language: Unknown
+    size: 1029
+  - path: frontend/src/app/Services/code-snippet.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1962
+  - path: frontend/src/app/Services/code-snippet.service.ts
+    type: file
+    language: Unknown
+    size: 926
+  - path: frontend/src/app/Services/complaint.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1954
+  - path: frontend/src/app/Services/complaint.service.ts
+    type: file
+    language: Unknown
+    size: 727
+  - path: frontend/src/app/Services/configuration.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2263
+  - path: frontend/src/app/Services/configuration.service.ts
+    type: file
+    language: Unknown
+    size: 3019
+  - path: frontend/src/app/Services/conversation-storage.service.spec.ts
+    type: file
+    language: Unknown
+    size: 9541
+  - path: frontend/src/app/Services/conversation-storage.service.ts
+    type: file
+    language: Unknown
+    size: 1626
+  - path: frontend/src/app/Services/country-mapping.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2004
+  - path: frontend/src/app/Services/country-mapping.service.ts
+    type: file
+    language: Unknown
+    size: 645
+  - path: frontend/src/app/Services/ctf-system-wide-notification.service.ts
+    type: file
+    language: Unknown
+    size: 652
+  - path: frontend/src/app/Services/data-subject.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3159
+  - path: frontend/src/app/Services/data-subject.service.ts
+    type: file
+    language: Unknown
+    size: 850
+  - path: frontend/src/app/Services/delivery.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3011
+  - path: frontend/src/app/Services/delivery.service.ts
+    type: file
+    language: Unknown
+    size: 1141
+  - path: frontend/src/app/Services/feedback.service.spec.ts
+    type: file
+    language: Unknown
+    size: 4240
+  - path: frontend/src/app/Services/feedback.service.ts
+    type: file
+    language: Unknown
+    size: 1054
+  - path: frontend/src/app/Services/hint.service.ts
+    type: file
+    language: Unknown
+    size: 993
+  - path: frontend/src/app/Services/hints.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3013
+  - path: frontend/src/app/Services/image-captcha.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1923
+  - path: frontend/src/app/Services/image-captcha.service.ts
+    type: file
+    language: Unknown
+    size: 635
+  - path: frontend/src/app/Services/keys.service.spec.ts
+    type: file
+    language: Unknown
+    size: 5779
+  - path: frontend/src/app/Services/keys.service.ts
+    type: file
+    language: Unknown
+    size: 1883
+  - path: frontend/src/app/Services/languages.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1902
+  - path: frontend/src/app/Services/languages.service.ts
+    type: file
+    language: Unknown
+    size: 629
+  - path: frontend/src/app/Services/local-backup.service.spec.ts
+    type: file
+    language: Unknown
+    size: 8343
+  - path: frontend/src/app/Services/local-backup.service.ts
+    type: file
+    language: Unknown
+    size: 5062
+  - path: frontend/src/app/Services/order-history.service.spec.ts
+    type: file
+    language: Unknown
+    size: 4193
+  - path: frontend/src/app/Services/order-history.service.ts
+    type: file
+    language: Unknown
+    size: 1056
+  - path: frontend/src/app/Services/payment.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3926
+  - path: frontend/src/app/Services/payment.service.ts
+    type: file
+    language: Unknown
+    size: 1160
+  - path: frontend/src/app/Services/photo-wall.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3022
+  - path: frontend/src/app/Services/photo-wall.service.ts
+    type: file
+    language: Unknown
+    size: 1010
+  - path: frontend/src/app/Services/product-review.service.spec.ts
+    type: file
+    language: Unknown
+    size: 4554
+  - path: frontend/src/app/Services/product-review.service.ts
+    type: file
+    language: Unknown
+    size: 1361
+  - path: frontend/src/app/Services/product.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3662
+  - path: frontend/src/app/Services/product.service.ts
+    type: file
+    language: Unknown
+    size: 1302
+  - path: frontend/src/app/Services/quantity.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3130
+  - path: frontend/src/app/Services/quantity.service.ts
+    type: file
+    language: Unknown
+    size: 880
+  - path: frontend/src/app/Services/recycle.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2505
+  - path: frontend/src/app/Services/recycle.service.ts
+    type: file
+    language: Unknown
+    size: 904
+  - path: frontend/src/app/Services/request.interceptor.ts
+    type: file
+    language: Unknown
+    size: 865
+  - path: frontend/src/app/Services/security-answer.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2021
+  - path: frontend/src/app/Services/security-answer.service.ts
+    type: file
+    language: Unknown
+    size: 755
+  - path: frontend/src/app/Services/security-question.service.spec.ts
+    type: file
+    language: Unknown
+    size: 2669
+  - path: frontend/src/app/Services/security-question.service.ts
+    type: file
+    language: Unknown
+    size: 984
+  - path: frontend/src/app/Services/snack-bar-helper.service.spec.ts
+    type: file
+    language: Unknown
+    size: 977
+  - path: frontend/src/app/Services/snack-bar-helper.service.ts
+    type: file
+    language: Unknown
+    size: 921
+  - path: frontend/src/app/Services/socket-io.service.spec.ts
+    type: file
+    language: Unknown
+    size: 525
+  - path: frontend/src/app/Services/socket-io.service.ts
+    type: file
+    language: Unknown
+    size: 901
+  - path: frontend/src/app/Services/track-order.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1983
+  - path: frontend/src/app/Services/track-order.service.ts
+    type: file
+    language: Unknown
+    size: 772
+  - path: frontend/src/app/Services/two-factor-auth-service.spec.ts
+    type: file
+    language: Unknown
+    size: 5972
+  - path: frontend/src/app/Services/two-factor-auth-service.ts
+    type: file
+    language: Unknown
+    size: 1915
+  - path: frontend/src/app/Services/user.service.spec.ts
+    type: file
+    language: Unknown
+    size: 8652
+  - path: frontend/src/app/Services/user.service.ts
+    type: file
+    language: Unknown
+    size: 3051
+  - path: frontend/src/app/Services/vuln-lines.service.spec.ts
+    type: file
+    language: Unknown
+    size: 1940
+  - path: frontend/src/app/Services/vuln-lines.service.ts
+    type: file
+    language: Unknown
+    size: 735
+  - path: frontend/src/app/Services/wallet.service.spec.ts
+    type: file
+    language: Unknown
+    size: 3020
+  - path: frontend/src/app/Services/wallet.service.ts
+    type: file
+    language: Unknown
+    size: 848
+  - path: frontend/src/app/Services/window-ref.service.spec.ts
+    type: file
+    language: Unknown
+    size: 530
+  - path: frontend/src/app/Services/window-ref.service.ts
+    type: file
+    language: Unknown
+    size: 341
+  - path: frontend/src/app/about/about.component.html
+    type: file
+    language: Unknown
+    size: 6772
+  - path: frontend/src/app/about/about.component.scss
+    type: file
+    language: Unknown
+    size: 859
+  - path: frontend/src/app/about/about.component.spec.ts
+    type: file
+    language: Unknown
+    size: 12410
+  - path: frontend/src/app/about/about.component.ts
+    type: file
+    language: Unknown
+    size: 5296
+  - path: frontend/src/app/accounting/accounting.component.html
+    type: file
+    language: Unknown
+    size: 4908
+  - path: frontend/src/app/accounting/accounting.component.scss
+    type: file
+    language: Unknown
+    size: 1084
+  - path: frontend/src/app/accounting/accounting.component.spec.ts
+    type: file
+    language: Unknown
+    size: 16702
+  - path: frontend/src/app/accounting/accounting.component.ts
+    type: file
+    language: Unknown
+    size: 5695
+  - path: frontend/src/app/address-create/address-create.component.html
+    type: file
+    language: Unknown
+    size: 4922
+  - path: frontend/src/app/address-create/address-create.component.scss
+    type: file
+    language: Unknown
+    size: 1095
+  - path: frontend/src/app/address-create/address-create.component.spec.ts
+    type: file
+    language: Unknown
+    size: 11868
+  - path: frontend/src/app/address-create/address-create.component.ts
+    type: file
+    language: Unknown
+    size: 6196
+  - path: frontend/src/app/address-select/address-select.component.html
+    type: file
+    language: Unknown
+    size: 218
+  - path: frontend/src/app/address-select/address-select.component.scss
+    type: file
+    language: Unknown
+    size: 357
+  - path: frontend/src/app/address-select/address-select.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3701
+  - path: frontend/src/app/address-select/address-select.component.ts
+    type: file
+    language: Unknown
+    size: 783
+  - path: frontend/src/app/address/address.component.html
+    type: file
+    language: Unknown
+    size: 3679
+  - path: frontend/src/app/address/address.component.scss
+    type: file
+    language: Unknown
+    size: 1269
+  - path: frontend/src/app/address/address.component.spec.ts
+    type: file
+    language: Unknown
+    size: 11403
+  - path: frontend/src/app/address/address.component.ts
+    type: file
+    language: Unknown
+    size: 3951
+  - path: frontend/src/app/administration/administration.component.html
+    type: file
+    language: Unknown
+    size: 5000
+  - path: frontend/src/app/administration/administration.component.scss
+    type: file
+    language: Unknown
+    size: 2165
+  - path: frontend/src/app/administration/administration.component.spec.ts
+    type: file
+    language: Unknown
+    size: 7221
+  - path: frontend/src/app/administration/administration.component.ts
+    type: file
+    language: Unknown
+    size: 5254
+  - path: frontend/src/app/app.component.html
+    type: file
+    language: Unknown
+    size: 643
+  - path: frontend/src/app/app.component.scss
+    type: file
+    language: Unknown
+    size: 189
+  - path: frontend/src/app/app.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3283
+  - path: frontend/src/app/app.component.ts
+    type: file
+    language: Unknown
+    size: 1358
+  - path: frontend/src/app/app.guard.spec.ts
+    type: file
+    language: Unknown
+    size: 7889
+  - path: frontend/src/app/app.guard.ts
+    type: file
+    language: Unknown
+    size: 2015
+  - path: frontend/src/app/app.routing.ts
+    type: file
+    language: Unknown
+    size: 11870
+  - path: frontend/src/app/basket/basket.component.html
+    type: file
+    language: Unknown
+    size: 742
+  - path: frontend/src/app/basket/basket.component.scss
+    type: file
+    language: Unknown
+    size: 1070
+  - path: frontend/src/app/basket/basket.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5996
+  - path: frontend/src/app/basket/basket.component.ts
+    type: file
+    language: Unknown
+    size: 1634
+  - path: frontend/src/app/challenge-solved-notification/challenge-solved-notification.component.html
+    type: file
+    language: Unknown
+    size: 2239
+  - path: frontend/src/app/challenge-solved-notification/challenge-solved-notification.component.scss
+    type: file
+    language: Unknown
+    size: 1321
+  - path: frontend/src/app/challenge-solved-notification/challenge-solved-notification.component.spec.ts
+    type: file
+    language: Unknown
+    size: 19574
+  - path: frontend/src/app/challenge-solved-notification/challenge-solved-notification.component.ts
+    type: file
+    language: Unknown
+    size: 5901
+  - path: frontend/src/app/challenge-status-badge/challenge-status-badge.component.html
+    type: file
+    language: Unknown
+    size: 1676
+  - path: frontend/src/app/challenge-status-badge/challenge-status-badge.component.scss
+    type: file
+    language: Unknown
+    size: 235
+  - path: frontend/src/app/challenge-status-badge/challenge-status-badge.component.spec.ts
+    type: file
+    language: Unknown
+    size: 6569
+  - path: frontend/src/app/challenge-status-badge/challenge-status-badge.component.ts
+    type: file
+    language: Unknown
+    size: 1710
+  - path: frontend/src/app/change-password/change-password.component.html
+    type: file
+    language: Unknown
+    size: 4435
+  - path: frontend/src/app/change-password/change-password.component.scss
+    type: file
+    language: Unknown
+    size: 1014
+  - path: frontend/src/app/change-password/change-password.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5333
+  - path: frontend/src/app/change-password/change-password.component.ts
+    type: file
+    language: Unknown
+    size: 4141
+  - path: frontend/src/app/chatbot/chat-conversation/chat-conversation.component.html
+    type: file
+    language: Unknown
+    size: 2908
+  - path: frontend/src/app/chatbot/chat-conversation/chat-conversation.component.scss
+    type: file
+    language: Unknown
+    size: 3804
+  - path: frontend/src/app/chatbot/chat-conversation/chat-conversation.component.spec.ts
+    type: file
+    language: Unknown
+    size: 15572
+  - path: frontend/src/app/chatbot/chat-conversation/chat-conversation.component.ts
+    type: file
+    language: Unknown
+    size: 6058
+  - path: frontend/src/app/chatbot/chat-input-box/chat-input-box.component.html
+    type: file
+    language: Unknown
+    size: 726
+  - path: frontend/src/app/chatbot/chat-input-box/chat-input-box.component.scss
+    type: file
+    language: Unknown
+    size: 1130
+  - path: frontend/src/app/chatbot/chat-input-box/chat-input-box.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3262
+  - path: frontend/src/app/chatbot/chat-input-box/chat-input-box.component.ts
+    type: file
+    language: Unknown
+    size: 1409
+  - path: frontend/src/app/chatbot/chat-welcome-page/chat-welcome-page.component.ts
+    type: file
+    language: Unknown
+    size: 1258
+  - path: frontend/src/app/chatbot/chat-welcome-screen/chat-welcome-screen.component.html
+    type: file
+    language: Unknown
+    size: 2055
+  - path: frontend/src/app/chatbot/chat-welcome-screen/chat-welcome-screen.component.scss
+    type: file
+    language: Unknown
+    size: 3217
+  - path: frontend/src/app/chatbot/chat-welcome-screen/chat-welcome-screen.component.spec.ts
+    type: file
+    language: Unknown
+    size: 6701
+  - path: frontend/src/app/chatbot/chat-welcome-screen/chat-welcome-screen.component.ts
+    type: file
+    language: Unknown
+    size: 3466
+  - path: frontend/src/app/chatbot/chat.model.ts
+    type: file
+    language: Unknown
+    size: 497
+  - path: frontend/src/app/chatbot/chatbot.component.html
+    type: file
+    language: Unknown
+    size: 59
+  - path: frontend/src/app/chatbot/chatbot.component.scss
+    type: file
+    language: Unknown
+    size: 474
+  - path: frontend/src/app/chatbot/chatbot.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1229
+  - path: frontend/src/app/chatbot/chatbot.component.ts
+    type: file
+    language: Unknown
+    size: 495
+  - path: frontend/src/app/coding-challenge-page/coding-challenge-page.component.html
+    type: file
+    language: Unknown
+    size: 1680
+  - path: frontend/src/app/coding-challenge-page/coding-challenge-page.component.scss
+    type: file
+    language: Unknown
+    size: 1420
+  - path: frontend/src/app/coding-challenge-page/coding-challenge-page.component.spec.ts
+    type: file
+    language: Unknown
+    size: 17105
+  - path: frontend/src/app/coding-challenge-page/coding-challenge-page.component.ts
+    type: file
+    language: Unknown
+    size: 3497
+  - path: frontend/src/app/coding-challenge-page/coding-challenge.types.ts
+    type: file
+    language: Unknown
+    size: 255
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/coding-challenge-find-it.component.html
+    type: file
+    language: Unknown
+    size: 1132
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/coding-challenge-find-it.component.scss
+    type: file
+    language: Unknown
+    size: 1155
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/coding-challenge-find-it.component.spec.ts
+    type: file
+    language: Unknown
+    size: 13088
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/coding-challenge-find-it.component.ts
+    type: file
+    language: Unknown
+    size: 11896
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/format-selected-lines.spec.ts
+    type: file
+    language: Unknown
+    size: 1439
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-find-it/format-selected-lines.ts
+    type: file
+    language: Unknown
+    size: 710
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-fix-it/coding-challenge-fix-it.component.html
+    type: file
+    language: Unknown
+    size: 1582
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-fix-it/coding-challenge-fix-it.component.scss
+    type: file
+    language: Unknown
+    size: 1493
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-fix-it/coding-challenge-fix-it.component.spec.ts
+    type: file
+    language: Unknown
+    size: 7752
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-fix-it/coding-challenge-fix-it.component.ts
+    type: file
+    language: Unknown
+    size: 5030
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-section/coding-challenge-section.component.html
+    type: file
+    language: Unknown
+    size: 865
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-section/coding-challenge-section.component.scss
+    type: file
+    language: Unknown
+    size: 1409
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-section/coding-challenge-section.component.spec.ts
+    type: file
+    language: Unknown
+    size: 4844
+  - path: frontend/src/app/coding-challenge-page/components/coding-challenge-section/coding-challenge-section.component.ts
+    type: file
+    language: Unknown
+    size: 1603
+  - path: frontend/src/app/coding-challenge-page/helpers/handle-verdict.spec.ts
+    type: file
+    language: Unknown
+    size: 4864
+  - path: frontend/src/app/coding-challenge-page/helpers/handle-verdict.ts
+    type: file
+    language: Unknown
+    size: 1670
+  - path: frontend/src/app/complaint/complaint.component.html
+    type: file
+    language: Unknown
+    size: 3264
+  - path: frontend/src/app/complaint/complaint.component.scss
+    type: file
+    language: Unknown
+    size: 1061
+  - path: frontend/src/app/complaint/complaint.component.spec.ts
+    type: file
+    language: Unknown
+    size: 9044
+  - path: frontend/src/app/complaint/complaint.component.ts
+    type: file
+    language: Unknown
+    size: 4535
+  - path: frontend/src/app/contact/contact.component.html
+    type: file
+    language: Unknown
+    size: 3515
+  - path: frontend/src/app/contact/contact.component.scss
+    type: file
+    language: Unknown
+    size: 1987
+  - path: frontend/src/app/contact/contact.component.spec.ts
+    type: file
+    language: Unknown
+    size: 10288
+  - path: frontend/src/app/contact/contact.component.ts
+    type: file
+    language: Unknown
+    size: 5130
+  - path: frontend/src/app/ctf-system-wide-notification/ctf-system-wide-notification.component.html
+    type: file
+    language: Unknown
+    size: 545
+  - path: frontend/src/app/ctf-system-wide-notification/ctf-system-wide-notification.component.scss
+    type: file
+    language: Unknown
+    size: 508
+  - path: frontend/src/app/ctf-system-wide-notification/ctf-system-wide-notification.component.spec.ts
+    type: file
+    language: Unknown
+    size: 8204
+  - path: frontend/src/app/ctf-system-wide-notification/ctf-system-wide-notification.component.ts
+    type: file
+    language: Unknown
+    size: 2478
+  - path: frontend/src/app/data-export/data-export.component.html
+    type: file
+    language: Unknown
+    size: 2652
+  - path: frontend/src/app/data-export/data-export.component.scss
+    type: file
+    language: Unknown
+    size: 1037
+  - path: frontend/src/app/data-export/data-export.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5206
+  - path: frontend/src/app/data-export/data-export.component.ts
+    type: file
+    language: Unknown
+    size: 3754
+  - path: frontend/src/app/delivery-method/delivery-method.component.html
+    type: file
+    language: Unknown
+    size: 2921
+  - path: frontend/src/app/delivery-method/delivery-method.component.scss
+    type: file
+    language: Unknown
+    size: 896
+  - path: frontend/src/app/delivery-method/delivery-method.component.spec.ts
+    type: file
+    language: Unknown
+    size: 8556
+  - path: frontend/src/app/delivery-method/delivery-method.component.ts
+    type: file
+    language: Unknown
+    size: 3175
+  - path: frontend/src/app/deluxe-user/deluxe-user.component.html
+    type: file
+    language: Unknown
+    size: 1759
+  - path: frontend/src/app/deluxe-user/deluxe-user.component.scss
+    type: file
+    language: Unknown
+    size: 1316
+  - path: frontend/src/app/deluxe-user/deluxe-user.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5435
+  - path: frontend/src/app/deluxe-user/deluxe-user.component.ts
+    type: file
+    language: Unknown
+    size: 3232
+  - path: frontend/src/app/error-page/error-page.component.html
+    type: file
+    language: Unknown
+    size: 382
+  - path: frontend/src/app/error-page/error-page.component.scss
+    type: file
+    language: Unknown
+    size: 176
+  - path: frontend/src/app/error-page/error-page.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1290
+  - path: frontend/src/app/error-page/error-page.component.ts
+    type: file
+    language: Unknown
+    size: 1290
+  - path: frontend/src/app/faucet/faucet.component.html
+    type: file
+    language: Unknown
+    size: 2659
+  - path: frontend/src/app/faucet/faucet.component.scss
+    type: file
+    language: Unknown
+    size: 2731
+  - path: frontend/src/app/faucet/faucet.component.ts
+    type: file
+    language: Unknown
+    size: 9770
+  - path: frontend/src/app/faucet/faucet.module.ts
+    type: file
+    language: Unknown
+    size: 1531
+  - path: frontend/src/app/feedback-details/feedback-details.component.html
+    type: file
+    language: Unknown
+    size: 907
+  - path: frontend/src/app/feedback-details/feedback-details.component.scss
+    type: file
+    language: Unknown
+    size: 567
+  - path: frontend/src/app/feedback-details/feedback-details.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1674
+  - path: frontend/src/app/feedback-details/feedback-details.component.ts
+    type: file
+    language: Unknown
+    size: 1121
+  - path: frontend/src/app/forgot-password/forgot-password.component.html
+    type: file
+    language: Unknown
+    size: 6245
+  - path: frontend/src/app/forgot-password/forgot-password.component.scss
+    type: file
+    language: Unknown
+    size: 1250
+  - path: frontend/src/app/forgot-password/forgot-password.component.spec.ts
+    type: file
+    language: Unknown
+    size: 8514
+  - path: frontend/src/app/forgot-password/forgot-password.component.ts
+    type: file
+    language: Unknown
+    size: 6051
+  - path: frontend/src/app/last-login-ip/last-login-ip.component.html
+    type: file
+    language: Unknown
+    size: 356
+  - path: frontend/src/app/last-login-ip/last-login-ip.component.scss
+    type: file
+    language: Unknown
+    size: 418
+  - path: frontend/src/app/last-login-ip/last-login-ip.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3127
+  - path: frontend/src/app/last-login-ip/last-login-ip.component.ts
+    type: file
+    language: Unknown
+    size: 1218
+  - path: frontend/src/app/login/login.component.html
+    type: file
+    language: Unknown
+    size: 3585
+  - path: frontend/src/app/login/login.component.scss
+    type: file
+    language: Unknown
+    size: 1136
+  - path: frontend/src/app/login/login.component.spec.ts
+    type: file
+    language: Unknown
+    size: 14623
+  - path: frontend/src/app/login/login.component.ts
+    type: file
+    language: Unknown
+    size: 6246
+  - path: frontend/src/app/mat-search-bar/abstract-value-accessor.ts
+    type: file
+    language: Unknown
+    size: 1026
+  - path: frontend/src/app/mat-search-bar/mat-search-bar.component.html
+    type: file
+    language: Unknown
+    size: 783
+  - path: frontend/src/app/mat-search-bar/mat-search-bar.component.scss
+    type: file
+    language: Unknown
+    size: 1279
+  - path: frontend/src/app/mat-search-bar/mat-search-bar.component.spec.ts
+    type: file
+    language: Unknown
+    size: 6278
+  - path: frontend/src/app/mat-search-bar/mat-search-bar.component.ts
+    type: file
+    language: Unknown
+    size: 2275
+  - path: frontend/src/app/navbar/navbar.component.html
+    type: file
+    language: Unknown
+    size: 8303
+  - path: frontend/src/app/navbar/navbar.component.scss
+    type: file
+    language: Unknown
+    size: 2988
+  - path: frontend/src/app/navbar/navbar.component.spec.ts
+    type: file
+    language: Unknown
+    size: 24653
+  - path: frontend/src/app/navbar/navbar.component.ts
+    type: file
+    language: Unknown
+    size: 10102
+  - path: frontend/src/app/nft-unlock/nft-unlock.component.html
+    type: file
+    language: Unknown
+    size: 2661
+  - path: frontend/src/app/nft-unlock/nft-unlock.component.scss
+    type: file
+    language: Unknown
+    size: 1810
+  - path: frontend/src/app/nft-unlock/nft-unlock.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5597
+  - path: frontend/src/app/nft-unlock/nft-unlock.component.ts
+    type: file
+    language: Unknown
+    size: 2128
+  - path: frontend/src/app/oauth/oauth.component.html
+    type: file
+    language: Unknown
+    size: 390
+  - path: frontend/src/app/oauth/oauth.component.scss
+    type: file
+    language: Unknown
+    size: 276
+  - path: frontend/src/app/oauth/oauth.component.spec.ts
+    type: file
+    language: Unknown
+    size: 4688
+  - path: frontend/src/app/oauth/oauth.component.ts
+    type: file
+    language: Unknown
+    size: 2837
+  - path: frontend/src/app/order-completion/order-completion.component.html
+    type: file
+    language: Unknown
+    size: 4649
+  - path: frontend/src/app/order-completion/order-completion.component.scss
+    type: file
+    language: Unknown
+    size: 1219
+  - path: frontend/src/app/order-completion/order-completion.component.spec.ts
+    type: file
+    language: Unknown
+    size: 8819
+  - path: frontend/src/app/order-completion/order-completion.component.ts
+    type: file
+    language: Unknown
+    size: 4977
+  - path: frontend/src/app/order-history/order-history.component.html
+    type: file
+    language: Unknown
+    size: 5120
+  - path: frontend/src/app/order-history/order-history.component.scss
+    type: file
+    language: Unknown
+    size: 2381
+  - path: frontend/src/app/order-history/order-history.component.spec.ts
+    type: file
+    language: Unknown
+    size: 11364
+  - path: frontend/src/app/order-history/order-history.component.ts
+    type: file
+    language: Unknown
+    size: 4318
+  - path: frontend/src/app/order-summary/order-summary.component.html
+    type: file
+    language: Unknown
+    size: 3763
+  - path: frontend/src/app/order-summary/order-summary.component.scss
+    type: file
+    language: Unknown
+    size: 2197
+  - path: frontend/src/app/order-summary/order-summary.component.spec.ts
+    type: file
+    language: Unknown
+    size: 7307
+  - path: frontend/src/app/order-summary/order-summary.component.ts
+    type: file
+    language: Unknown
+    size: 3858
+  - path: frontend/src/app/password-strength-info/password-strength-info.component.html
+    type: file
+    language: Unknown
+    size: 1753
+  - path: frontend/src/app/password-strength-info/password-strength-info.component.scss
+    type: file
+    language: Unknown
+    size: 863
+  - path: frontend/src/app/password-strength-info/password-strength-info.component.spec.ts
+    type: file
+    language: Unknown
+    size: 4497
+  - path: frontend/src/app/password-strength-info/password-strength-info.component.ts
+    type: file
+    language: Unknown
+    size: 1367
+  - path: frontend/src/app/password-strength/password-strength.component.html
+    type: file
+    language: Unknown
+    size: 277
+  - path: frontend/src/app/password-strength/password-strength.component.scss
+    type: file
+    language: Unknown
+    size: 520
+  - path: frontend/src/app/password-strength/password-strength.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3252
+  - path: frontend/src/app/password-strength/password-strength.component.ts
+    type: file
+    language: Unknown
+    size: 2049
+  - path: frontend/src/app/payment-method/payment-method.component.html
+    type: file
+    language: Unknown
+    size: 4698
+  - path: frontend/src/app/payment-method/payment-method.component.scss
+    type: file
+    language: Unknown
+    size: 1256
+  - path: frontend/src/app/payment-method/payment-method.component.spec.ts
+    type: file
+    language: Unknown
+    size: 13218
+  - path: frontend/src/app/payment-method/payment-method.component.ts
+    type: file
+    language: Unknown
+    size: 5375
+  - path: frontend/src/app/payment/payment.component.html
+    type: file
+    language: Unknown
+    size: 7512
+  - path: frontend/src/app/payment/payment.component.scss
+    type: file
+    language: Unknown
+    size: 2118
+  - path: frontend/src/app/payment/payment.component.spec.ts
+    type: file
+    language: Unknown
+    size: 23315
+  - path: frontend/src/app/payment/payment.component.ts
+    type: file
+    language: Unknown
+    size: 11462
+  - path: frontend/src/app/photo-wall/mime-type.validator.spec.ts
+    type: file
+    language: Unknown
+    size: 2200
+  - path: frontend/src/app/photo-wall/mime-type.validator.ts
+    type: file
+    language: Unknown
+    size: 1440
+  - path: frontend/src/app/photo-wall/photo-wall.component.html
+    type: file
+    language: Unknown
+    size: 4202
+  - path: frontend/src/app/photo-wall/photo-wall.component.scss
+    type: file
+    language: Unknown
+    size: 2395
+  - path: frontend/src/app/photo-wall/photo-wall.component.spec.ts
+    type: file
+    language: Unknown
+    size: 14630
+  - path: frontend/src/app/photo-wall/photo-wall.component.ts
+    type: file
+    language: Unknown
+    size: 5379
+  - path: frontend/src/app/privacy-policy/privacy-policy.component.html
+    type: file
+    language: Unknown
+    size: 9283
+  - path: frontend/src/app/privacy-policy/privacy-policy.component.scss
+    type: file
+    language: Unknown
+    size: 1030
+  - path: frontend/src/app/privacy-policy/privacy-policy.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2724
+  - path: frontend/src/app/privacy-policy/privacy-policy.component.ts
+    type: file
+    language: Unknown
+    size: 1698
+  - path: frontend/src/app/privacy-security/privacy-security.component.html
+    type: file
+    language: Unknown
+    size: 159
+  - path: frontend/src/app/privacy-security/privacy-security.component.scss
+    type: file
+    language: Unknown
+    size: 122
+  - path: frontend/src/app/privacy-security/privacy-security.component.spec.ts
+    type: file
+    language: Unknown
+    size: 944
+  - path: frontend/src/app/privacy-security/privacy-security.component.ts
+    type: file
+    language: Unknown
+    size: 509
+  - path: frontend/src/app/product-details/product-details.component.html
+    type: file
+    language: Unknown
+    size: 4619
+  - path: frontend/src/app/product-details/product-details.component.scss
+    type: file
+    language: Unknown
+    size: 2273
+  - path: frontend/src/app/product-details/product-details.component.spec.ts
+    type: file
+    language: Unknown
+    size: 10997
+  - path: frontend/src/app/product-details/product-details.component.ts
+    type: file
+    language: Unknown
+    size: 4534
+  - path: frontend/src/app/product-review-edit/product-review-edit.component.html
+    type: file
+    language: Unknown
+    size: 1484
+  - path: frontend/src/app/product-review-edit/product-review-edit.component.scss
+    type: file
+    language: Unknown
+    size: 303
+  - path: frontend/src/app/product-review-edit/product-review-edit.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3912
+  - path: frontend/src/app/product-review-edit/product-review-edit.component.ts
+    type: file
+    language: Unknown
+    size: 2575
+  - path: frontend/src/app/product/product.component.html
+    type: file
+    language: Unknown
+    size: 2156
+  - path: frontend/src/app/product/product.component.scss
+    type: file
+    language: Unknown
+    size: 2150
+  - path: frontend/src/app/product/product.component.spec.ts
+    type: file
+    language: Unknown
+    size: 15405
+  - path: frontend/src/app/product/product.component.ts
+    type: file
+    language: Unknown
+    size: 6999
+  - path: frontend/src/app/purchase-basket/purchase-basket.component.html
+    type: file
+    language: Unknown
+    size: 2811
+  - path: frontend/src/app/purchase-basket/purchase-basket.component.scss
+    type: file
+    language: Unknown
+    size: 3276
+  - path: frontend/src/app/purchase-basket/purchase-basket.component.spec.ts
+    type: file
+    language: Unknown
+    size: 19233
+  - path: frontend/src/app/purchase-basket/purchase-basket.component.ts
+    type: file
+    language: Unknown
+    size: 6753
+  - path: frontend/src/app/qr-code/qr-code.component.html
+    type: file
+    language: Unknown
+    size: 652
+  - path: frontend/src/app/qr-code/qr-code.component.scss
+    type: file
+    language: Unknown
+    size: 273
+  - path: frontend/src/app/qr-code/qr-code.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1688
+  - path: frontend/src/app/qr-code/qr-code.component.ts
+    type: file
+    language: Unknown
+    size: 1325
+  - path: frontend/src/app/recycle/recycle.component.html
+    type: file
+    language: Unknown
+    size: 3795
+  - path: frontend/src/app/recycle/recycle.component.scss
+    type: file
+    language: Unknown
+    size: 1712
+  - path: frontend/src/app/recycle/recycle.component.spec.ts
+    type: file
+    language: Unknown
+    size: 10324
+  - path: frontend/src/app/recycle/recycle.component.ts
+    type: file
+    language: Unknown
+    size: 5670
+  - path: frontend/src/app/register/register.component.html
+    type: file
+    language: Unknown
+    size: 6761
+  - path: frontend/src/app/register/register.component.scss
+    type: file
+    language: Unknown
+    size: 821
+  - path: frontend/src/app/register/register.component.spec.ts
+    type: file
+    language: Unknown
+    size: 9405
+  - path: frontend/src/app/register/register.component.ts
+    type: file
+    language: Unknown
+    size: 5192
+  - path: frontend/src/app/roles.ts
+    type: file
+    language: Unknown
+    size: 235
+  - path: frontend/src/app/saved-address/saved-address.component.html
+    type: file
+    language: Unknown
+    size: 212
+  - path: frontend/src/app/saved-address/saved-address.component.scss
+    type: file
+    language: Unknown
+    size: 236
+  - path: frontend/src/app/saved-address/saved-address.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2596
+  - path: frontend/src/app/saved-address/saved-address.component.ts
+    type: file
+    language: Unknown
+    size: 520
+  - path: frontend/src/app/saved-payment-methods/saved-payment-methods.component.html
+    type: file
+    language: Unknown
+    size: 311
+  - path: frontend/src/app/saved-payment-methods/saved-payment-methods.component.scss
+    type: file
+    language: Unknown
+    size: 338
+  - path: frontend/src/app/saved-payment-methods/saved-payment-methods.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3034
+  - path: frontend/src/app/saved-payment-methods/saved-payment-methods.component.ts
+    type: file
+    language: Unknown
+    size: 647
+  - path: frontend/src/app/score-board/components/challenge-card/challenge-card.component.html
+    type: file
+    language: Unknown
+    size: 5061
+  - path: frontend/src/app/score-board/components/challenge-card/challenge-card.component.scss
+    type: file
+    language: Unknown
+    size: 4036
+  - path: frontend/src/app/score-board/components/challenge-card/challenge-card.component.spec.ts
+    type: file
+    language: Unknown
+    size: 17745
+  - path: frontend/src/app/score-board/components/challenge-card/challenge-card.component.ts
+    type: file
+    language: Unknown
+    size: 3855
+  - path: frontend/src/app/score-board/components/challenges-unavailable-warning/challenges-unavailable-warning.component.html
+    type: file
+    language: Unknown
+    size: 1097
+  - path: frontend/src/app/score-board/components/challenges-unavailable-warning/challenges-unavailable-warning.component.scss
+    type: file
+    language: Unknown
+    size: 221
+  - path: frontend/src/app/score-board/components/challenges-unavailable-warning/challenges-unavailable-warning.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3859
+  - path: frontend/src/app/score-board/components/challenges-unavailable-warning/challenges-unavailable-warning.component.ts
+    type: file
+    language: Unknown
+    size: 1900
+  - path: frontend/src/app/score-board/components/coding-challenge-progress-score-card/coding-challenge-progress-score-card.component.html
+    type: file
+    language: Unknown
+    size: 4085
+  - path: frontend/src/app/score-board/components/coding-challenge-progress-score-card/coding-challenge-progress-score-card.component.scss
+    type: file
+    language: Unknown
+    size: 103
+  - path: frontend/src/app/score-board/components/coding-challenge-progress-score-card/coding-challenge-progress-score-card.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1010
+  - path: frontend/src/app/score-board/components/coding-challenge-progress-score-card/coding-challenge-progress-score-card.component.ts
+    type: file
+    language: Unknown
+    size: 1162
+  - path: frontend/src/app/score-board/components/difficulty-overview-score-card/difficulty-overview-score-card.component.html
+    type: file
+    language: Unknown
+    size: 2332
+  - path: frontend/src/app/score-board/components/difficulty-overview-score-card/difficulty-overview-score-card.component.scss
+    type: file
+    language: Unknown
+    size: 1271
+  - path: frontend/src/app/score-board/components/difficulty-overview-score-card/difficulty-overview-score-card.component.spec.ts
+    type: file
+    language: Unknown
+    size: 4119
+  - path: frontend/src/app/score-board/components/difficulty-overview-score-card/difficulty-overview-score-card.component.ts
+    type: file
+    language: Unknown
+    size: 2825
+  - path: frontend/src/app/score-board/components/difficulty-stars/difficulty-stars.component.html
+    type: file
+    language: Unknown
+    size: 421
+  - path: frontend/src/app/score-board/components/difficulty-stars/difficulty-stars.component.scss
+    type: file
+    language: Unknown
+    size: 27
+  - path: frontend/src/app/score-board/components/difficulty-stars/difficulty-stars.component.ts
+    type: file
+    language: Unknown
+    size: 397
+  - path: frontend/src/app/score-board/components/filter-settings/components/category-filter/category-filter.component.html
+    type: file
+    language: Unknown
+    size: 475
+  - path: frontend/src/app/score-board/components/filter-settings/components/category-filter/category-filter.component.scss
+    type: file
+    language: Unknown
+    size: 715
+  - path: frontend/src/app/score-board/components/filter-settings/components/category-filter/category-filter.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2425
+  - path: frontend/src/app/score-board/components/filter-settings/components/category-filter/category-filter.component.ts
+    type: file
+    language: Unknown
+    size: 1966
+  - path: frontend/src/app/score-board/components/filter-settings/components/score-board-additional-settings-dialog/score-board-additional-settings-dialog.component.html
+    type: file
+    language: Unknown
+    size: 1207
+  - path: frontend/src/app/score-board/components/filter-settings/components/score-board-additional-settings-dialog/score-board-additional-settings-dialog.component.scss
+    type: file
+    language: Unknown
+    size: 1183
+  - path: frontend/src/app/score-board/components/filter-settings/components/score-board-additional-settings-dialog/score-board-additional-settings-dialog.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1327
+  - path: frontend/src/app/score-board/components/filter-settings/components/score-board-additional-settings-dialog/score-board-additional-settings-dialog.component.ts
+    type: file
+    language: Unknown
+    size: 963
+  - path: frontend/src/app/score-board/components/filter-settings/filter-settings.component.html
+    type: file
+    language: Unknown
+    size: 4344
+  - path: frontend/src/app/score-board/components/filter-settings/filter-settings.component.scss
+    type: file
+    language: Unknown
+    size: 1503
+  - path: frontend/src/app/score-board/components/filter-settings/filter-settings.component.spec.ts
+    type: file
+    language: Unknown
+    size: 6792
+  - path: frontend/src/app/score-board/components/filter-settings/filter-settings.component.ts
+    type: file
+    language: Unknown
+    size: 4242
+  - path: frontend/src/app/score-board/components/filter-settings/pipes/difficulty-selection-summary.pipe.spec.ts
+    type: file
+    language: Unknown
+    size: 754
+  - path: frontend/src/app/score-board/components/filter-settings/pipes/difficulty-selection-summary.pipe.ts
+    type: file
+    language: Unknown
+    size: 1597
+  - path: frontend/src/app/score-board/components/hacking-challenge-progress-score-card/hacking-challenge-progress-score-card.component.html
+    type: file
+    language: Unknown
+    size: 2304
+  - path: frontend/src/app/score-board/components/hacking-challenge-progress-score-card/hacking-challenge-progress-score-card.component.scss
+    type: file
+    language: Unknown
+    size: 103
+  - path: frontend/src/app/score-board/components/hacking-challenge-progress-score-card/hacking-challenge-progress-score-card.component.spec.ts
+    type: file
+    language: Unknown
+    size: 1001
+  - path: frontend/src/app/score-board/components/hacking-challenge-progress-score-card/hacking-challenge-progress-score-card.component.ts
+    type: file
+    language: Unknown
+    size: 834
+  - path: frontend/src/app/score-board/components/score-card/score-card.component.html
+    type: file
+    language: Unknown
+    size: 546
+  - path: frontend/src/app/score-board/components/score-card/score-card.component.scss
+    type: file
+    language: Unknown
+    size: 1081
+  - path: frontend/src/app/score-board/components/score-card/score-card.component.spec.ts
+    type: file
+    language: Unknown
+    size: 820
+  - path: frontend/src/app/score-board/components/score-card/score-card.component.ts
+    type: file
+    language: Unknown
+    size: 606
+  - path: frontend/src/app/score-board/components/tutorial-mode-warning/tutorial-mode-warning.component.html
+    type: file
+    language: Unknown
+    size: 264
+  - path: frontend/src/app/score-board/components/tutorial-mode-warning/tutorial-mode-warning.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2333
+  - path: frontend/src/app/score-board/components/tutorial-mode-warning/tutorial-mode-warning.component.ts
+    type: file
+    language: Unknown
+    size: 1102
+  - path: frontend/src/app/score-board/components/warning-card/warning-card.component.html
+    type: file
+    language: Unknown
+    size: 342
+  - path: frontend/src/app/score-board/components/warning-card/warning-card.component.scss
+    type: file
+    language: Unknown
+    size: 663
+  - path: frontend/src/app/score-board/components/warning-card/warning-card.component.ts
+    type: file
+    language: Unknown
+    size: 314
+  - path: frontend/src/app/score-board/filter-settings/FilterSetting.ts
+    type: file
+    language: Unknown
+    size: 1088
+  - path: frontend/src/app/score-board/filter-settings/query-params-converters.ts
+    type: file
+    language: Unknown
+    size: 1519
+  - path: frontend/src/app/score-board/filter-settings/query-params-coverter.spec.ts
+    type: file
+    language: Unknown
+    size: 3415
+  - path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    type: file
+    language: Unknown
+    size: 14983
+  - path: frontend/src/app/score-board/helpers/challenge-filtering.ts
+    type: file
+    language: Unknown
+    size: 3807
+  - path: frontend/src/app/score-board/helpers/challenge-sorting.spec.ts
+    type: file
+    language: Unknown
+    size: 2715
+  - path: frontend/src/app/score-board/helpers/challenge-sorting.ts
+    type: file
+    language: Unknown
+    size: 271
+  - path: frontend/src/app/score-board/score-board.component.html
+    type: file
+    language: Unknown
+    size: 1871
+  - path: frontend/src/app/score-board/score-board.component.scss
+    type: file
+    language: Unknown
+    size: 1702
+  - path: frontend/src/app/score-board/score-board.component.spec.ts
+    type: file
+    language: Unknown
+    size: 10925
+  - path: frontend/src/app/score-board/score-board.component.ts
+    type: file
+    language: Unknown
+    size: 8208
+  - path: frontend/src/app/score-board/types/EnrichedChallenge.ts
+    type: file
+    language: Unknown
+    size: 257
+  - path: frontend/src/app/search-result/search-result.component.html
+    type: file
+    language: Unknown
+    size: 1628
+  - path: frontend/src/app/search-result/search-result.component.scss
+    type: file
+    language: Unknown
+    size: 1268
+  - path: frontend/src/app/search-result/search-result.component.spec.ts
+    type: file
+    language: Unknown
+    size: 19680
+  - path: frontend/src/app/search-result/search-result.component.ts
+    type: file
+    language: Unknown
+    size: 8326
+  - path: frontend/src/app/server-started-notification/server-started-notification.component.html
+    type: file
+    language: Unknown
+    size: 832
+  - path: frontend/src/app/server-started-notification/server-started-notification.component.scss
+    type: file
+    language: Unknown
+    size: 247
+  - path: frontend/src/app/server-started-notification/server-started-notification.component.spec.ts
+    type: file
+    language: Unknown
+    size: 7825
+  - path: frontend/src/app/server-started-notification/server-started-notification.component.ts
+    type: file
+    language: Unknown
+    size: 4276
+  - path: frontend/src/app/shared/codemirror-extensions.spec.ts
+    type: file
+    language: Unknown
+    size: 2880
+  - path: frontend/src/app/shared/codemirror-extensions.ts
+    type: file
+    language: Unknown
+    size: 1187
+  - path: frontend/src/app/shared/codemirror-theme.ts
+    type: file
+    language: Unknown
+    size: 3405
+  - path: frontend/src/app/sidenav/sidenav.component.html
+    type: file
+    language: Unknown
+    size: 10995
+  - path: frontend/src/app/sidenav/sidenav.component.scss
+    type: file
+    language: Unknown
+    size: 2056
+  - path: frontend/src/app/sidenav/sidenav.component.spec.ts
+    type: file
+    language: Unknown
+    size: 23382
+  - path: frontend/src/app/sidenav/sidenav.component.ts
+    type: file
+    language: Unknown
+    size: 5768
+  - path: frontend/src/app/token-sale/token-sale.component.html
+    type: file
+    language: Unknown
+    size: 7704
+  - path: frontend/src/app/token-sale/token-sale.component.scss
+    type: file
+    language: Unknown
+    size: 1968
+  - path: frontend/src/app/token-sale/token-sale.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2209
+  - path: frontend/src/app/token-sale/token-sale.component.ts
+    type: file
+    language: Unknown
+    size: 1712
+  - path: frontend/src/app/track-result/track-result.component.html
+    type: file
+    language: Unknown
+    size: 3445
+  - path: frontend/src/app/track-result/track-result.component.scss
+    type: file
+    language: Unknown
+    size: 1128
+  - path: frontend/src/app/track-result/track-result.component.spec.ts
+    type: file
+    language: Unknown
+    size: 6904
+  - path: frontend/src/app/track-result/track-result.component.ts
+    type: file
+    language: Unknown
+    size: 2728
+  - path: frontend/src/app/two-factor-auth-enter/two-factor-auth-enter.component.html
+    type: file
+    language: Unknown
+    size: 1808
+  - path: frontend/src/app/two-factor-auth-enter/two-factor-auth-enter.component.scss
+    type: file
+    language: Unknown
+    size: 477
+  - path: frontend/src/app/two-factor-auth-enter/two-factor-auth-enter.component.spec.ts
+    type: file
+    language: Unknown
+    size: 5006
+  - path: frontend/src/app/two-factor-auth-enter/two-factor-auth-enter.component.ts
+    type: file
+    language: Unknown
+    size: 3055
+  - path: frontend/src/app/two-factor-auth/two-factor-auth.component.html
+    type: file
+    language: Unknown
+    size: 4271
+  - path: frontend/src/app/two-factor-auth/two-factor-auth.component.scss
+    type: file
+    language: Unknown
+    size: 803
+  - path: frontend/src/app/two-factor-auth/two-factor-auth.component.spec.ts
+    type: file
+    language: Unknown
+    size: 12040
+  - path: frontend/src/app/two-factor-auth/two-factor-auth.component.ts
+    type: file
+    language: Unknown
+    size: 4611
+  - path: frontend/src/app/user-details/user-details.component.html
+    type: file
+    language: Unknown
+    size: 1226
+  - path: frontend/src/app/user-details/user-details.component.scss
+    type: file
+    language: Unknown
+    size: 454
+  - path: frontend/src/app/user-details/user-details.component.spec.ts
+    type: file
+    language: Unknown
+    size: 2305
+  - path: frontend/src/app/user-details/user-details.component.ts
+    type: file
+    language: Unknown
+    size: 1441
+  - path: frontend/src/app/wallet-web3/wallet-web3.component.html
+    type: file
+    language: Unknown
+    size: 2085
+  - path: frontend/src/app/wallet-web3/wallet-web3.component.scss
+    type: file
+    language: Unknown
+    size: 997
+  - path: frontend/src/app/wallet-web3/wallet-web3.component.ts
+    type: file
+    language: Unknown
+    size: 5706
+  - path: frontend/src/app/wallet-web3/wallet-web3.module.ts
+    type: file
+    language: Unknown
+    size: 1570
+  - path: frontend/src/app/wallet/wallet.component.html
+    type: file
+    language: Unknown
+    size: 1506
+  - path: frontend/src/app/wallet/wallet.component.scss
+    type: file
+    language: Unknown
+    size: 892
+  - path: frontend/src/app/wallet/wallet.component.spec.ts
+    type: file
+    language: Unknown
+    size: 4237
+  - path: frontend/src/app/wallet/wallet.component.ts
+    type: file
+    language: Unknown
+    size: 1879
+  - path: frontend/src/app/web3-sandbox/web3-sandbox.component.html
+    type: file
+    language: Unknown
+    size: 5202
+  - path: frontend/src/app/web3-sandbox/web3-sandbox.component.scss
+    type: file
+    language: Unknown
+    size: 2295
+  - path: frontend/src/app/web3-sandbox/web3-sandbox.component.ts
+    type: file
+    language: Unknown
+    size: 10652
+  - path: frontend/src/app/web3-sandbox/web3-sandbox.module.ts
+    type: file
+    language: Unknown
+    size: 1575
+  - path: frontend/src/app/welcome-banner/welcome-banner.component.html
+    type: file
+    language: Unknown
+    size: 906
+  - path: frontend/src/app/welcome-banner/welcome-banner.component.scss
+    type: file
+    language: Unknown
+    size: 1140
+  - path: frontend/src/app/welcome-banner/welcome-banner.component.spec.ts
+    type: file
+    language: Unknown
+    size: 7335
+  - path: frontend/src/app/welcome-banner/welcome-banner.component.ts
+    type: file
+    language: Unknown
+    size: 3409
+  - path: frontend/src/app/welcome/welcome.component.html
+    type: file
+    language: Unknown
+    size: 139
+  - path: frontend/src/app/welcome/welcome.component.scss
+    type: file
+    language: Unknown
+    size: 301
+  - path: frontend/src/app/welcome/welcome.component.spec.ts
+    type: file
+    language: Unknown
+    size: 3499
+  - path: frontend/src/app/welcome/welcome.component.ts
+    type: file
+    language: Unknown
+    size: 1624
+  - path: frontend/src/assets/i18n/ar_SA.json
+    type: file
+    language: Unknown
+    size: 40088
+  - path: frontend/src/assets/i18n/az_AZ.json
+    type: file
+    language: Unknown
+    size: 38272
+  - path: frontend/src/assets/i18n/bg_BG.json
+    type: file
+    language: Unknown
+    size: 38555
+  - path: frontend/src/assets/i18n/bn_BD.json
+    type: file
+    language: Unknown
+    size: 35467
+  - path: frontend/src/assets/i18n/ca_ES.json
+    type: file
+    language: Unknown
+    size: 35708
+  - path: frontend/src/assets/i18n/cs_CZ.json
+    type: file
+    language: Unknown
+    size: 37095
+  - path: frontend/src/assets/i18n/da_DK.json
+    type: file
+    language: Unknown
+    size: 36546
+  - path: frontend/src/assets/i18n/de_CH.json
+    type: file
+    language: Unknown
+    size: 39466
+  - path: frontend/src/assets/i18n/de_DE.json
+    type: file
+    language: Unknown
+    size: 39597
+  - path: frontend/src/assets/i18n/el_GR.json
+    type: file
+    language: Unknown
+    size: 41579
+  - path: frontend/src/assets/i18n/en.json
+    type: file
+    language: Unknown
+    size: 35465
+  - path: frontend/src/assets/i18n/es_ES.json
+    type: file
+    language: Unknown
+    size: 38472
+  - path: frontend/src/assets/i18n/et_EE.json
+    type: file
+    language: Unknown
+    size: 35847
+  - path: frontend/src/assets/i18n/fa_IR.json
+    type: file
+    language: Unknown
+    size: 39135
+  - path: frontend/src/assets/i18n/fi_FI.json
+    type: file
+    language: Unknown
+    size: 36106
+  - path: frontend/src/assets/i18n/fr_FR.json
+    type: file
+    language: Unknown
+    size: 39503
+  - path: frontend/src/assets/i18n/ga_IE.json
+    type: file
+    language: Unknown
+    size: 35459
+  - path: frontend/src/assets/i18n/he_IL.json
+    type: file
+    language: Unknown
+    size: 38095
+  - path: frontend/src/assets/i18n/hi_IN.json
+    type: file
+    language: Unknown
+    size: 40461
+  - path: frontend/src/assets/i18n/hu_HU.json
+    type: file
+    language: Unknown
+    size: 35593
+  - path: frontend/src/assets/i18n/id_ID.json
+    type: file
+    language: Unknown
+    size: 35698
+  - path: frontend/src/assets/i18n/it_IT.json
+    type: file
+    language: Unknown
+    size: 37010
+  - path: frontend/src/assets/i18n/ja_JP.json
+    type: file
+    language: Unknown
+    size: 44824
+  - path: frontend/src/assets/i18n/ka_GE.json
+    type: file
+    language: Unknown
+    size: 42017
+  - path: frontend/src/assets/i18n/ko_KR.json
+    type: file
+    language: Unknown
+    size: 39514
+  - path: frontend/src/assets/i18n/lv_LV.json
+    type: file
+    language: Unknown
+    size: 35792
+  - path: frontend/src/assets/i18n/my_MM.json
+    type: file
+    language: Unknown
+    size: 39669
+  - path: frontend/src/assets/i18n/nl_NL.json
+    type: file
+    language: Unknown
+    size: 37161
+  - path: frontend/src/assets/i18n/no_NO.json
+    type: file
+    language: Unknown
+    size: 35567
+  - path: frontend/src/assets/i18n/pl_PL.json
+    type: file
+    language: Unknown
+    size: 38549
+  - path: frontend/src/assets/i18n/pt_BR.json
+    type: file
+    language: Unknown
+    size: 37503
+  - path: frontend/src/assets/i18n/pt_PT.json
+    type: file
+    language: Unknown
+    size: 37524
+  - path: frontend/src/assets/i18n/ro_RO.json
+    type: file
+    language: Unknown
+    size: 39970
+  - path: frontend/src/assets/i18n/ru_RU.json
+    type: file
+    language: Unknown
+    size: 51576
+  - path: frontend/src/assets/i18n/si_LK.json
+    type: file
+    language: Unknown
+    size: 35589
+  - path: frontend/src/assets/i18n/sv_SE.json
+    type: file
+    language: Unknown
+    size: 36065
+  - path: frontend/src/assets/i18n/th_TH.json
+    type: file
+    language: Unknown
+    size: 45347
+  - path: frontend/src/assets/i18n/tlh_AA.json
+    type: file
+    language: Unknown
+    size: 35076
+  - path: frontend/src/assets/i18n/tr_TR.json
+    type: file
+    language: Unknown
+    size: 38158
+  - path: frontend/src/assets/i18n/uk_UA.json
+    type: file
+    language: Unknown
+    size: 35474
+  - path: frontend/src/assets/i18n/zh_CN.json
+    type: file
+    language: Unknown
+    size: 33213
+  - path: frontend/src/assets/i18n/zh_HK.json
+    type: file
+    language: Unknown
+    size: 35270
+  - path: frontend/src/assets/i18n/zh_TW.json
+    type: file
+    language: Unknown
+    size: 33713
+  - path: frontend/src/assets/private/CopyShader.js
+    type: file
+    language: Unknown
+    size: 640
+  - path: frontend/src/assets/private/EffectComposer.js
+    type: file
+    language: Unknown
+    size: 2900
+  - path: frontend/src/assets/private/JuiceShop_Wallpaper_1920x1080_VR.jpg
+    type: file
+    language: Unknown
+    size: 77834
+  - path: frontend/src/assets/private/MaskPass.js
+    type: file
+    language: Unknown
+    size: 1622
+  - path: frontend/src/assets/private/OrbitControls.js
+    type: file
+    language: Unknown
+    size: 16931
+  - path: frontend/src/assets/private/RenderPass.js
+    type: file
+    language: Unknown
+    size: 1052
+  - path: frontend/src/assets/private/ShaderPass.js
+    type: file
+    language: Unknown
+    size: 1007
+  - path: frontend/src/assets/private/dat.gui.min.js
+    type: file
+    language: Unknown
+    size: 49472
+  - path: frontend/src/assets/private/earth_normalmap_flat4k.avif
+    type: file
+    language: Unknown
+    size: 372002
+  - path: frontend/src/assets/private/earthspec4k.avif
+    type: file
+    language: Unknown
+    size: 108913
+  - path: frontend/src/assets/private/fair_clouds_4k.avif
+    type: file
+    language: Unknown
+    size: 900478
+  - path: frontend/src/assets/private/orangemap2k.avif
+    type: file
+    language: Unknown
+    size: 85833
+  - path: frontend/src/assets/private/starry_background.avif
+    type: file
+    language: Unknown
+    size: 361477
+  - path: frontend/src/assets/private/stats.min.js
+    type: file
+    language: Unknown
+    size: 2284
+  - path: frontend/src/assets/private/three.js
+    type: file
+    language: Unknown
+    size: 853037
+  - path: frontend/src/assets/private/threejs-demo.html
+    type: file
+    language: Unknown
+    size: 5826
+  - path: frontend/src/assets/public/ContractABIs.ts
+    type: file
+    language: Unknown
+    size: 21117
+  - path: frontend/src/assets/public/css/dataErasure.css
+    type: file
+    language: Unknown
+    size: 2161
+  - path: frontend/src/assets/public/css/roboto.css
+    type: file
+    language: Unknown
+    size: 180
+  - path: frontend/src/assets/public/css/userProfile.css
+    type: file
+    language: Unknown
+    size: 491
+  - path: frontend/src/assets/public/favicon_ctf.ico
+    type: file
+    language: Unknown
+    size: 15086
+  - path: frontend/src/assets/public/favicon_js.ico
+    type: file
+    language: Unknown
+    size: 15086
+  - path: frontend/src/assets/public/images/BeeOwner.png
+    type: file
+    language: Unknown
+    size: 240485
+  - path: frontend/src/assets/public/images/HoneyPot.png
+    type: file
+    language: Unknown
+    size: 247340
+  - path: frontend/src/assets/public/images/JuiceShopCTF_Logo.png
+    type: file
+    language: Unknown
+    size: 36348
+  - path: frontend/src/assets/public/images/JuiceShopCTF_Logo_400px.png
+    type: file
+    language: Unknown
+    size: 7054
+  - path: frontend/src/assets/public/images/JuiceShop_Logo.png
+    type: file
+    language: Unknown
+    size: 28641
+  - path: frontend/src/assets/public/images/JuiceShop_Logo.svg
+    type: file
+    language: Unknown
+    size: 6323
+  - path: frontend/src/assets/public/images/JuiceShop_Logo_100px.png
+    type: file
+    language: Unknown
+    size: 2598
+  - path: frontend/src/assets/public/images/JuiceShop_Logo_400px.png
+    type: file
+    language: Unknown
+    size: 6656
+  - path: frontend/src/assets/public/images/JuiceShop_Logo_50px.png
+    type: file
+    language: Unknown
+    size: 1580
+  - path: frontend/src/assets/public/images/JuicyBot.png
+    type: file
+    language: Unknown
+    size: 824
+  - path: frontend/src/assets/public/images/JuicyBot_MedicalMask.png
+    type: file
+    language: Unknown
+    size: 889
+  - path: frontend/src/assets/public/images/JuicyChatBot.png
+    type: file
+    language: Unknown
+    size: 5757
+  - path: frontend/src/assets/public/images/Welcome_Banner.svg
+    type: file
+    language: Unknown
+    size: 169452
+  - path: frontend/src/assets/public/images/carousel/1.jpg
+    type: file
+    language: Unknown
+    size: 25001
+  - path: frontend/src/assets/public/images/carousel/2.jpg
+    type: file
+    language: Unknown
+    size: 20950
+  - path: frontend/src/assets/public/images/carousel/3.jpg
+    type: file
+    language: Unknown
+    size: 22864
+  - path: frontend/src/assets/public/images/carousel/4.jpg
+    type: file
+    language: Unknown
+    size: 21869
+  - path: frontend/src/assets/public/images/carousel/5.png
+    type: file
+    language: Unknown
+    size: 112486
+  - path: frontend/src/assets/public/images/carousel/6.jpg
+    type: file
+    language: Unknown
+    size: 22935
+  - path: frontend/src/assets/public/images/carousel/7.jpg
+    type: file
+    language: Unknown
+    size: 22275
+  - path: frontend/src/assets/public/images/deluxe/blankBoxes.png
+    type: file
+    language: Unknown
+    size: 45724
+  - path: frontend/src/assets/public/images/juicyEvilWasp.png
+    type: file
+    language: Unknown
+    size: 14676
+  - path: frontend/src/assets/public/images/padding/11px.png
+    type: file
+    language: Unknown
+    size: 95
+  - path: frontend/src/assets/public/images/padding/19px.png
+    type: file
+    language: Unknown
+    size: 95
+  - path: frontend/src/assets/public/images/padding/1px.png
+    type: file
+    language: Unknown
+    size: 95
+  - path: frontend/src/assets/public/images/padding/56px.png
+    type: file
+    language: Unknown
+    size: 95
+  - path: frontend/src/assets/public/images/padding/81px.png
+    type: file
+    language: Unknown
+    size: 95
+  - path: frontend/src/assets/public/images/products/20th.jpeg
+    type: file
+    language: Unknown
+    size: 50404
+  - path: frontend/src/assets/public/images/products/3d_keychain.jpg
+    type: file
+    language: Unknown
+    size: 34413
+  - path: frontend/src/assets/public/images/products/JuiceShop.stl
+    type: file
+    language: Unknown
+    size: 507781
+  - path: frontend/src/assets/public/images/products/apple_juice.jpg
+    type: file
+    language: Unknown
+    size: 12004
+  - path: frontend/src/assets/public/images/products/apple_pressings.jpg
+    type: file
+    language: Unknown
+    size: 20728
+  - path: frontend/src/assets/public/images/products/artwork.jpg
+    type: file
+    language: Unknown
+    size: 13828
+  - path: frontend/src/assets/public/images/products/artwork2.jpg
+    type: file
+    language: Unknown
+    size: 26598
+  - path: frontend/src/assets/public/images/products/banana_juice.jpg
+    type: file
+    language: Unknown
+    size: 14878
+  - path: frontend/src/assets/public/images/products/basil_smoothie.png
+    type: file
+    language: Unknown
+    size: 25192
+  - path: frontend/src/assets/public/images/products/berry_juice.png
+    type: file
+    language: Unknown
+    size: 29669
+  - path: frontend/src/assets/public/images/products/braga.jpg
+    type: file
+    language: Unknown
+    size: 43665
+  - path: frontend/src/assets/public/images/products/card_alpha.jpg
+    type: file
+    language: Unknown
+    size: 114254
+  - path: frontend/src/assets/public/images/products/carrot_juice.jpeg
+    type: file
+    language: Unknown
+    size: 14298
+  - path: frontend/src/assets/public/images/products/ccg_common.png
+    type: file
+    language: Unknown
+    size: 70416
+  - path: frontend/src/assets/public/images/products/ccg_foil.png
+    type: file
+    language: Unknown
+    size: 69564
+  - path: frontend/src/assets/public/images/products/coaster.jpg
+    type: file
+    language: Unknown
+    size: 11127
+  - path: frontend/src/assets/public/images/products/cover_small.jpg
+    type: file
+    language: Unknown
+    size: 22887
+  - path: frontend/src/assets/public/images/products/dragonfruit_juice.png
+    type: file
+    language: Unknown
+    size: 30862
+  - path: frontend/src/assets/public/images/products/eggfruit_juice.jpg
+    type: file
+    language: Unknown
+    size: 11919
+  - path: frontend/src/assets/public/images/products/elderflower_cordial.jpg
+    type: file
+    language: Unknown
+    size: 50600
+  - path: frontend/src/assets/public/images/products/fan_facemask.jpg
+    type: file
+    language: Unknown
+    size: 26934
+  - path: frontend/src/assets/public/images/products/fan_girlie.jpg
+    type: file
+    language: Unknown
+    size: 18538
+  - path: frontend/src/assets/public/images/products/fan_hoodie.jpg
+    type: file
+    language: Unknown
+    size: 26690
+  - path: frontend/src/assets/public/images/products/fan_mug.jpg
+    type: file
+    language: Unknown
+    size: 23914
+  - path: frontend/src/assets/public/images/products/fan_shirt.jpg
+    type: file
+    language: Unknown
+    size: 21926
+  - path: frontend/src/assets/public/images/products/fruit_press.jpg
+    type: file
+    language: Unknown
+    size: 13099
+  - path: frontend/src/assets/public/images/products/grape_juice.png
+    type: file
+    language: Unknown
+    size: 13896
+  - path: frontend/src/assets/public/images/products/green_smoothie.jpg
+    type: file
+    language: Unknown
+    size: 12264
+  - path: frontend/src/assets/public/images/products/holo_sticker.png
+    type: file
+    language: Unknown
+    size: 32125
+  - path: frontend/src/assets/public/images/products/iron-on.jpg
+    type: file
+    language: Unknown
+    size: 19737
+  - path: frontend/src/assets/public/images/products/juicy_chatbot.jpg
+    type: file
+    language: Unknown
+    size: 15510
+  - path: frontend/src/assets/public/images/products/lego_case.jpg
+    type: file
+    language: Unknown
+    size: 165340
+  - path: frontend/src/assets/public/images/products/lemon_juice.jpg
+    type: file
+    language: Unknown
+    size: 13031
+  - path: frontend/src/assets/public/images/products/magnets.jpg
+    type: file
+    language: Unknown
+    size: 21622
+  - path: frontend/src/assets/public/images/products/melon_bike.jpeg
+    type: file
+    language: Unknown
+    size: 16106
+  - path: frontend/src/assets/public/images/products/melon_juice.png
+    type: file
+    language: Unknown
+    size: 34865
+  - path: frontend/src/assets/public/images/products/no-results.png
+    type: file
+    language: Unknown
+    size: 10946
+  - path: frontend/src/assets/public/images/products/orange_juice.jpg
+    type: file
+    language: Unknown
+    size: 13437
+  - path: frontend/src/assets/public/images/products/permafrost.jpg
+    type: file
+    language: Unknown
+    size: 93641
+  - path: frontend/src/assets/public/images/products/pineapple_juice.png
+    type: file
+    language: Unknown
+    size: 22907
+  - path: frontend/src/assets/public/images/products/pomegranate_drink.jpg
+    type: file
+    language: Unknown
+    size: 46288
+  - path: frontend/src/assets/public/images/products/quince.jpg
+    type: file
+    language: Unknown
+    size: 10889
+  - path: frontend/src/assets/public/images/products/raspberry_juice.jpg
+    type: file
+    language: Unknown
+    size: 13695
+  - path: frontend/src/assets/public/images/products/sea_buckthorn_juice.jpg
+    type: file
+    language: Unknown
+    size: 40008
+  - path: frontend/src/assets/public/images/products/snakes_ladders.jpg
+    type: file
+    language: Unknown
+    size: 54859
+  - path: frontend/src/assets/public/images/products/snakes_ladders_m.jpg
+    type: file
+    language: Unknown
+    size: 61250
+  - path: frontend/src/assets/public/images/products/squareBox1-40x40x40.stl
+    type: file
+    language: Unknown
+    size: 15170
+  - path: frontend/src/assets/public/images/products/sticker.png
+    type: file
+    language: Unknown
+    size: 5730
+  - path: frontend/src/assets/public/images/products/sticker_page.jpg
+    type: file
+    language: Unknown
+    size: 21166
+  - path: frontend/src/assets/public/images/products/sticker_single.jpg
+    type: file
+    language: Unknown
+    size: 30004
+  - path: frontend/src/assets/public/images/products/stickersheet_se.png
+    type: file
+    language: Unknown
+    size: 8581
+  - path: frontend/src/assets/public/images/products/strawberry_juice.jpeg
+    type: file
+    language: Unknown
+    size: 9415
+  - path: frontend/src/assets/public/images/products/tattoo.jpg
+    type: file
+    language: Unknown
+    size: 35891
+  - path: frontend/src/assets/public/images/products/thingie1.jpg
+    type: file
+    language: Unknown
+    size: 1893
+  - path: frontend/src/assets/public/images/products/undefined.png
+    type: file
+    language: Unknown
+    size: 4637
+  - path: frontend/src/assets/public/images/products/user_day_ticket.png
+    type: file
+    language: Unknown
+    size: 97061
+  - path: frontend/src/assets/public/images/products/velcro-patch.jpg
+    type: file
+    language: Unknown
+    size: 40078
+  - path: frontend/src/assets/public/images/products/waspy.png
+    type: file
+    language: Unknown
+    size: 10767
+  - path: frontend/src/assets/public/images/products/woodruff_syrup.jpg
+    type: file
+    language: Unknown
+    size: 8417
+  - path: frontend/src/assets/public/images/uploads/12.png
+    type: file
+    language: Unknown
+    size: 7298
+  - path: frontend/src/assets/public/images/uploads/13.jpg
+    type: file
+    language: Unknown
+    size: 13755
+  - path: frontend/src/assets/public/images/uploads/20.jpg
+    type: file
+    language: Unknown
+    size: 19787
+  - path: frontend/src/assets/public/images/uploads/BeeHaven.png
+    type: file
+    language: Unknown
+    size: 78275
+  - path: frontend/src/assets/public/images/uploads/IMG_4253.jpg
+    type: file
+    language: Unknown
+    size: 631019
+  - path: frontend/src/assets/public/images/uploads/building-something-literally-bottom-up-1721152342603.jpg
+    type: file
+    language: Unknown
+    size: 118234
+  - path: frontend/src/assets/public/images/uploads/default.svg
+    type: file
+    language: Unknown
+    size: 1081
+  - path: frontend/src/assets/public/images/uploads/defaultAdmin.png
+    type: file
+    language: Unknown
+    size: 6739
+  - path: frontend/src/assets/public/images/uploads/everything-up-and-running!-1721152385146.jpg
+    type: file
+    language: Unknown
+    size: 78327
+  - path: frontend/src/assets/public/images/uploads/favorite-hiking-place.png
+    type: file
+    language: Unknown
+    size: 666735
+  - path: frontend/src/assets/public/images/uploads/magn(et)ificent!-1571814229653.jpg
+    type: file
+    language: Unknown
+    size: 107952
+  - path: "frontend/src/assets/public/images/uploads/my-rare-collectors-item!-[\u0332\
+      \u0305$\u0332\u0305(\u0332\u0305-\u0361\xB0-\u035C\u0296-\u0361\xB0\u0332\u0305\
+      )\u0332\u0305$\u0332\u0305]-1572603645543.jpg"
+    type: file
+    language: Unknown
+    size: 62099
+  - path: frontend/src/assets/public/images/uploads/putting-in-the-hardware-1721152366854.jpg
+    type: file
+    language: Unknown
+    size: 70036
+  - path: frontend/src/assets/public/images/uploads/sorted-the-pieces,-starting-assembly-process-1721152307290.jpg
+    type: file
+    language: Unknown
+    size: 74224
+  - path: "frontend/src/assets/public/images/uploads/\u14DA\u160F\u15E2-#zatschi-#whoneedsfourlegs-1572600969477.jpg"
+    type: file
+    language: Unknown
+    size: 19028
+  - path: frontend/src/assets/public/videos/owasp_promo.mp4
+    type: file
+    language: Unknown
+    size: 2232676
+  - path: frontend/src/confetti/index.ts
+    type: file
+    language: Unknown
+    size: 869
+  - path: frontend/src/environments/environment.prod.ts
+    type: file
+    language: Unknown
+    size: 190
+  - path: frontend/src/environments/environment.ts
+    type: file
+    language: Unknown
+    size: 793
+  - path: frontend/src/hacking-instructor/challenges/adminSection.ts
+    type: file
+    language: Unknown
+    size: 4044
+  - path: frontend/src/hacking-instructor/challenges/bonusPayload.ts
+    type: file
+    language: Unknown
+    size: 2338
+  - path: frontend/src/hacking-instructor/challenges/codingChallenges.ts
+    type: file
+    language: Unknown
+    size: 3908
+  - path: frontend/src/hacking-instructor/challenges/domXss.ts
+    type: file
+    language: Unknown
+    size: 4297
+  - path: frontend/src/hacking-instructor/challenges/exposedCredentials.ts
+    type: file
+    language: Unknown
+    size: 2253
+  - path: frontend/src/hacking-instructor/challenges/forgedFeedback.ts
+    type: file
+    language: Unknown
+    size: 2627
+  - path: frontend/src/hacking-instructor/challenges/loginAdmin.ts
+    type: file
+    language: Unknown
+    size: 4679
+  - path: frontend/src/hacking-instructor/challenges/loginBender.ts
+    type: file
+    language: Unknown
+    size: 4072
+  - path: frontend/src/hacking-instructor/challenges/loginJim.ts
+    type: file
+    language: Unknown
+    size: 3730
+  - path: frontend/src/hacking-instructor/challenges/passwordStrength.ts
+    type: file
+    language: Unknown
+    size: 3110
+  - path: frontend/src/hacking-instructor/challenges/privacyPolicy.ts
+    type: file
+    language: Unknown
+    size: 1287
+  - path: frontend/src/hacking-instructor/challenges/reflectedXss.ts
+    type: file
+    language: Unknown
+    size: 3441
+  - path: frontend/src/hacking-instructor/challenges/scoreBoard.ts
+    type: file
+    language: Unknown
+    size: 1710
+  - path: frontend/src/hacking-instructor/challenges/viewBasket.ts
+    type: file
+    language: Unknown
+    size: 3162
+  - path: frontend/src/hacking-instructor/hacking-instructor.scss
+    type: file
+    language: Unknown
+    size: 89
+  - path: frontend/src/hacking-instructor/helpers/helpers.ts
+    type: file
+    language: Unknown
+    size: 7025
+  - path: frontend/src/hacking-instructor/index.ts
+    type: file
+    language: Unknown
+    size: 6724
+  - path: frontend/src/hacking-instructor/tutorialUnavailable.ts
+    type: file
+    language: Unknown
+    size: 968
+  - path: frontend/src/index.html
+    type: file
+    language: Unknown
+    size: 1430
+  - path: frontend/src/main.ts
+    type: file
+    language: Unknown
+    size: 6648
+  - path: frontend/src/mocks/ng-gallery.ts
+    type: file
+    language: Unknown
+    size: 762
+  - path: frontend/src/styles.scss
+    type: file
+    language: Unknown
+    size: 26405
+  - path: frontend/src/styles/_variables.scss
+    type: file
+    language: Unknown
+    size: 589
+  - path: frontend/src/styles/theme.scss
+    type: file
+    language: Unknown
+    size: 3462
+  - path: frontend/src/test-setup.ts
+    type: file
+    language: Unknown
+    size: 2601
+  - path: frontend/src/tsconfig.app.json
+    type: file
+    language: Unknown
+    size: 251
+  - path: frontend/src/tsconfig.spec.json
+    type: file
+    language: Unknown
+    size: 347
+  - path: frontend/src/vitest.d.ts
+    type: file
+    language: Unknown
+    size: 41
+  - path: frontend/stylelint-plugin-spacing-fixer.mjs
+    type: file
+    language: Unknown
+    size: 3098
+  - path: frontend/stylelint.config.mjs
+    type: file
+    language: Unknown
+    size: 911
+  - path: frontend/tsconfig.base.json
+    type: file
+    language: Unknown
+    size: 454
+  - path: frontend/tsconfig.json
+    type: file
+    language: Unknown
+    size: 492
+  - path: frontend/vitest-base.config.mts
+    type: file
+    language: Unknown
+    size: 811
+  - path: ftp/acquisitions.md
+    type: file
+    language: Unknown
+    size: 909
+  - path: ftp/announcement_encrypted.md
+    type: file
+    language: Unknown
+    size: 369237
+  - path: ftp/coupons_2013.md.bak
+    type: file
+    language: Unknown
+    size: 131
+  - path: ftp/eastere.gg
+    type: file
+    language: Unknown
+    size: 324
+  - path: ftp/encrypt.pyc
+    type: file
+    language: Unknown
+    size: 573
+  - path: ftp/incident-support.kdbx
+    type: file
+    language: Unknown
+    size: 3246
+  - path: ftp/package-lock.json.bak
+    type: file
+    language: Unknown
+    size: 750353
+  - path: ftp/package.json.bak
+    type: file
+    language: Unknown
+    size: 4263
+  - path: ftp/quarantine/juicy_malware_linux_amd_64.url
+    type: file
+    language: Unknown
+    size: 166
+  - path: ftp/quarantine/juicy_malware_linux_arm_64.url
+    type: file
+    language: Unknown
+    size: 166
+  - path: ftp/quarantine/juicy_malware_macos_64.url
+    type: file
+    language: Unknown
+    size: 162
+  - path: ftp/quarantine/juicy_malware_windows_64.exe.url
+    type: file
+    language: Unknown
+    size: 168
+  - path: ftp/suspicious_errors.yml
+    type: file
+    language: Unknown
+    size: 723
+  - path: i18n/.gitkeep
+    type: file
+    language: Unknown
+    size: 0
+  - path: infrastructure/Dockerfile
+    type: file
+    language: Unknown
+    size: 535
+  - path: infrastructure/README.md
+    type: file
+    language: Unknown
+    size: 494
+  - path: infrastructure/docker-compose.yml
+    type: file
+    language: Unknown
+    size: 1940
+  - path: infrastructure/terraform/main.tf
+    type: file
+    language: Unknown
+    size: 3317
+  - path: infrastructure/terraform/networking.tf
+    type: file
+    language: Unknown
+    size: 7779
+  - path: infrastructure/terraform/outputs.tf
+    type: file
+    language: Unknown
+    size: 363
+  - path: infrastructure/terraform/variables.tf
+    type: file
+    language: Unknown
+    size: 1534
+  - path: lib/accuracy.ts
+    type: file
+    language: Unknown
+    size: 2418
+  - path: lib/antiCheat.ts
+    type: file
+    language: Unknown
+    size: 12063
+  - path: lib/challengeUtils.ts
+    type: file
+    language: Unknown
+    size: 5372
+  - path: lib/codingChallenges.ts
+    type: file
+    language: Unknown
+    size: 4474
+  - path: lib/config.schema.ts
+    type: file
+    language: Unknown
+    size: 7406
+  - path: lib/insecurity.ts
+    type: file
+    language: Unknown
+    size: 7906
+  - path: lib/is-docker.ts
+    type: file
+    language: Unknown
+    size: 768
+  - path: lib/is-heroku.ts
+    type: file
+    language: Unknown
+    size: 224
+  - path: lib/is-windows.ts
+    type: file
+    language: Unknown
+    size: 257
+  - path: lib/logger.ts
+    type: file
+    language: Unknown
+    size: 351
+  - path: lib/noUpdate.ts
+    type: file
+    language: Unknown
+    size: 1887
+  - path: lib/scripts/lintConfig.ts
+    type: file
+    language: Unknown
+    size: 1786
+  - path: lib/startup/cleanupFtpFolder.ts
+    type: file
+    language: Unknown
+    size: 581
+  - path: lib/startup/customizeApplication.ts
+    type: file
+    language: Unknown
+    size: 4719
+  - path: lib/startup/customizeEasterEgg.ts
+    type: file
+    language: Unknown
+    size: 1571
+  - path: lib/startup/registerWebsocketEvents.ts
+    type: file
+    language: Unknown
+    size: 1965
+  - path: lib/startup/restoreOverwrittenFilesWithOriginals.ts
+    type: file
+    language: Unknown
+    size: 1383
+  - path: lib/startup/validateConfig.ts
+    type: file
+    language: Unknown
+    size: 8821
+  - path: lib/startup/validateDependencies.ts
+    type: file
+    language: Unknown
+    size: 1204
+  - path: lib/startup/validateDependenciesBasic.ts
+    type: file
+    language: Unknown
+    size: 769
+  - path: lib/startup/validatePreconditions.ts
+    type: file
+    language: Unknown
+    size: 11085
+  - path: lib/utils.ts
+    type: file
+    language: Unknown
+    size: 7396
+  - path: lib/webhook.ts
+    type: file
+    language: Unknown
+    size: 1366
+  - path: lib/xml.ts
+    type: file
+    language: Unknown
+    size: 2029
+  - path: models/address.ts
+    type: file
+    language: Unknown
+    size: 1530
+  - path: models/basket.ts
+    type: file
+    language: Unknown
+    size: 1000
+  - path: models/basketitem.ts
+    type: file
+    language: Unknown
+    size: 973
+  - path: models/captcha.ts
+    type: file
+    language: Unknown
+    size: 742
+  - path: models/card.ts
+    type: file
+    language: Unknown
+    size: 1383
+  - path: models/challenge.ts
+    type: file
+    language: Unknown
+    size: 5091
+  - path: models/challengeDependency.ts
+    type: file
+    language: Unknown
+    size: 1243
+  - path: models/complaint.ts
+    type: file
+    language: Unknown
+    size: 946
+  - path: models/delivery.ts
+    type: file
+    language: Unknown
+    size: 996
+  - path: models/feedback.ts
+    type: file
+    language: Unknown
+    size: 1977
+  - path: models/hint.ts
+    type: file
+    language: Unknown
+    size: 1066
+  - path: models/imageCaptcha.ts
+    type: file
+    language: Unknown
+    size: 1012
+  - path: models/index.ts
+    type: file
+    language: Unknown
+    size: 2406
+  - path: models/memory.ts
+    type: file
+    language: Unknown
+    size: 906
+  - path: models/privacyRequests.ts
+    type: file
+    language: Unknown
+    size: 990
+  - path: models/product.ts
+    type: file
+    language: Unknown
+    size: 1891
+  - path: models/quantity.ts
+    type: file
+    language: Unknown
+    size: 1129
+  - path: models/recycle.ts
+    type: file
+    language: Unknown
+    size: 1087
+  - path: models/relations.ts
+    type: file
+    language: Unknown
+    size: 3551
+  - path: models/securityAnswer.ts
+    type: file
+    language: Unknown
+    size: 1214
+  - path: models/securityQuestion.ts
+    type: file
+    language: Unknown
+    size: 876
+  - path: models/user.ts
+    type: file
+    language: Unknown
+    size: 4137
+  - path: models/wallet.ts
+    type: file
+    language: Unknown
+    size: 963
+  - path: monitoring/grafana-dashboard.json
+    type: file
+    language: Unknown
+    size: 48647
+  - path: package.json
+    type: file
+    language: Unknown
+    size: 7276
+  - path: routes/2fa.ts
+    type: file
+    language: Unknown
+    size: 5136
+  - path: routes/address.ts
+    type: file
+    language: Unknown
+    size: 1275
+  - path: routes/angular.ts
+    type: file
+    language: Unknown
+    size: 539
+  - path: routes/appConfiguration.ts
+    type: file
+    language: Unknown
+    size: 510
+  - path: routes/appVersion.ts
+    type: file
+    language: Unknown
+    size: 438
+  - path: routes/authenticatedUsers.ts
+    type: file
+    language: Unknown
+    size: 1148
+  - path: routes/b2bOrder.ts
+    type: file
+    language: Unknown
+    size: 1957
+  - path: routes/basket.ts
+    type: file
+    language: Unknown
+    size: 1406
+  - path: routes/basketItems.ts
+    type: file
+    language: Unknown
+    size: 3905
+  - path: routes/captcha.ts
+    type: file
+    language: Unknown
+    size: 1557
+  - path: routes/changePassword.ts
+    type: file
+    language: Unknown
+    size: 2086
+  - path: routes/chat.ts
+    type: file
+    language: Unknown
+    size: 12730
+  - path: routes/checkKeys.ts
+    type: file
+    language: Unknown
+    size: 1954
+  - path: routes/continueCode.ts
+    type: file
+    language: Unknown
+    size: 1878
+  - path: routes/countryMapping.ts
+    type: file
+    language: Unknown
+    size: 825
+  - path: routes/coupon.ts
+    type: file
+    language: Unknown
+    size: 1052
+  - path: routes/createProductReviews.ts
+    type: file
+    language: Unknown
+    size: 1049
+  - path: routes/currentUser.ts
+    type: file
+    language: Unknown
+    size: 2210
+  - path: routes/dataErasure.ts
+    type: file
+    language: Unknown
+    size: 4643
+  - path: routes/dataExport.ts
+    type: file
+    language: Unknown
+    size: 3748
+  - path: routes/delivery.ts
+    type: file
+    language: Unknown
+    size: 1482
+  - path: routes/deluxe.ts
+    type: file
+    language: Unknown
+    size: 3211
+  - path: routes/easterEgg.ts
+    type: file
+    language: Unknown
+    size: 573
+  - path: routes/fileServer.ts
+    type: file
+    language: Unknown
+    size: 2270
+  - path: routes/fileUpload.ts
+    type: file
+    language: Unknown
+    size: 5980
+  - path: routes/imageCaptcha.ts
+    type: file
+    language: Unknown
+    size: 1921
+  - path: routes/keyServer.ts
+    type: file
+    language: Unknown
+    size: 564
+  - path: routes/languages.ts
+    type: file
+    language: Unknown
+    size: 3477
+  - path: routes/likeProductReviews.ts
+    type: file
+    language: Unknown
+    size: 1983
+  - path: routes/logfileServer.ts
+    type: file
+    language: Unknown
+    size: 554
+  - path: routes/login.ts
+    type: file
+    language: Unknown
+    size: 5086
+  - path: routes/memory.ts
+    type: file
+    language: Unknown
+    size: 914
+  - path: routes/metrics.ts
+    type: file
+    language: Unknown
+    size: 8932
+  - path: routes/nftMint.ts
+    type: file
+    language: Unknown
+    size: 2085
+  - path: routes/order.ts
+    type: file
+    language: Unknown
+    size: 9981
+  - path: routes/orderHistory.ts
+    type: file
+    language: Unknown
+    size: 1505
+  - path: routes/payment.ts
+    type: file
+    language: Unknown
+    size: 2532
+  - path: routes/premiumReward.ts
+    type: file
+    language: Unknown
+    size: 594
+  - path: routes/privacyPolicyProof.ts
+    type: file
+    language: Unknown
+    size: 579
+  - path: routes/profileImageFileUpload.ts
+    type: file
+    language: Unknown
+    size: 2015
+  - path: routes/profileImageUrlUpload.ts
+    type: file
+    language: Unknown
+    size: 2277
+  - path: routes/quarantineServer.ts
+    type: file
+    language: Unknown
+    size: 578
+  - path: routes/recycles.ts
+    type: file
+    language: Unknown
+    size: 796
+  - path: routes/redirect.ts
+    type: file
+    language: Unknown
+    size: 1350
+  - path: routes/repeatNotification.ts
+    type: file
+    language: Unknown
+    size: 596
+  - path: routes/resetPassword.ts
+    type: file
+    language: Unknown
+    size: 3649
+  - path: routes/restoreProgress.ts
+    type: file
+    language: Unknown
+    size: 2953
+  - path: routes/saveLoginIp.ts
+    type: file
+    language: Unknown
+    size: 1498
+  - path: routes/search.ts
+    type: file
+    language: Unknown
+    size: 3149
+  - path: routes/securityQuestion.ts
+    type: file
+    language: Unknown
+    size: 937
+  - path: routes/showProductReviews.ts
+    type: file
+    language: Unknown
+    size: 1836
+  - path: routes/trackOrder.ts
+    type: file
+    language: Unknown
+    size: 1209
+  - path: routes/updateProductReviews.ts
+    type: file
+    language: Unknown
+    size: 1597
+  - path: routes/updateUserProfile.ts
+    type: file
+    language: Unknown
+    size: 1777
+  - path: routes/userProfile.ts
+    type: file
+    language: Unknown
+    size: 3630
+  - path: routes/verify.ts
+    type: file
+    language: Unknown
+    size: 13676
+  - path: routes/videoHandler.ts
+    type: file
+    language: Unknown
+    size: 3593
+  - path: routes/vulnCodeFixes.ts
+    type: file
+    language: Unknown
+    size: 2748
+  - path: routes/vulnCodeSnippet.ts
+    type: file
+    language: Unknown
+    size: 4277
+  - path: routes/wallet.ts
+    type: file
+    language: Unknown
+    size: 1305
+  - path: routes/web3Wallet.ts
+    type: file
+    language: Unknown
+    size: 1641
+  - path: rsn/cache.json
+    type: file
+    language: Unknown
+    size: 14906
+  - path: rsn/rsn-update.ts
+    type: file
+    language: Unknown
+    size: 361
+  - path: rsn/rsn.ts
+    type: file
+    language: Unknown
+    size: 800
+  - path: rsn/rsnOutput.ts
+    type: file
+    language: Unknown
+    size: 1748
+  - path: rsn/rsnUtil.ts
+    type: file
+    language: Unknown
+    size: 5231
+  - path: screenshots/bundle-analysis.png
+    type: file
+    language: Unknown
+    size: 340458
+  - path: screenshots/git-stats.png
+    type: file
+    language: Unknown
+    size: 38031
+  - path: screenshots/screenshot00.png
+    type: file
+    language: Unknown
+    size: 140377
+  - path: screenshots/screenshot01.png
+    type: file
+    language: Unknown
+    size: 196201
+  - path: screenshots/screenshot02.png
+    type: file
+    language: Unknown
+    size: 97318
+  - path: screenshots/screenshot03.png
+    type: file
+    language: Unknown
+    size: 216560
+  - path: screenshots/screenshot04.png
+    type: file
+    language: Unknown
+    size: 80585
+  - path: screenshots/screenshot05.png
+    type: file
+    language: Unknown
+    size: 39964
+  - path: screenshots/screenshot06.png
+    type: file
+    language: Unknown
+    size: 102107
+  - path: screenshots/screenshot07.png
+    type: file
+    language: Unknown
+    size: 417823
+  - path: screenshots/screenshot08.png
+    type: file
+    language: Unknown
+    size: 19421
+  - path: screenshots/screenshot09.png
+    type: file
+    language: Unknown
+    size: 37860
+  - path: screenshots/screenshot10.png
+    type: file
+    language: Unknown
+    size: 27790
+  - path: screenshots/screenshot11.png
+    type: file
+    language: Unknown
+    size: 59026
+  - path: screenshots/screenshot12.png
+    type: file
+    language: Unknown
+    size: 25637
+  - path: screenshots/screenshot13.png
+    type: file
+    language: Unknown
+    size: 86898
+  - path: screenshots/slideshow.gif
+    type: file
+    language: Unknown
+    size: 3740605
+  - path: scripts/package.mjs
+    type: file
+    language: Unknown
+    size: 3838
+  - path: server.ts
+    type: file
+    language: Unknown
+    size: 40368
+  - path: swagger.yml
+    type: file
+    language: Unknown
+    size: 2303
+  - path: terraform/main.tf
+    type: file
+    language: Unknown
+    size: 3362
+  - path: terraform/networking.tf
+    type: file
+    language: Unknown
+    size: 7779
+  - path: terraform/outputs.tf
+    type: file
+    language: Unknown
+    size: 363
+  - path: terraform/variables.tf
+    type: file
+    language: Unknown
+    size: 1534
+  - path: test/api/2fa.test.ts
+    type: file
+    language: Unknown
+    size: 12691
+  - path: test/api/address.test.ts
+    type: file
+    language: Unknown
+    size: 5593
+  - path: test/api/administration.test.ts
+    type: file
+    language: Unknown
+    size: 1282
+  - path: test/api/angular-dist.test.ts
+    type: file
+    language: Unknown
+    size: 1245
+  - path: test/api/api.test.ts
+    type: file
+    language: Unknown
+    size: 1110
+  - path: test/api/authenticated-users.test.ts
+    type: file
+    language: Unknown
+    size: 1764
+  - path: test/api/b2b-order.test.ts
+    type: file
+    language: Unknown
+    size: 2971
+  - path: test/api/basket-item.test.ts
+    type: file
+    language: Unknown
+    size: 8142
+  - path: test/api/basket.test.ts
+    type: file
+    language: Unknown
+    size: 9556
+  - path: test/api/challenge.test.ts
+    type: file
+    language: Unknown
+    size: 5989
+  - path: test/api/chat.test.ts
+    type: file
+    language: Unknown
+    size: 14284
+  - path: test/api/checkKeys.test.ts
+    type: file
+    language: Unknown
+    size: 3418
+  - path: test/api/complaint.test.ts
+    type: file
+    language: Unknown
+    size: 2258
+  - path: test/api/country-mapping.test.ts
+    type: file
+    language: Unknown
+    size: 695
+  - path: test/api/data-export.test.ts
+    type: file
+    language: Unknown
+    size: 16301
+  - path: test/api/delivery.test.ts
+    type: file
+    language: Unknown
+    size: 4413
+  - path: test/api/deluxe.test.ts
+    type: file
+    language: Unknown
+    size: 7165
+  - path: test/api/erasure-request.test.ts
+    type: file
+    language: Unknown
+    size: 4331
+  - path: test/api/feedback.test.ts
+    type: file
+    language: Unknown
+    size: 10658
+  - path: test/api/file-serving.test.ts
+    type: file
+    language: Unknown
+    size: 7828
+  - path: test/api/file-upload.test.ts
+    type: file
+    language: Unknown
+    size: 5325
+  - path: test/api/ftp-folder.test.ts
+    type: file
+    language: Unknown
+    size: 7911
+  - path: test/api/helpers/auth.ts
+    type: file
+    language: Unknown
+    size: 2356
+  - path: test/api/helpers/setup.ts
+    type: file
+    language: Unknown
+    size: 387
+  - path: test/api/helpers/test-env.mjs
+    type: file
+    language: Unknown
+    size: 30
+  - path: test/api/http.test.ts
+    type: file
+    language: Unknown
+    size: 1937
+  - path: test/api/internet-resources.test.ts
+    type: file
+    language: Unknown
+    size: 4964
+  - path: test/api/languages.test.ts
+    type: file
+    language: Unknown
+    size: 1184
+  - path: test/api/logfile-server.test.ts
+    type: file
+    language: Unknown
+    size: 1138
+  - path: test/api/login.test.ts
+    type: file
+    language: Unknown
+    size: 9789
+  - path: test/api/memory.test.ts
+    type: file
+    language: Unknown
+    size: 4088
+  - path: test/api/metrics.test.ts
+    type: file
+    language: Unknown
+    size: 6072
+  - path: test/api/nftMint.test.ts
+    type: file
+    language: Unknown
+    size: 4380
+  - path: test/api/order-history.test.ts
+    type: file
+    language: Unknown
+    size: 4695
+  - path: test/api/password.test.ts
+    type: file
+    language: Unknown
+    size: 9398
+  - path: test/api/payment.test.ts
+    type: file
+    language: Unknown
+    size: 5182
+  - path: test/api/privacy-request.test.ts
+    type: file
+    language: Unknown
+    size: 2286
+  - path: test/api/product-review.test.ts
+    type: file
+    language: Unknown
+    size: 4710
+  - path: test/api/product.test.ts
+    type: file
+    language: Unknown
+    size: 4620
+  - path: test/api/profile-image-upload.test.ts
+    type: file
+    language: Unknown
+    size: 8155
+  - path: test/api/promotion-video.test.ts
+    type: file
+    language: Unknown
+    size: 1541
+  - path: test/api/quantity.test.ts
+    type: file
+    language: Unknown
+    size: 8234
+  - path: test/api/quarantine-server.test.ts
+    type: file
+    language: Unknown
+    size: 1089
+  - path: test/api/recycle.test.ts
+    type: file
+    language: Unknown
+    size: 2947
+  - path: test/api/redirect.test.ts
+    type: file
+    language: Unknown
+    size: 4808
+  - path: test/api/repeat-notification.test.ts
+    type: file
+    language: Unknown
+    size: 1367
+  - path: test/api/search.test.ts
+    type: file
+    language: Unknown
+    size: 10495
+  - path: test/api/security-answer.test.ts
+    type: file
+    language: Unknown
+    size: 3006
+  - path: test/api/security-question.test.ts
+    type: file
+    language: Unknown
+    size: 3644
+  - path: test/api/socket.test.ts
+    type: file
+    language: Unknown
+    size: 2898
+  - path: test/api/track-result.test.ts
+    type: file
+    language: Unknown
+    size: 1623
+  - path: test/api/user-profile.test.ts
+    type: file
+    language: Unknown
+    size: 6841
+  - path: test/api/user.test.ts
+    type: file
+    language: Unknown
+    size: 12503
+  - path: test/api/vuln-code-fixes.test.ts
+    type: file
+    language: Unknown
+    size: 4367
+  - path: test/api/vuln-code-snippet.test.ts
+    type: file
+    language: Unknown
+    size: 6005
+  - path: test/api/wallet.test.ts
+    type: file
+    language: Unknown
+    size: 3317
+  - path: test/api/web3Wallet.test.ts
+    type: file
+    language: Unknown
+    size: 1977
+  - path: test/cypress/e2e/administration.spec.ts
+    type: file
+    language: Unknown
+    size: 829
+  - path: test/cypress/e2e/b2bOrder.spec.ts
+    type: file
+    language: Unknown
+    size: 2178
+  - path: test/cypress/e2e/basket.spec.ts
+    type: file
+    language: Unknown
+    size: 5459
+  - path: test/cypress/e2e/changePassword.spec.ts
+    type: file
+    language: Unknown
+    size: 1589
+  - path: test/cypress/e2e/chatbot.spec.ts
+    type: file
+    language: Unknown
+    size: 2920
+  - path: test/cypress/e2e/complain.spec.ts
+    type: file
+    language: Unknown
+    size: 5851
+  - path: test/cypress/e2e/contact.spec.ts
+    type: file
+    language: Unknown
+    size: 9605
+  - path: test/cypress/e2e/dataErasure.spec.ts
+    type: file
+    language: Unknown
+    size: 1076
+  - path: test/cypress/e2e/dataExport.spec.ts
+    type: file
+    language: Unknown
+    size: 1140
+  - path: test/cypress/e2e/deluxe.spec.ts
+    type: file
+    language: Unknown
+    size: 1320
+  - path: test/cypress/e2e/directAccess.spec.ts
+    type: file
+    language: Unknown
+    size: 4102
+  - path: test/cypress/e2e/forgedJwt.spec.ts
+    type: file
+    language: Unknown
+    size: 1869
+  - path: test/cypress/e2e/forgotPassword.spec.ts
+    type: file
+    language: Unknown
+    size: 5073
+  - path: test/cypress/e2e/geoStalking.spec.ts
+    type: file
+    language: Unknown
+    size: 1905
+  - path: test/cypress/e2e/login.spec.ts
+    type: file
+    language: Unknown
+    size: 7574
+  - path: test/cypress/e2e/metrics.spec.ts
+    type: file
+    language: Unknown
+    size: 267
+  - path: test/cypress/e2e/noSql.spec.ts
+    type: file
+    language: Unknown
+    size: 5010
+  - path: test/cypress/e2e/passwordHashLeak.spec.ts
+    type: file
+    language: Unknown
+    size: 655
+  - path: test/cypress/e2e/privacyPolicy.spec.ts
+    type: file
+    language: Unknown
+    size: 357
+  - path: test/cypress/e2e/profile.spec.ts
+    type: file
+    language: Unknown
+    size: 4666
+  - path: test/cypress/e2e/publicFtp.spec.ts
+    type: file
+    language: Unknown
+    size: 2235
+  - path: test/cypress/e2e/redirect.spec.ts
+    type: file
+    language: Unknown
+    size: 1277
+  - path: test/cypress/e2e/register.spec.ts
+    type: file
+    language: Unknown
+    size: 3528
+  - path: test/cypress/e2e/restApi.spec.ts
+    type: file
+    language: Unknown
+    size: 3854
+  - path: test/cypress/e2e/scoreBoard.spec.ts
+    type: file
+    language: Unknown
+    size: 2440
+  - path: test/cypress/e2e/search.spec.ts
+    type: file
+    language: Unknown
+    size: 5256
+  - path: test/cypress/e2e/tokenSale.spec.ts
+    type: file
+    language: Unknown
+    size: 358
+  - path: test/cypress/e2e/totpSetup.spec.ts
+    type: file
+    language: Unknown
+    size: 1423
+  - path: test/cypress/e2e/trackOrder.spec.ts
+    type: file
+    language: Unknown
+    size: 698
+  - path: test/cypress/support/commands.ts
+    type: file
+    language: Unknown
+    size: 1980
+  - path: test/cypress/support/e2e.ts
+    type: file
+    language: Unknown
+    size: 321
+  - path: test/cypress/support/setup.ts
+    type: file
+    language: Unknown
+    size: 155
+  - path: test/cypress/tsconfig.json
+    type: file
+    language: Unknown
+    size: 184
+  - path: test/files/announcement.md
+    type: file
+    language: Unknown
+    size: 1194
+  - path: test/files/arbitraryFileWrite.zip
+    type: file
+    language: Unknown
+    size: 243
+  - path: test/files/decrypt.py
+    type: file
+    language: Unknown
+    size: 884
+  - path: test/files/decrypt_bruteforce.py
+    type: file
+    language: Unknown
+    size: 722
+  - path: test/files/deprecatedTypeForServer.xml
+    type: file
+    language: Unknown
+    size: 539
+  - path: test/files/encrypt.py
+    type: file
+    language: Unknown
+    size: 747
+  - path: test/files/invalidProfileImageType.docx
+    type: file
+    language: Unknown
+    size: 11822
+  - path: test/files/invalidSizeForClient.pdf
+    type: file
+    language: Unknown
+    size: 150480
+  - path: test/files/invalidSizeForServer.pdf
+    type: file
+    language: Unknown
+    size: 225720
+  - path: test/files/invalidTypeForClient.exe
+    type: file
+    language: Unknown
+    size: 21
+  - path: test/files/maxSizeForServer.xml
+    type: file
+    language: Unknown
+    size: 190068
+  - path: test/files/outdatedLocalBackup.json
+    type: file
+    language: Unknown
+    size: 403
+  - path: test/files/passwordProtected.zip
+    type: file
+    language: Unknown
+    size: 198
+  - path: test/files/validLocalBackup.json
+    type: file
+    language: Unknown
+    size: 403
+  - path: test/files/validProfileImage.jpg
+    type: file
+    language: Unknown
+    size: 19379
+  - path: test/files/validSizeAndTypeForClient.pdf
+    type: file
+    language: Unknown
+    size: 21
+  - path: test/files/videoExploit.zip
+    type: file
+    language: Unknown
+    size: 302
+  - path: test/files/xxeBillionLaughs.xml
+    type: file
+    language: Unknown
+    size: 1023
+  - path: test/files/xxeDevRandom.xml
+    type: file
+    language: Unknown
+    size: 273
+  - path: test/files/xxeForLinux.xml
+    type: file
+    language: Unknown
+    size: 273
+  - path: test/files/xxeForWindows.xml
+    type: file
+    language: Unknown
+    size: 284
+  - path: test/files/xxeQuadraticBlowup.xml
+    type: file
+    language: Unknown
+    size: 21709
+  - path: test/files/yamlBomb.yml
+    type: file
+    language: Unknown
+    size: 342
+  - path: test/server/accuracy.unit.test.ts
+    type: file
+    language: Unknown
+    size: 4002
+  - path: test/server/angular.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1301
+  - path: test/server/antiCheat.unit.test.ts
+    type: file
+    language: Unknown
+    size: 10638
+  - path: test/server/appConfiguration.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1016
+  - path: test/server/appVersion.unit.test.ts
+    type: file
+    language: Unknown
+    size: 772
+  - path: test/server/b2bOrder.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2078
+  - path: test/server/blueprint.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2391
+  - path: test/server/challengeCountryMapping.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1655
+  - path: test/server/challengeTag.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1091
+  - path: test/server/challengeTutorialSequence.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1316
+  - path: test/server/challengeUtils.unit.test.ts
+    type: file
+    language: Unknown
+    size: 10288
+  - path: test/server/chat.unit.test.ts
+    type: file
+    language: Unknown
+    size: 3082
+  - path: test/server/codeSnippet.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1662
+  - path: test/server/codingChallengeFixes.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1450
+  - path: test/server/codingChallenges.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1685
+  - path: test/server/configValidation.unit.test.ts
+    type: file
+    language: Unknown
+    size: 13664
+  - path: test/server/continueCode.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1479
+  - path: test/server/countryMapping.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1711
+  - path: test/server/currentUser.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2310
+  - path: test/server/dataExport.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2803
+  - path: test/server/easterEgg.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1168
+  - path: test/server/fileServer.unit.test.ts
+    type: file
+    language: Unknown
+    size: 4727
+  - path: test/server/fileUpload.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2010
+  - path: test/server/helpers/test-env.mjs
+    type: file
+    language: Unknown
+    size: 30
+  - path: test/server/insecurity.unit.test.ts
+    type: file
+    language: Unknown
+    size: 15492
+  - path: test/server/is-docker.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1569
+  - path: test/server/keyServer.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1097
+  - path: test/server/noUpdate.unit.test.ts
+    type: file
+    language: Unknown
+    size: 3710
+  - path: test/server/order.unit.test.ts
+    type: file
+    language: Unknown
+    size: 9088
+  - path: test/server/preconditionValidation.unit.test.ts
+    type: file
+    language: Unknown
+    size: 8354
+  - path: test/server/premiumReward.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1220
+  - path: test/server/redirect.unit.test.ts
+    type: file
+    language: Unknown
+    size: 3120
+  - path: test/server/rsn.unit.test.ts
+    type: file
+    language: Unknown
+    size: 5815
+  - path: test/server/saveLoginIp.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2053
+  - path: test/server/system-prompt-extraction.unit.test.ts
+    type: file
+    language: Unknown
+    size: 8966
+  - path: test/server/utils.unit.test.ts
+    type: file
+    language: Unknown
+    size: 13627
+  - path: test/server/verify.unit.test.ts
+    type: file
+    language: Unknown
+    size: 15394
+  - path: test/server/webhook.unit.test.ts
+    type: file
+    language: Unknown
+    size: 1580
+  - path: test/server/xml.unit.test.ts
+    type: file
+    language: Unknown
+    size: 2144
+  - path: test/smoke/Dockerfile
+    type: file
+    language: Unknown
+    size: 111
+  - path: test/smoke/smoke-test.sh
+    type: file
+    language: Unknown
+    size: 1337
+  - path: threat-model.json
+    type: file
+    language: Unknown
+    size: 31858
+  - path: tsconfig.json
+    type: file
+    language: Unknown
+    size: 968
+  - path: uploads/complaints/.gitkeep
+    type: file
+    language: Unknown
+    size: 0
+  - path: vagrant/Vagrantfile
+    type: file
+    language: Unknown
+    size: 478
+  - path: vagrant/bootstrap.sh
+    type: file
+    language: Unknown
+    size: 883
+  - path: vagrant/default.conf
+    type: file
+    language: Unknown
+    size: 285
+  - path: views/dataErasureForm.hbs
+    type: file
+    language: Unknown
+    size: 2577
+  - path: views/dataErasureResult.hbs
+    type: file
+    language: Unknown
+    size: 1745
+  - path: views/promotionVideo.pug
+    type: file
+    language: Unknown
+    size: 4568
+  - path: views/themes/themes.ts
+    type: file
+    language: Unknown
+    size: 1518
+  - path: views/userProfile.pug
+    type: file
+    language: Unknown
+    size: 5676
+metrics:
+  loc: 140498
+  complexity: 3200
+  languages:
+  - name: TypeScript
+    files: 632
+    loc: 53811
+  - name: JSON
+    files: 108
+    loc: 56257
+  - name: YAML
+    files: 99
+    loc: 6363
+  - name: Sass
+    files: 83
+    loc: 5303
+  - name: HTML
+    files: 82
+    loc: 4811
+  - name: Markdown
+    files: 50
+    loc: 3708
+  - name: Solidity
+    files: 17
+    loc: 540
+  - name: Terraform
+    files: 11
+    loc: 1594
+  - name: JavaScript
+    files: 7
+    loc: 325
+  - name: XML
+    files: 7
+    loc: 7128
+  - name: CSS
+    files: 3
+    loc: 142
+  - name: Dockerfile
+    files: 3
+    loc: 60
+  - name: Python
+    files: 3
+    loc: 19
+  - name: SVG
+    files: 3
+    loc: 79
+  - name: Handlebars
+    files: 2
+    loc: 92
+  - name: Plain Text
+    files: 2
+    loc: 4
+  - name: Qt Translation Source
+    files: 2
+    loc: 170
+  - name: Shell
+    files: 2
+    loc: 52
+  - name: CSV
+    files: 1
+    loc: 3
+  - name: Docker ignore
+    files: 1
+    loc: 18
+  - name: License
+    files: 1
+    loc: 19
+  - name: TypeScript Typings
+    files: 1
+    loc: 0
+dependencies:
+  ecosystems:
+  - github-action
+  packages:
+  - name: Gamesight/slack-workflow-status
+    version: v1.3.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: Gamesight/slack-workflow-status
+    version: v1.3.0
+    ecosystem: github-action
+    source_file: .github/workflows/pr-compliance.yml
+  - name: Gamesight/slack-workflow-status
+    version: v1.3.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: actions/checkout
+    version: v6
+    ecosystem: github-action
+    source_file: .github/workflows/image_actions.yml
+  - name: actions/checkout
+    version: v6.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/zap_scan.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/codeql-analysis.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/frontend-bundle-analysis.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/lint-fixer.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/rebase.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-ebook.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-www-legacy.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-www.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-news-www-legacy.yml
+  - name: actions/checkout
+    version: v7.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-news-www.yml
+  - name: actions/download-artifact
+    version: v4.1.8
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: actions/github-script
+    version: v8.0.0
+    ecosystem: github-action
+    source_file: .github/workflows/pr-compliance.yml
+  - name: actions/setup-node
+    version: v4.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: actions/setup-node
+    version: v4.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/frontend-bundle-analysis.yml
+  - name: actions/setup-node
+    version: v4.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/lint-fixer.yml
+  - name: actions/setup-node
+    version: v4.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: actions/stale
+    version: v10.1.1
+    ecosystem: github-action
+    source_file: .github/workflows/stale.yml
+  - name: actions/upload-artifact
+    version: v4.5.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: akhileshns/heroku-deploy
+    version: v3.13.15
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: calibreapp/image-actions
+    version: main
+    ecosystem: github-action
+    source_file: .github/workflows/image_actions.yml
+  - name: cirrus-actions/rebase
+    version: v1.8
+    ecosystem: github-action
+    source_file: .github/workflows/rebase.yml
+  - name: coverallsapp/github-action
+    version: v2
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: cypress-io/github-action
+    version: v6.7.8
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: dawidd6/action-get-tag
+    version: v1.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: dessant/lock-threads
+    version: v6.0.2
+    ecosystem: github-action
+    source_file: .github/workflows/lock.yml
+  - name: docker/build-push-action
+    version: v6.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: docker/build-push-action
+    version: v6.1.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: docker/login-action
+    version: v3.3.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: docker/login-action
+    version: v3.3.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: docker/setup-buildx-action
+    version: v3.8.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: docker/setup-buildx-action
+    version: v3.8.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: docker/setup-qemu-action
+    version: v3.2.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: docker/setup-qemu-action
+    version: v3.2.0
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: github/codeql-action/analyze
+    version: v3
+    ecosystem: github-action
+    source_file: .github/workflows/codeql-analysis.yml
+  - name: github/codeql-action/autobuild
+    version: v3
+    ecosystem: github-action
+    source_file: .github/workflows/codeql-analysis.yml
+  - name: github/codeql-action/init
+    version: v3
+    ecosystem: github-action
+    source_file: .github/workflows/codeql-analysis.yml
+  - name: nick-invision/retry
+    version: v3.0.0
+    ecosystem: github-action
+    source_file: .github/workflows/ci.yml
+  - name: peter-evans/create-pull-request
+    version: v8
+    ecosystem: github-action
+    source_file: .github/workflows/image_actions.yml
+  - name: softprops/action-gh-release
+    version: v2.2.2
+    ecosystem: github-action
+    source_file: .github/workflows/release.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/lint-fixer.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-ebook.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-www-legacy.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-challenges-www.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-news-www-legacy.yml
+  - name: stefanzweifel/git-auto-commit-action
+    version: v5.0.1
+    ecosystem: github-action
+    source_file: .github/workflows/update-news-www.yml
+  - name: zaproxy/action-baseline
+    version: v0.15.0
+    ecosystem: github-action
+    source_file: .github/workflows/zap_scan.yml
+syntax_evidence:
+  imports: []
+  functions: []
+  classes: []
+  decorators: []
+security_evidence:
+  semgrep:
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: .github/workflows/release.yml
+    line: 91
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: data/datacreator.ts
+    line: 448
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: data/static/codefixes/adminSectionChallenge_1_correct.ts
+    line: 2
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 63
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 66
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 72
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 75
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 81
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 84
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 104
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 127
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 135
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 138
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 141
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 147
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 150
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 156
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 159
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 165
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 171
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 177
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/app/score-board/helpers/challenge-filtering.spec.ts
+    line: 183
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 4349
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 4820
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 9818
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 15915
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 24465
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 25385
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 26185
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 26192
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 28328
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 29327
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 29371
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 29377
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 29764
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 34460
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 34607
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/assets/private/three.js
+    line: 35340
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/hacking-instructor/challenges/bonusPayload.ts
+    line: 21
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: frontend/src/hacking-instructor/challenges/loginJim.ts
+    line: 22
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: lib/codingChallenges.ts
+    line: 63
+  - rule_id: dummy-rule
+    severity: WARNING
+    path: lib/utils.ts
+    line: 244
+secret_findings:
+  count: 0
+  findings: []
+tool_status:
+  scc: success
+  tree-sitter: success
+  syft: success
+  semgrep: success
+  detect-secrets: success
+limits_applied:
+  files_truncated: false
+  items_capped: false
+  excluded_paths: []
+warnings: []
