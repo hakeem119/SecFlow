@@ -38,7 +38,7 @@ def run_analyzer_workflow(workspace_path: str) -> dict[str, Any]:
 
     # Execute compiled cognitive graph
     graph = create_analyzer_graph()
-    final_state = graph.invoke(initial_state)
+    final_state = graph.invoke(initial_state, config={"recursion_limit": 25})
 
     manifest_draft = final_state.get("manifest_draft")
     manifest_json_data: dict[str, Any] = {}

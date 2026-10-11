@@ -7,45 +7,31 @@ from app.analyzer.graph.state import AgentState
 from app.analyzer.graph.validation import validation_node
 
 # Guardrail limit to prevent infinite reasoning or reflection loops
-MAX_ITERATIONS = 15
 
+MAX_ITERATIONS = 8
 
 def route_after_agent(state: AgentState) -> Literal["tools", "validate", "__end__"]:
-    """
-    Evaluates agent output: routes to tools execution if requested,
-    routes to validation if manifest draft is synthesized,
-    or enforces hard termination if MAX_ITERATIONS is reached.
-    """
-    if state.get("iteration_count", 0) >= MAX_ITERATIONS:
-        return END
-
+    iteration = state.get("iteration_count", 0)
     last_message = state["messages"][-1]
+    has_tool_calls = hasattr(last_message, "tool_calls") and bool(last_message.tool_calls)
 
-    # If tool calls are requested, execute tools
-    if hasattr(last_message, "tool_calls") and last_message.tool_calls:
+    if iteration <= 6 and has_tool_calls:
         return "tools"
 
-    # Agent produced output without tool calls -> validate schema
     return "validate"
 
 
 def route_after_validation(state: AgentState) -> Literal["agent", "__end__"]:
-    """
-    Evaluates schema validation outcome.
-    Triggers self-correction reflection back to agent if validation failed,
-    or terminates successfully if schema is verified.
-    """
-    if state.get("iteration_count", 0) >= MAX_ITERATIONS:
+    iteration = state.get("iteration_count", 0)
+    errors = state.get("validation_errors", [])
+
+    if not errors or iteration >= MAX_ITERATIONS:
         return END
 
-    errors = state.get("validation_errors", [])
-    if errors:
-        # Self-correction: feedback errors to agent for regeneration
+    if iteration <= 4:
         return "agent"
 
-    # Manifest is valid and ready
     return END
-
 
 def create_analyzer_graph():
     """

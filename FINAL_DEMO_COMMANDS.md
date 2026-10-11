@@ -15,7 +15,7 @@ cd ~/SecFlow_Project/Repo_Analysis
 Run this to ensure the environment is clean and running:
 ```bash
 docker rm -f secflow && \
-docker build -t secflow-backend . && \
+docker build -t secflow-backend && \
 docker run -d -p 8000:8000 --name secflow \
   -v $(pwd)/app:/app/app \
   secflow-backend

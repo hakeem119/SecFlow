@@ -17,6 +17,8 @@ dependencies = [
     "pyyaml>=6.0",
     # Added in later phases (YAGNI): tree-sitter, tree-sitter-python (Phase 6),
     # detect-secrets (Phase 8). Semgrep/Syft/scc are external binaries, not pip deps.
+    "python-dotenv>=1.2.4",
+    "langchain-google-genai>=4.4.0",
 ]
 
 [project.optional-dependencies]

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecFlow Repository Analysis Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); color: #f8fafc; font-family: 'Inter', sans-serif; min-height: 100vh; }
+        .glass-panel { 
+            background: rgba(30, 41, 59, 0.4); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .status-success { color: #10b981; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4)); }
+        .status-partial { color: #f59e0b; filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4)); }
+        .status-error { color: #ef4444; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4)); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div id="app" class="max-w-7xl mx-auto space-y-8">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-center glass-panel p-8">
+            <div class="mb-4 md:mb-0">
+                <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400 mb-2">
+                    <i class="fas fa-shield-alt mr-3 text-indigo-400"></i>SecFlow Analysis Report
+                </h1>
+                <p class="text-slate-300 text-lg">Repository: <a :href="report.repository.url" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors underline decoration-blue-400/30 underline-offset-4">{{ report.repository.name }}</a></p>
+                <div class="flex items-center gap-4 mt-3 text-sm text-slate-400">
+                    <span class="bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700"><i class="fas fa-code-branch mr-2 text-slate-500"></i>{{ report.repository.commit.substring(0, 7) }}</span>
+                    <span class="bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700"><i class="fas fa-fingerprint mr-2 text-slate-500"></i>{{ report.workspace.id }}</span>
+                </div>
+            </div>
+            <div class="text-left md:text-right bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                <p class="text-slate-400 text-sm mb-1 uppercase tracking-wider font-semibold">Generated At</p>
+                <p class="font-mono text-emerald-400 text-lg">{{ new Date(report.generated_at).toLocaleString() }}</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Metrics Sidebar -->
+            <div class="lg:col-span-4 space-y-8">
+                <!-- Code Metrics -->
+                <div class="glass-panel p-6">
+                    <h2 class="text-xl font-bold mb-6 text-slate-100 flex items-center"><i class="fas fa-chart-pie mr-3 text-emerald-400"></i>Code Metrics</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                            <span class="text-slate-400">Total Lines of Code</span>
+                            <span class="font-mono font-bold text-lg text-slate-200">{{ report.metrics.loc.toLocaleString() }}</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                            <span class="text-slate-400">Complexity Score</span>
+                            <span class="font-mono font-bold text-lg text-amber-400">{{ report.metrics.complexity }}</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                            <span class="text-slate-400">Total Files</span>
+                            <span class="font-mono font-bold text-lg text-blue-400">{{ report.structure.files.length.toLocaleString() }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warnings -->
+                <div class="glass-panel p-6">
+                    <h2 class="text-xl font-bold mb-6 text-slate-100 flex items-center"><i class="fas fa-exclamation-circle text-amber-500 mr-3"></i>Warnings</h2>
+                    <ul v-if="report.warnings.length > 0" class="space-y-3">
+                        <li v-for="(warning, index) in report.warnings" :key="index" class="p-3 bg-amber-500/10 rounded-lg text-amber-200 text-sm border border-amber-500/20 flex items-start">
+                            <i class="fas fa-exclamation-triangle mt-1 mr-2 text-amber-500/70"></i>
+                            <span>{{ warning }}</span>
+                        </li>
+                    </ul>
+                    <div v-else class="text-center py-6 text-slate-500">
+                        <i class="fas fa-check-circle text-3xl mb-2 text-slate-600"></i>
+                        <p class="italic">No warnings reported.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="lg:col-span-8 space-y-8">
+                <!-- Tool Status -->
+                <div class="glass-panel p-6">
+                    <h2 class="text-xl font-bold mb-6 text-slate-100 flex items-center"><i class="fas fa-robot mr-3 text-blue-400"></i>Tool Pipeline Status</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <div v-for="(status, tool) in report.tool_status" :key="tool" class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors">
+                            <div class="h-12 flex items-center justify-center mb-2">
+                                <i v-if="status === 'success'" class="fas fa-check-circle text-3xl status-success"></i>
+                                <i v-else-if="status === 'partial'" class="fas fa-exclamation-triangle text-3xl status-partial"></i>
+                                <i v-else class="fas fa-times-circle text-3xl status-error"></i>
+                            </div>
+                            <p class="text-sm font-semibold text-slate-300 capitalize">{{ tool }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Findings Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Security Findings -->
+                    <div class="glass-panel p-6 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-orange-500"></div>
+                        <h2 class="text-xl font-bold mb-6 text-slate-100 flex justify-between items-center">
+                            <span class="flex items-center"><i class="fas fa-bug mr-3 text-red-400"></i>Security Findings</span>
+                            <span class="bg-red-500/20 text-red-300 py-1 px-3 rounded-full text-sm font-bold">{{ report.security_evidence.semgrep.length }}</span>
+                        </h2>
+                        <div class="overflow-y-auto max-h-[400px] pr-2 space-y-3">
+                            <div v-if="report.security_evidence.semgrep.length > 0">
+                                <div v-for="(finding, idx) in report.security_evidence.semgrep" :key="idx" class="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors mb-3">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <span class="font-mono text-sm font-bold text-red-400 break-words pr-2">{{ finding.rule_id }}</span>
+                                        <span class="text-xs px-2 py-1 rounded bg-red-500/20 border border-red-500/30 text-red-300 shrink-0">{{ finding.severity }}</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-slate-400 bg-slate-900/50 p-2 rounded">
+                                        <i class="fas fa-file-code mr-2 text-slate-500"></i>
+                                        <span class="truncate" :title="finding.path">{{ finding.path }}</span>
+                                        <span class="ml-2 text-slate-500 font-mono">L{{ finding.line }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-else class="flex flex-col items-center justify-center py-12 text-slate-500">
+                                <i class="fas fa-shield-check text-4xl mb-3 text-slate-600"></i>
+                                <p class="italic">No security findings detected.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secret Findings -->
+                    <div class="glass-panel p-6 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                        <h2 class="text-xl font-bold mb-6 text-slate-100 flex justify-between items-center">
+                            <span class="flex items-center"><i class="fas fa-key mr-3 text-purple-400"></i>Secrets</span>
+                            <span class="bg-purple-500/20 text-purple-300 py-1 px-3 rounded-full text-sm font-bold">{{ report.secret_findings.count }}</span>
+                        </h2>
+                        <div class="overflow-y-auto max-h-[400px] pr-2 space-y-3">
+                            <div v-if="report.secret_findings.count > 0">
+                                <div v-for="(secret, idx) in report.secret_findings.findings" :key="idx" class="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors mb-3">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <span class="font-mono text-sm font-bold text-purple-400">{{ secret.detector || 'Exposed Secret' }}</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-slate-400 bg-slate-900/50 p-2 rounded">
+                                        <i class="fas fa-file-code mr-2 text-slate-500"></i>
+                                        <span class="truncate" :title="secret.path">{{ secret.path }}</span>
+                                        <span class="ml-2 text-slate-500 font-mono">L{{ secret.line }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-else class="flex flex-col items-center justify-center py-12 text-slate-500">
+                                <i class="fas fa-lock text-4xl mb-3 text-slate-600"></i>
+                                <p class="italic">No secrets detected.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dependencies (Full Width) -->
+                <div class="glass-panel p-6">
+                    <h2 class="text-xl font-bold mb-6 text-slate-100 flex justify-between items-center">
+                        <span class="flex items-center"><i class="fas fa-box-open mr-3 text-blue-400"></i>Software Supply Chain</span>
+                        <span class="bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-bold">{{ report.dependencies.packages.length }} Packages</span>
+                    </h2>
+                    
+                    <div v-if="report.dependencies.packages.length > 0" class="overflow-hidden rounded-xl border border-slate-700/50">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-800/80 text-slate-300 text-sm uppercase tracking-wider">
+                                        <th class="p-4 border-b border-slate-700/50 font-semibold">Package Name</th>
+                                        <th class="p-4 border-b border-slate-700/50 font-semibold">Version</th>
+                                        <th class="p-4 border-b border-slate-700/50 font-semibold hidden md:table-cell">Ecosystem</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm text-slate-300 max-h-[300px] overflow-y-auto block w-full table-caption" style="display: table-row-group;">
+                                    <tr v-for="(pkg, idx) in report.dependencies.packages" :key="idx" class="border-b border-slate-700/30 hover:bg-slate-800/30 transition-colors">
+                                        <td class="p-4 font-mono text-slate-200"><i class="fas fa-cube mr-2 text-slate-500 text-xs"></i>{{ pkg.name }}</td>
+                                        <td class="p-4 text-emerald-400 font-mono">{{ pkg.version }}</td>
+                                        <td class="p-4 hidden md:table-cell text-slate-400">{{ pkg.ecosystem }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div v-else class="flex flex-col items-center justify-center py-12 text-slate-500 bg-slate-800/30 rounded-xl border border-slate-700/50">
+                        <i class="fas fa-ghost text-4xl mb-3 text-slate-600"></i>
+                        <p class="italic">No dependencies discovered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center text-slate-500 text-sm py-8">
+            <p>SecFlow Analysis Engine &copy; 2026. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const reportData = {"schema_version": "1.0", "generated_at": "2026-10-10T11:42:14.673682Z", "repository": {"name": "ecommerce-clean-architecture", "url": "https://github.com/Hassan-sami/ecommerce-clean-architecture", "commit": "de84b02dd89049c3a6ef5d339090919a3a86f029", "default_branch": "master"}, "workspace": {"id": "31cc3b6d-c833-45cd-a41a-995e0d5d25b7"}, "structure": {"directories": [".idea", ".idea/.idea.ecommerce", ".idea/.idea.ecommerce/.idea", "src", "src/ecommerce.Domain", "src/ecommerce.Domain/Enitities", "src/ecommerce.Domain/Enitities/Identities", "src/ecommerce.Domain/Enums", "src/ecommerce.Domain/Interfaces", "src/ecommerce.Domain/Specifications", "src/ecommerce.Domain/common", "src/ecommerce.api", "src/ecommerce.api/.idea", "src/ecommerce.api/.idea/.idea.ecommerce.dir", "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea", "src/ecommerce.api/Common", "src/ecommerce.api/Controllers", "src/ecommerce.api/Properties", "src/ecommerce.application", "src/ecommerce.application/Base", "src/ecommerce.application/Behaviors", "src/ecommerce.application/Cqrs", "src/ecommerce.application/Cqrs/Authentication", "src/ecommerce.application/Cqrs/Authentication/Responses", "src/ecommerce.application/Cqrs/Authentication/commands", "src/ecommerce.application/Cqrs/Authentication/commands/CreateUser", "src/ecommerce.application/Cqrs/Authentication/commands/RefreshToken", "src/ecommerce.application/Cqrs/Authentication/queries", "src/ecommerce.application/Cqrs/Authentication/queries/ConfirmEmail", "src/ecommerce.application/Cqrs/Authentication/queries/SignInQueries", "src/ecommerce.application/Cqrs/Carts", "src/ecommerce.application/Cqrs/Carts/Commands", "src/ecommerce.application/Cqrs/Carts/Commands/AddItem", "src/ecommerce.application/Cqrs/Carts/Commands/CheckOut", "src/ecommerce.application/Cqrs/Carts/Commands/CreateCart", "src/ecommerce.application/Cqrs/Carts/Commands/DeleteCart", "src/ecommerce.application/Cqrs/Carts/Commands/RemoveItem", "src/ecommerce.application/Cqrs/Carts/Queries", "src/ecommerce.application/Cqrs/Carts/Queries/GetQuery", "src/ecommerce.application/Cqrs/Carts/Reponses", "src/ecommerce.application/Cqrs/Category", "src/ecommerce.application/Cqrs/Category/Commands", "src/ecommerce.application/Cqrs/Category/Commands/CreateCategory", "src/ecommerce.application/Cqrs/Category/Commands/DeleteCategory", "src/ecommerce.application/Cqrs/Category/Commands/UpdateCategory", "src/ecommerce.application/Cqrs/Category/Queries", "src/ecommerce.application/Cqrs/Category/Queries/GetById", "src/ecommerce.application/Cqrs/Category/Responses", "src/ecommerce.application/Cqrs/Orders", "src/ecommerce.application/Cqrs/Orders/Queries", "src/ecommerce.application/Cqrs/Orders/Queries/GetQuery", "src/ecommerce.application/Cqrs/Orders/Responses", "src/ecommerce.application/Cqrs/Products", "src/ecommerce.application/Cqrs/Products/Commands", "src/ecommerce.application/Cqrs/Products/Commands/CreateProduct", "src/ecommerce.application/Cqrs/Products/Commands/DeleteProduct", "src/ecommerce.application/Cqrs/Products/Commands/UpdateProduct", "src/ecommerce.application/Cqrs/Products/queries", "src/ecommerce.application/Cqrs/Products/queries/GetProductById", "src/ecommerce.application/Cqrs/Products/queries/Proudcts", "src/ecommerce.application/Cqrs/Products/queries/Reponses", "src/ecommerce.application/Cqrs/Users", "src/ecommerce.application/Cqrs/Users/Commands", "src/ecommerce.application/Cqrs/Users/Commands/CreateUser", "src/ecommerce.application/Cqrs/Users/Queries", "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName", "src/ecommerce.application/Interfaces", "src/ecommerce.application/Mappers", "src/ecommerce.application/Mappers/CartMappers", "src/ecommerce.application/Mappers/CategoruMappers", "src/ecommerce.application/Mappers/ProductMappers", "src/ecommerce.application/Mappers/UserMappers", "src/ecommerce.application/Resources", "src/ecommerce.application/Services", "src/ecommerce.application/options", "src/ecommerce.infra", "src/ecommerce.infra/Context", "src/ecommerce.infra/Repos", "src/ecommerce.infra/Serivces"], "files": [{"path": ".gitattributes", "type": "file", "language": "Unknown", "size": 2518}, {"path": ".gitignore", "type": "file", "language": "Unknown", "size": 6237}, {"path": ".idea/.idea.ecommerce/.idea/indexLayout.xml", "type": "file", "language": "Unknown", "size": 198}, {"path": ".idea/.idea.ecommerce/.idea/projectSettingsUpdater.xml", "type": "file", "language": "Unknown", "size": 239}, {"path": ".idea/.idea.ecommerce/.idea/workspace.xml", "type": "file", "language": "Unknown", "size": 56983}, {"path": "Dockerfile", "type": "file", "language": "Unknown", "size": 859}, {"path": "LICENSE.txt", "type": "file", "language": "Unknown", "size": 1069}, {"path": "README.markdown", "type": "file", "language": "Unknown", "size": 6358}, {"path": "docker-compose.yml", "type": "file", "language": "Unknown", "size": 615}, {"path": "ecommerce.sln", "type": "file", "language": "Unknown", "size": 3145}, {"path": "src/ecommerce.Domain/Enitities/Cart.cs", "type": "file", "language": "Unknown", "size": 1761}, {"path": "src/ecommerce.Domain/Enitities/CartItem.cs", "type": "file", "language": "Unknown", "size": 596}, {"path": "src/ecommerce.Domain/Enitities/Category.cs", "type": "file", "language": "Unknown", "size": 379}, {"path": "src/ecommerce.Domain/Enitities/Identities/AppUser.cs", "type": "file", "language": "Unknown", "size": 233}, {"path": "src/ecommerce.Domain/Enitities/Identities/RefreshToken.cs", "type": "file", "language": "Unknown", "size": 653}, {"path": "src/ecommerce.Domain/Enitities/Order.cs", "type": "file", "language": "Unknown", "size": 1207}, {"path": "src/ecommerce.Domain/Enitities/OrderItem.cs", "type": "file", "language": "Unknown", "size": 1264}, {"path": "src/ecommerce.Domain/Enitities/Product.cs", "type": "file", "language": "Unknown", "size": 698}, {"path": "src/ecommerce.Domain/Enums/OrderStatus.cs", "type": "file", "language": "Unknown", "size": 265}, {"path": "src/ecommerce.Domain/Enums/PaymentMethod.cs", "type": "file", "language": "Unknown", "size": 303}, {"path": "src/ecommerce.Domain/Interfaces/ICartRepository.cs", "type": "file", "language": "Unknown", "size": 195}, {"path": "src/ecommerce.Domain/Interfaces/ICategoryRepository.cs", "type": "file", "language": "Unknown", "size": 230}, {"path": "src/ecommerce.Domain/Interfaces/IOrderRepository.cs", "type": "file", "language": "Unknown", "size": 179}, {"path": "src/ecommerce.Domain/Interfaces/IProductRepository.cs", "type": "file", "language": "Unknown", "size": 639}, {"path": "src/ecommerce.Domain/Interfaces/IRefreshTokenRepo.cs", "type": "file", "language": "Unknown", "size": 160}, {"path": "src/ecommerce.Domain/Interfaces/IRepository.cs", "type": "file", "language": "Unknown", "size": 1006}, {"path": "src/ecommerce.Domain/Interfaces/ISpecification.cs", "type": "file", "language": "Unknown", "size": 571}, {"path": "src/ecommerce.Domain/Interfaces/IUnitOfWork.cs", "type": "file", "language": "Unknown", "size": 467}, {"path": "src/ecommerce.Domain/Specifications/BaseSpecification.cs", "type": "file", "language": "Unknown", "size": 1776}, {"path": "src/ecommerce.Domain/Specifications/CartWithItemsSpec.cs", "type": "file", "language": "Unknown", "size": 389}, {"path": "src/ecommerce.Domain/Specifications/CategoryPaginatedSpec.cs", "type": "file", "language": "Unknown", "size": 562}, {"path": "src/ecommerce.Domain/Specifications/OrderWithProductsAndItemsSpec.cs", "type": "file", "language": "Unknown", "size": 603}, {"path": "src/ecommerce.Domain/Specifications/ProductPaginatedSpec.cs", "type": "file", "language": "Unknown", "size": 555}, {"path": "src/ecommerce.Domain/Specifications/ProductWithCategorySpec.cs", "type": "file", "language": "Unknown", "size": 760}, {"path": "src/ecommerce.Domain/common/BaseEntity.cs", "type": "file", "language": "Unknown", "size": 258}, {"path": "src/ecommerce.Domain/common/ValueObject.cs", "type": "file", "language": "Unknown", "size": 1281}, {"path": "src/ecommerce.Domain/ecommerce.Domain.csproj", "type": "file", "language": "Unknown", "size": 684}, {"path": "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea/.gitignore", "type": "file", "language": "Unknown", "size": 281}, {"path": "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea/.name", "type": "file", "language": "Unknown", "size": 9}, {"path": "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea/encodings.xml", "type": "file", "language": "Unknown", "size": 169}, {"path": "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea/indexLayout.xml", "type": "file", "language": "Unknown", "size": 198}, {"path": "src/ecommerce.api/.idea/.idea.ecommerce.dir/.idea/vcs.xml", "type": "file", "language": "Unknown", "size": 186}, {"path": "src/ecommerce.api/Common/BaseController.cs", "type": "file", "language": "Unknown", "size": 1323}, {"path": "src/ecommerce.api/Controllers/AuthenticationController.cs", "type": "file", "language": "Unknown", "size": 3983}, {"path": "src/ecommerce.api/Controllers/CartController.cs", "type": "file", "language": "Unknown", "size": 2282}, {"path": "src/ecommerce.api/Controllers/CategoryController.cs", "type": "file", "language": "Unknown", "size": 1909}, {"path": "src/ecommerce.api/Controllers/OrderController.cs", "type": "file", "language": "Unknown", "size": 971}, {"path": "src/ecommerce.api/Controllers/ProductController.cs", "type": "file", "language": "Unknown", "size": 2241}, {"path": "src/ecommerce.api/Controllers/UserController.cs", "type": "file", "language": "Unknown", "size": 980}, {"path": "src/ecommerce.api/Dockerfile", "type": "file", "language": "Unknown", "size": 466}, {"path": "src/ecommerce.api/Program.cs", "type": "file", "language": "Unknown", "size": 4445}, {"path": "src/ecommerce.api/Properties/launchSettings.json", "type": "file", "language": "Unknown", "size": 1084}, {"path": "src/ecommerce.api/appsettings.Development.json", "type": "file", "language": "Unknown", "size": 2663}, {"path": "src/ecommerce.api/appsettings.json", "type": "file", "language": "Unknown", "size": 2704}, {"path": "src/ecommerce.api/ecommerce.api.csproj", "type": "file", "language": "Unknown", "size": 962}, {"path": "src/ecommerce.api/ecommerce.http", "type": "file", "language": "Unknown", "size": 125}, {"path": "src/ecommerce.application/ApplicationDependancies.cs", "type": "file", "language": "Unknown", "size": 1715}, {"path": "src/ecommerce.application/Base/Response.cs", "type": "file", "language": "Unknown", "size": 742}, {"path": "src/ecommerce.application/Base/ResponseHandler.cs", "type": "file", "language": "Unknown", "size": 2268}, {"path": "src/ecommerce.application/Behaviors/ValidationBehavior.cs", "type": "file", "language": "Unknown", "size": 1482}, {"path": "src/ecommerce.application/Cqrs/Authentication/Responses/AppUserCreated.cs", "type": "file", "language": "Unknown", "size": 219}, {"path": "src/ecommerce.application/Cqrs/Authentication/Responses/JwtResponse.cs", "type": "file", "language": "Unknown", "size": 192}, {"path": "src/ecommerce.application/Cqrs/Authentication/Responses/RefreshTokenResponse.cs", "type": "file", "language": "Unknown", "size": 229}, {"path": "src/ecommerce.application/Cqrs/Authentication/Responses/SignInResponse.cs", "type": "file", "language": "Unknown", "size": 270}, {"path": "src/ecommerce.application/Cqrs/Authentication/commands/CreateUser/CreateUserCommand.cs", "type": "file", "language": "Unknown", "size": 364}, {"path": "src/ecommerce.application/Cqrs/Authentication/commands/CreateUser/CreateUserhandler.cs", "type": "file", "language": "Unknown", "size": 1731}, {"path": "src/ecommerce.application/Cqrs/Authentication/commands/RefreshToken/RefreshTokenCommand.cs", "type": "file", "language": "Unknown", "size": 297}, {"path": "src/ecommerce.application/Cqrs/Authentication/commands/RefreshToken/RefreshTokenHanlder.cs", "type": "file", "language": "Unknown", "size": 2614}, {"path": "src/ecommerce.application/Cqrs/Authentication/queries/ConfirmEmail/ConfirmEmailHandler.cs", "type": "file", "language": "Unknown", "size": 856}, {"path": "src/ecommerce.application/Cqrs/Authentication/queries/ConfirmEmail/ConfirmEmailQuery.cs", "type": "file", "language": "Unknown", "size": 217}, {"path": "src/ecommerce.application/Cqrs/Authentication/queries/SignInQueries/SignInHandler.cs", "type": "file", "language": "Unknown", "size": 5414}, {"path": "src/ecommerce.application/Cqrs/Authentication/queries/SignInQueries/SignInQuery.cs", "type": "file", "language": "Unknown", "size": 274}, {"path": "src/ecommerce.application/Cqrs/Authentication/queries/SignInQueries/SignInQueryWithClaimPrinciple.cs", "type": "file", "language": "Unknown", "size": 336}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/AddItem/AddItemCommand.cs", "type": "file", "language": "Unknown", "size": 228}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/AddItem/AddItemCommandHandler.cs", "type": "file", "language": "Unknown", "size": 1927}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/CheckOut/CheckOutCommand.cs", "type": "file", "language": "Unknown", "size": 213}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/CheckOut/CheckOutHandler.cs", "type": "file", "language": "Unknown", "size": 1837}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/CreateCart/CreateCartCommand.cs", "type": "file", "language": "Unknown", "size": 252}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/CreateCart/CreateCartHandler.cs", "type": "file", "language": "Unknown", "size": 865}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/DeleteCart/DeleteCartCommand.cs", "type": "file", "language": "Unknown", "size": 188}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/DeleteCart/DeleteCartCommandHandler.cs", "type": "file", "language": "Unknown", "size": 743}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/RemoveItem/RemoveBasketProductItemCommand.cs", "type": "file", "language": "Unknown", "size": 206}, {"path": "src/ecommerce.application/Cqrs/Carts/Commands/RemoveItem/RemoveBasketProductItemCommandHandler.cs", "type": "file", "language": "Unknown", "size": 1776}, {"path": "src/ecommerce.application/Cqrs/Carts/Queries/GetQuery/GetCartByUserQuery.cs", "type": "file", "language": "Unknown", "size": 235}, {"path": "src/ecommerce.application/Cqrs/Carts/Queries/GetQuery/GetCartQuery.cs", "type": "file", "language": "Unknown", "size": 269}, {"path": "src/ecommerce.application/Cqrs/Carts/Queries/GetQuery/GetCartQueryHandler.cs", "type": "file", "language": "Unknown", "size": 1768}, {"path": "src/ecommerce.application/Cqrs/Carts/Reponses/CartResponse.cs", "type": "file", "language": "Unknown", "size": 204}, {"path": "src/ecommerce.application/Cqrs/Carts/Reponses/PersonalInfo.cs", "type": "file", "language": "Unknown", "size": 209}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/CreateCategory/CreateCategoryCommand.cs", "type": "file", "language": "Unknown", "size": 345}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/CreateCategory/CreateCategoryHandler.cs", "type": "file", "language": "Unknown", "size": 1157}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/DeleteCategory/DeleteCategoryCommand.cs", "type": "file", "language": "Unknown", "size": 199}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/DeleteCategory/DeleteCategoryHandler.cs", "type": "file", "language": "Unknown", "size": 787}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/UpdateCategory/UpdateCategoryCommand.cs", "type": "file", "language": "Unknown", "size": 285}, {"path": "src/ecommerce.application/Cqrs/Category/Commands/UpdateCategory/UpdateCategoryHandler.cs", "type": "file", "language": "Unknown", "size": 1060}, {"path": "src/ecommerce.application/Cqrs/Category/Queries/GetById/GetCategoriesPaginatedQuery.cs", "type": "file", "language": "Unknown", "size": 286}, {"path": "src/ecommerce.application/Cqrs/Category/Queries/GetById/GetCategoryByIdQuery.cs", "type": "file", "language": "Unknown", "size": 253}, {"path": "src/ecommerce.application/Cqrs/Category/Queries/GetById/GetHander.cs", "type": "file", "language": "Unknown", "size": 1640}, {"path": "src/ecommerce.application/Cqrs/Category/Responses/CategoryResponse.cs", "type": "file", "language": "Unknown", "size": 214}, {"path": "src/ecommerce.application/Cqrs/Orders/Queries/GetQuery/GetOrderByUserIdQuery.cs", "type": "file", "language": "Unknown", "size": 346}, {"path": "src/ecommerce.application/Cqrs/Orders/Queries/GetQuery/GetOrderByUserIdValidator.cs", "type": "file", "language": "Unknown", "size": 392}, {"path": "src/ecommerce.application/Cqrs/Orders/Queries/GetQuery/GetOrderQueryHandler.cs", "type": "file", "language": "Unknown", "size": 1712}, {"path": "src/ecommerce.application/Cqrs/Orders/Queries/GetQuery/GetTopSellersQuery.cs", "type": "file", "language": "Unknown", "size": 265}, {"path": "src/ecommerce.application/Cqrs/Orders/Responses/BestSellerProductResponse.cs", "type": "file", "language": "Unknown", "size": 459}, {"path": "src/ecommerce.application/Cqrs/Orders/Responses/OrderResponse.cs", "type": "file", "language": "Unknown", "size": 94}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/CreateProduct/CreateProductCommand.cs", "type": "file", "language": "Unknown", "size": 532}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/CreateProduct/CreateProductCommandHandler.cs", "type": "file", "language": "Unknown", "size": 1526}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/CreateProduct/CreateProductValidator.cs", "type": "file", "language": "Unknown", "size": 885}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/DeleteProduct/DeleteProductByIdCommand.cs", "type": "file", "language": "Unknown", "size": 201}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/DeleteProduct/DeleteProductHandler.cs", "type": "file", "language": "Unknown", "size": 811}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/DeleteProduct/DeleteProductValidator.cs", "type": "file", "language": "Unknown", "size": 425}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/UpdateProduct/UpdateProductCommand.cs", "type": "file", "language": "Unknown", "size": 461}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/UpdateProduct/UpdateProductHandler.cs", "type": "file", "language": "Unknown", "size": 1082}, {"path": "src/ecommerce.application/Cqrs/Products/Commands/UpdateProduct/UpdateProductValidtor.cs", "type": "file", "language": "Unknown", "size": 873}, {"path": "src/ecommerce.application/Cqrs/Products/queries/GetProductById/PorductGetByIdQuery.cs", "type": "file", "language": "Unknown", "size": 408}, {"path": "src/ecommerce.application/Cqrs/Products/queries/GetProductById/ProductGetByIdCommandhandler.cs", "type": "file", "language": "Unknown", "size": 1370}, {"path": "src/ecommerce.application/Cqrs/Products/queries/GetProductById/ProductGetByIdQueryValidator.cs", "type": "file", "language": "Unknown", "size": 579}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Proudcts/GetProdctsQueryValidator.cs", "type": "file", "language": "Unknown", "size": 280}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Proudcts/GetProductsHandler.cs", "type": "file", "language": "Unknown", "size": 2036}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Proudcts/GetProductsPaginatedQuery.cs", "type": "file", "language": "Unknown", "size": 290}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Proudcts/GetProductsPaginatedValidator.cs", "type": "file", "language": "Unknown", "size": 402}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Proudcts/GetProductsQuery.cs", "type": "file", "language": "Unknown", "size": 299}, {"path": "src/ecommerce.application/Cqrs/Products/queries/Reponses/ProductResponse.cs", "type": "file", "language": "Unknown", "size": 355}, {"path": "src/ecommerce.application/Cqrs/Users/Commands/CreateUser/RegisterCommand.cs", "type": "file", "language": "Unknown", "size": 334}, {"path": "src/ecommerce.application/Cqrs/Users/Commands/CreateUser/RegisterHandler.cs", "type": "file", "language": "Unknown", "size": 1443}, {"path": "src/ecommerce.application/Cqrs/Users/Commands/CreateUser/RegisterValidator.cs", "type": "file", "language": "Unknown", "size": 701}, {"path": "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName/GetUserByEmailQuery.cs", "type": "file", "language": "Unknown", "size": 254}, {"path": "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName/GetUserByEmailValidator.cs", "type": "file", "language": "Unknown", "size": 366}, {"path": "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName/GetUserByUserNameQuery.cs", "type": "file", "language": "Unknown", "size": 261}, {"path": "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName/GetUserByUserNameValidator.cs", "type": "file", "language": "Unknown", "size": 340}, {"path": "src/ecommerce.application/Cqrs/Users/Queries/GetUserQueriesByUserName/GetUserhandler.cs", "type": "file", "language": "Unknown", "size": 1505}, {"path": "src/ecommerce.application/ExceptionMiddleware.cs", "type": "file", "language": "Unknown", "size": 3570}, {"path": "src/ecommerce.application/Interfaces/IAuthenticationSerive.cs", "type": "file", "language": "Unknown", "size": 158}, {"path": "src/ecommerce.application/Interfaces/ICartService.cs", "type": "file", "language": "Unknown", "size": 477}, {"path": "src/ecommerce.application/Interfaces/ICateogryService.cs", "type": "file", "language": "Unknown", "size": 425}, {"path": "src/ecommerce.application/Interfaces/ICheckOutService.cs", "type": "file", "language": "Unknown", "size": 238}, {"path": "src/ecommerce.application/Interfaces/IEmailService.cs", "type": "file", "language": "Unknown", "size": 153}, {"path": "src/ecommerce.application/Interfaces/IIdentityUserSerivce.cs", "type": "file", "language": "Unknown", "size": 90}, {"path": "src/ecommerce.application/Interfaces/IOrderService.cs", "type": "file", "language": "Unknown", "size": 284}, {"path": "src/ecommerce.application/Interfaces/IProductService.cs", "type": "file", "language": "Unknown", "size": 686}, {"path": "src/ecommerce.application/Interfaces/IRefreshTokenService.cs", "type": "file", "language": "Unknown", "size": 407}, {"path": "src/ecommerce.application/Interfaces/ITokenSerivce.cs", "type": "file", "language": "Unknown", "size": 256}, {"path": "src/ecommerce.application/Interfaces/IUserService.cs", "type": "file", "language": "Unknown", "size": 194}, {"path": "src/ecommerce.application/Mappers/CartMappers/CartMapper.cs", "type": "file", "language": "Unknown", "size": 392}, {"path": "src/ecommerce.application/Mappers/CategoruMappers/CategoryMapper.cs", "type": "file", "language": "Unknown", "size": 848}, {"path": "src/ecommerce.application/Mappers/ProductMappers/ProductProfile.cs", "type": "file", "language": "Unknown", "size": 1068}, {"path": "src/ecommerce.application/Mappers/UserMappers/AppUserMapper.cs", "type": "file", "language": "Unknown", "size": 671}, {"path": "src/ecommerce.application/Resources/LocalizationConstants.cs", "type": "file", "language": "Unknown", "size": 474}, {"path": "src/ecommerce.application/Resources/Resource.ar.Designer.cs", "type": "file", "language": "Unknown", "size": 4587}, {"path": "src/ecommerce.application/Resources/Resource.ar.resx", "type": "file", "language": "Unknown", "size": 1520}, {"path": "src/ecommerce.application/Resources/Resource.cs", "type": "file", "language": "Unknown", "size": 77}, {"path": "src/ecommerce.application/Resources/Resource.en.Designer.cs", "type": "file", "language": "Unknown", "size": 4231}, {"path": "src/ecommerce.application/Resources/Resource.en.resx", "type": "file", "language": "Unknown", "size": 1362}, {"path": "src/ecommerce.application/Services/AuthenticationSerivice.cs", "type": "file", "language": "Unknown", "size": 817}, {"path": "src/ecommerce.application/Services/CartService.cs", "type": "file", "language": "Unknown", "size": 1365}, {"path": "src/ecommerce.application/Services/CategoryService.cs", "type": "file", "language": "Unknown", "size": 1300}, {"path": "src/ecommerce.application/Services/CheckOutService.cs", "type": "file", "language": "Unknown", "size": 846}, {"path": "src/ecommerce.application/Services/EmailService.cs", "type": "file", "language": "Unknown", "size": 1528}, {"path": "src/ecommerce.application/Services/OrderSerivce.cs", "type": "file", "language": "Unknown", "size": 687}, {"path": "src/ecommerce.application/Services/PorductService.cs", "type": "file", "language": "Unknown", "size": 1956}, {"path": "src/ecommerce.application/Services/UserService.cs", "type": "file", "language": "Unknown", "size": 1783}, {"path": "src/ecommerce.application/ecommerce.Application.csproj", "type": "file", "language": "Unknown", "size": 3726}, {"path": "src/ecommerce.application/options/Cors.cs", "type": "file", "language": "Unknown", "size": 109}, {"path": "src/ecommerce.application/options/EmailSettings.cs", "type": "file", "language": "Unknown", "size": 239}, {"path": "src/ecommerce.application/options/GoogleOptions.cs", "type": "file", "language": "Unknown", "size": 397}, {"path": "src/ecommerce.application/options/JwtOptions.cs", "type": "file", "language": "Unknown", "size": 234}, {"path": "src/ecommerce.infra/Context/AppDbContext.cs", "type": "file", "language": "Unknown", "size": 702}, {"path": "src/ecommerce.infra/Context/CreateTopSelletStoredProducre.cs", "type": "file", "language": "Unknown", "size": 1678}, {"path": "src/ecommerce.infra/DependencyInjection.cs", "type": "file", "language": "Unknown", "size": 4095}, {"path": "src/ecommerce.infra/Repos/CartRepository.cs", "type": "file", "language": "Unknown", "size": 398}, {"path": "src/ecommerce.infra/Repos/CategoryRepository.cs", "type": "file", "language": "Unknown", "size": 549}, {"path": "src/ecommerce.infra/Repos/OrderRespository.cs", "type": "file", "language": "Unknown", "size": 601}, {"path": "src/ecommerce.infra/Repos/Productrepository.cs", "type": "file", "language": "Unknown", "size": 1421}, {"path": "src/ecommerce.infra/Repos/RefreshTokenRepository.cs", "type": "file", "language": "Unknown", "size": 332}, {"path": "src/ecommerce.infra/Repos/Repository.cs", "type": "file", "language": "Unknown", "size": 2785}, {"path": "src/ecommerce.infra/Repos/SpecificationEvaluator.cs", "type": "file", "language": "Unknown", "size": 1752}, {"path": "src/ecommerce.infra/Repos/UnitOfWork.cs", "type": "file", "language": "Unknown", "size": 1174}, {"path": "src/ecommerce.infra/Serivces/RefreshTOkenService.cs", "type": "file", "language": "Unknown", "size": 2151}, {"path": "src/ecommerce.infra/Serivces/TokenService.cs", "type": "file", "language": "Unknown", "size": 2225}, {"path": "src/ecommerce.infra/ecommerce.infra.csproj", "type": "file", "language": "Unknown", "size": 1490}]}, "metrics": {"loc": 4572, "complexity": 158, "languages": [{"name": "C#", "files": 153, "loc": 3492}, {"name": "MSBuild", "files": 7, "loc": 248}, {"name": "XML", "files": 6, "loc": 611}, {"name": "Dockerfile", "files": 2, "loc": 27}, {"name": "JSON", "files": 1, "loc": 41}, {"name": "Markdown", "files": 1, "loc": 111}, {"name": "Plain Text", "files": 1, "loc": 17}, {"name": "YAML", "files": 1, "loc": 25}]}, "dependencies": {"ecosystems": [], "packages": []}, "syntax_evidence": {"imports": [], "functions": [], "classes": [], "decorators": []}, "security_evidence": {"semgrep": []}, "secret_findings": {"count": 0, "findings": []}, "tool_status": {"scc": "success", "tree-sitter": "success", "syft": "success", "semgrep": "success", "detect-secrets": "success"}, "limits_applied": {"files_truncated": false, "items_capped": false, "excluded_paths": []}, "warnings": []};
+        new Vue({
+            el: '#app',
+            data: {
+                report: reportData
+            }
+        });
+    </script>
+</body>
+</html>
