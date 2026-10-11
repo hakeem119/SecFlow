@@ -1,0 +1,670 @@
+{
+  "project": {
+    "name": "ecommerce-clean-architecture",
+    "type": "api_service",
+    "description": "An ASP.NET Core e-commerce RESTful API implementing Clean Architecture principles, CQRS pattern with MediatR, FluentValidation, Entity Framework Core, and ASP.NET Core Identity with JWT authentication.",
+    "primary_purpose": "Provide backend API services for managing an e-commerce platform including user identity, product catalogs, categories, shopping cart lifecycles, and orders."
+  },
+  "actors": [
+    {
+      "name": "Anonymous User",
+      "role": "Public visitor with unauthenticated access to browse products, view categories, register accounts, authenticate (sign-in), and confirm email addresses."
+    },
+    {
+      "name": "Authenticated Customer",
+      "role": "Registered customer authenticated via JWT Bearer tokens with authorization to manage shopping carts, add/remove cart items, checkout, and view order history."
+    },
+    {
+      "name": "Administrator",
+      "role": "Privileged user role authorized to create, update, and delete products and categories, inspect user accounts, and retrieve top-selling sales analytics."
+    }
+  ],
+  "technologies": [
+    {
+      "name": "C#",
+      "category": "language",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.api/Program.cs",
+          "line_start": 1,
+          "line_end": 50,
+          "description": "Main entry point and web application configuration written in C#"
+        }
+      ]
+    },
+    {
+      "name": "ASP.NET Core",
+      "category": "framework",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.api/ecommerce.api.csproj",
+          "line_start": 1,
+          "line_end": 25,
+          "description": "ASP.NET Core Web API project configuration"
+        }
+      ]
+    },
+    {
+      "name": "Entity Framework Core",
+      "category": "orm",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.infra/Context/AppDbContext.cs",
+          "line_start": 1,
+          "line_end": 35,
+          "description": "EF Core AppDbContext definition handling domain model mappings and database transactions"
+        }
+      ]
+    },
+    {
+      "name": "MediatR",
+      "category": "library",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.application/Behaviors/ValidationBehavior.cs",
+          "line_start": 1,
+          "line_end": 45,
+          "description": "MediatR IPipelineBehavior implementation for request validation"
+        }
+      ]
+    },
+    {
+      "name": "FluentValidation",
+      "category": "library",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.application/Behaviors/ValidationBehavior.cs",
+          "line_start": 1,
+          "line_end": 45,
+          "description": "FluentValidation integration for validating CQRS commands and queries"
+        }
+      ]
+    },
+    {
+      "name": "AutoMapper",
+      "category": "library",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "src/ecommerce.application/Mappers/ProductMappers/ProductProfile.cs",
+          "line_start": 1,
+          "line_end": 30,
+          "description": "AutoMapper profile for domain entities to response DTO mappings"
+        }
+      ]
+    },
+    {
+      "name": "Docker",
+      "category": "tool",
+      "version": null,
+      "evidence": [
+        {
+          "file_path": "Dockerfile",
+          "line_start": 1,
+          "line_end": 30,
+          "description": "Container specification for building and deploying the e-commerce service"
+        },
+        {
+          "file_path": "docker-compose.yml",
+          "line_start": 1,
+          "line_end": 25,
+          "description": "Multi-container orchestration definition for service runtime"
+        }
+      ]
+    }
+  ],
+  "architecture": {
+    "pattern": "monolith",
+    "entry_points": [
+      "src/ecommerce.api/Program.cs"
+    ],
+    "core_components": [
+      "API Layer (ecommerce.api): HTTP controllers exposing REST endpoints and routing requests",
+      "Application Layer (ecommerce.application): CQRS handlers, MediatR commands/queries, validation behaviors, and business services",
+      "Domain Layer (ecommerce.Domain): Core enterprise entities, aggregate roots, specification pattern interfaces, and enums",
+      "Infrastructure Layer (ecommerce.infra): EF Core AppDbContext, repositories, specification evaluators, Unit of Work, and JWT token services"
+    ],
+    "global_middlewares": [
+      {
+        "name": "ExceptionMiddleware",
+        "type": "error_handling",
+        "description": "Catches unhandled application exceptions globally and maps them into consistent API error responses",
+        "file_path": "src/ecommerce.application/ExceptionMiddleware.cs"
+      },
+      {
+        "name": "CorsMiddleware",
+        "type": "cors",
+        "description": "Configures Cross-Origin Resource Sharing policy based on application options",
+        "file_path": "src/ecommerce.application/options/Cors.cs"
+      },
+      {
+        "name": "Authentication & Authorization Middleware",
+        "type": "auth",
+        "description": "Validates JWT Bearer tokens and enforces role-based identity claims on protected endpoints",
+        "file_path": "src/ecommerce.api/Program.cs"
+      },
+      {
+        "name": "ValidationBehavior",
+        "type": "validation",
+        "description": "MediatR pipeline behavior executing FluentValidation validators before dispatching commands and queries",
+        "file_path": "src/ecommerce.application/Behaviors/ValidationBehavior.cs"
+      }
+    ],
+    "data_flow_summary": "Inbound HTTP requests hit ASP.NET Core Controllers in ecommerce.api -> Global ExceptionMiddleware intercepts errors -> Authenticated requests are verified via JWT Bearer middleware -> Controller dispatches Command/Query through MediatR pipeline -> ValidationBehavior runs FluentValidation -> CQRS Handler invokes Domain Specifications and Application/Infrastructure Services -> Repositories query database via EF Core AppDbContext -> Domain entities are mapped to DTO responses via AutoMapper -> ResponseHandler wraps results into standard JSON responses returned to client."
+  },
+  "deployment": {
+    "containerized": true,
+    "configs": [
+      "Dockerfile",
+      "docker-compose.yml",
+      "src/ecommerce.api/Dockerfile"
+    ],
+    "target_platforms": [
+      "Docker",
+      "Linux",
+      "Windows"
+    ]
+  },
+  "key_dependencies": [
+    {
+      "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "version": null,
+      "is_dev": false,
+      "description": "JWT Bearer authentication handler for securing ASP.NET Core API routes"
+    },
+    {
+      "name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+      "version": null,
+      "is_dev": false,
+      "description": "Identity membership system integrated with Entity Framework Core"
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore",
+      "version": null,
+      "is_dev": false,
+      "description": "Object-relational mapping library for .NET"
+    },
+    {
+      "name": "MediatR",
+      "version": null,
+      "is_dev": false,
+      "description": "In-process mediator implementation for CQRS architecture"
+    },
+    {
+      "name": "FluentValidation",
+      "version": null,
+      "is_dev": false,
+      "description": "Fluent interface validation library for command/query models"
+    },
+    {
+      "name": "AutoMapper",
+      "version": null,
+      "is_dev": false,
+      "description": "Convention-based object-to-object mapper"
+    }
+  ],
+  "secrets": [
+    {
+      "name": "JwtOptions (Secret Key / Issuer / Audience)",
+      "type": "config_file",
+      "file_path": "src/ecommerce.api/appsettings.json",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "JSON Web Token signing key, issuer, audience, and expiration configuration"
+    },
+    {
+      "name": "ConnectionStrings:DefaultConnection",
+      "type": "config_file",
+      "file_path": "src/ecommerce.api/appsettings.json",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "Database connection string for relational database connection"
+    },
+    {
+      "name": "EmailSettings (SMTP Credentials / Port / Host)",
+      "type": "config_file",
+      "file_path": "src/ecommerce.api/appsettings.json",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "SMTP provider connection and authentication credentials for email confirmation"
+    },
+    {
+      "name": "GoogleOptions (ClientId / ClientSecret)",
+      "type": "config_file",
+      "file_path": "src/ecommerce.api/appsettings.json",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "OAuth configuration for external Google sign-in integration"
+    }
+  ],
+  "endpoints": [
+    {
+      "path": "/api/v1/auth/register",
+      "method": "POST",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Registers a new user account with username, email, and password."
+    },
+    {
+      "path": "/api/v1/auth/sign-in",
+      "method": "POST",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Authenticates user credentials and issues JWT access token and refresh token."
+    },
+    {
+      "path": "/api/v1/auth/refresh-token",
+      "method": "POST",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Validates refresh token and generates a renewed JWT access token."
+    },
+    {
+      "path": "/api/v1/auth/confirm-email",
+      "method": "GET",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware"
+      ],
+      "input_types": [
+        "query"
+      ],
+      "response_type": "application/json",
+      "description": "Confirms user account email address via verification token."
+    },
+    {
+      "path": "/api/v1/cart",
+      "method": "GET",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "none"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves the active shopping cart and cart items for the authenticated user."
+    },
+    {
+      "path": "/api/v1/cart/items",
+      "method": "POST",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Adds a product item with specified quantity to the current user's cart."
+    },
+    {
+      "path": "/api/v1/cart/items/{id}",
+      "method": "DELETE",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Removes an item from the user's cart by item identifier."
+    },
+    {
+      "path": "/api/v1/cart",
+      "method": "DELETE",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "none"
+      ],
+      "response_type": "application/json",
+      "description": "Clears and removes the active shopping cart."
+    },
+    {
+      "path": "/api/v1/cart/checkout",
+      "method": "POST",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Processes cart checkout, establishes order records, and clears cart contents."
+    },
+    {
+      "path": "/api/v1/categories",
+      "method": "GET",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware"
+      ],
+      "input_types": [
+        "query"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves paginated product category list."
+    },
+    {
+      "path": "/api/v1/categories/{id}",
+      "method": "GET",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves specific category details by ID."
+    },
+    {
+      "path": "/api/v1/categories",
+      "method": "POST",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Creates a new category (admin restricted)."
+    },
+    {
+      "path": "/api/v1/categories/{id}",
+      "method": "PUT",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "path_param",
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Updates an existing category by ID (admin restricted)."
+    },
+    {
+      "path": "/api/v1/categories/{id}",
+      "method": "DELETE",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Deletes a category by ID (admin restricted)."
+    },
+    {
+      "path": "/api/v1/products",
+      "method": "GET",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware"
+      ],
+      "input_types": [
+        "query"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves paginated list of catalog products filtered by specifications."
+    },
+    {
+      "path": "/api/v1/products/{id}",
+      "method": "GET",
+      "auth_required": false,
+      "auth_method": "none",
+      "middlewares": [
+        "ExceptionMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves detailed product information by ID."
+    },
+    {
+      "path": "/api/v1/products",
+      "method": "POST",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Creates a new product record in the catalog (admin restricted)."
+    },
+    {
+      "path": "/api/v1/products/{id}",
+      "method": "PUT",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware",
+        "ValidationBehavior"
+      ],
+      "input_types": [
+        "path_param",
+        "json_body"
+      ],
+      "response_type": "application/json",
+      "description": "Updates existing product details by ID (admin restricted)."
+    },
+    {
+      "path": "/api/v1/products/{id}",
+      "method": "DELETE",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Deletes a product by ID (admin restricted)."
+    },
+    {
+      "path": "/api/v1/orders/user/{userId}",
+      "method": "GET",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "path_param"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves orders associated with a specific user identifier."
+    },
+    {
+      "path": "/api/v1/orders/top-sellers",
+      "method": "GET",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "none"
+      ],
+      "response_type": "application/json",
+      "description": "Retrieves top selling products data aggregated by stored procedure."
+    },
+    {
+      "path": "/api/v1/users/by-username",
+      "method": "GET",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "query"
+      ],
+      "response_type": "application/json",
+      "description": "Fetches user account details filtered by username."
+    },
+    {
+      "path": "/api/v1/users/by-email",
+      "method": "GET",
+      "auth_required": true,
+      "auth_method": "jwt",
+      "middlewares": [
+        "ExceptionMiddleware",
+        "AuthenticationMiddleware"
+      ],
+      "input_types": [
+        "query"
+      ],
+      "response_type": "application/json",
+      "description": "Fetches user account details filtered by email address."
+    }
+  ],
+  "confidence_score": 0.95,
+  "evidence_ledger": [
+    {
+      "file_path": "src/ecommerce.api/Program.cs",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "Dependency injection setup, middleware pipeline configuration, and entry point"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/AuthenticationController.cs",
+      "line_start": 1,
+      "line_end": 60,
+      "description": "Endpoints handling authentication, registration, token refresh, and email confirmation"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/CartController.cs",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "Endpoints for shopping cart items management and checkout execution"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/ProductController.cs",
+      "line_start": 1,
+      "line_end": 55,
+      "description": "Endpoints for catalog product CRUD and pagination querying"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/CategoryController.cs",
+      "line_start": 1,
+      "line_end": 50,
+      "description": "Endpoints for category management and retrieval"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/OrderController.cs",
+      "line_start": 1,
+      "line_end": 40,
+      "description": "Endpoints for retrieving user order history and top seller metrics"
+    },
+    {
+      "file_path": "src/ecommerce.api/Controllers/UserController.cs",
+      "line_start": 1,
+      "line_end": 40,
+      "description": "Endpoints for querying user accounts by username and email"
+    },
+    {
+      "file_path": "src/ecommerce.application/ExceptionMiddleware.cs",
+      "line_start": 1,
+      "line_end": 60,
+      "description": "Custom exception middleware handling application-level exceptions and status code mapping"
+    },
+    {
+      "file_path": "src/ecommerce.application/Behaviors/ValidationBehavior.cs",
+      "line_start": 1,
+      "line_end": 45,
+      "description": "MediatR pipeline behavior orchestrating input validation via FluentValidation"
+    },
+    {
+      "file_path": "src/ecommerce.infra/DependencyInjection.cs",
+      "line_start": 1,
+      "line_end": 60,
+      "description": "Registration of infrastructure services, DbContext, repositories, and token services"
+    },
+    {
+      "file_path": "Dockerfile",
+      "line_start": 1,
+      "line_end": 30,
+      "description": "Root multi-stage Docker build configuration"
+    },
+    {
+      "file_path": "docker-compose.yml",
+      "line_start": 1,
+      "line_end": 25,
+      "description": "Docker compose configuration for orchestrating application containers"
+    }
+  ]
+}

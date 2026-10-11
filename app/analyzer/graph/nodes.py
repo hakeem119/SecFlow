@@ -318,12 +318,12 @@ def agent_node(state: AgentState) -> dict[str, Any]:
             )
 
     # ========================================================
-    # Invoke Qwen through Groq
+    # Invoke GEMINI through Google AI Studio
     # ========================================================
 
     print(
         f"\n---> [Agent Turn {current_iteration}] "
-        "Invoking Qwen3.8-27B via Groq..."
+        "Invoking Gemini-3.8-flash..."
     )
 
     response = model.invoke(
